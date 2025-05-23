@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\Alvin\Desktop\Practica-2-INF-121\COMPOSICIONA-GREGACION\.metadata\.plugins\org.eclipse.jdt.core
+937764006.index
+1650688248.index
+1865797976.index

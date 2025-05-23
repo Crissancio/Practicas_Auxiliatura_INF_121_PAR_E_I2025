@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Quieres ser mi amigo?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #245d8f;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+            padding-top: 100px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            position: absolute;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn.sí {
+            background-color: #4CAF50;
+            color: rgb(0, 0, 0);
+            left: 40%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+
+        .btn.no {
+            background-color: #f44336;
+            color: rgb(0, 0, 0);
+        }
+
+        #respuesta {
+            margin-top: 50px;
+            font-size: 24px;
+            opacity: 0;
+            transition: opacity 1s ease;
+            position: relative;
+        }
+
+        #respuesta.mostrar {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¿Quieres ser mi amigo?</h1>
+
+    <button class="btn sí" onclick="responder('sí')">Sí</button>
+    <button class="btn no" id="botonNo" onclick="responder('no')">No</button>
+
+    <div id="respuesta"></div>
+
+    <script>
+        const botonNo = document.getElementById('botonNo');
+
+        botonNo.addEventListener('mouseover', () => {
+            const maxX = window.innerWidth - botonNo.offsetWidth;
+            const maxY = window.innerHeight - botonNo.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            botonNo.style.left = `${randomX}px`;
+            botonNo.style.top = `${randomY}px`;
+        });
+
+        function responder(opcion) {
+            const respuestaDiv = document.getElementById('respuesta');
+            if (opcion === 'sí') {
+                respuestaDiv.innerHTML = "¡Sí, quiero ser tu amigo también!";
+            } else {
+                respuestaDiv.innerHTML = "Oh... está bien, te esperaré";
+            }
+            respuestaDiv.classList.add("mostrar");
+        }
+    </script>
+
+</body>
+</html>
