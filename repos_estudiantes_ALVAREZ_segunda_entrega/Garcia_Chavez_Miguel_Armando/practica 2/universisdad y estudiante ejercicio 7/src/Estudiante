@@ -1,0 +1,55 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Estudiante {
+    private String nombre;
+    private String carrera;
+    private int semestre;
+
+    public Estudiante(String nombre, String carrera, int semestre) {
+        this.nombre = nombre;
+        this.carrera = carrera;
+        this.semestre = semestre;
+    }
+
+    public String mostrarInfo() {
+        return "Estudiante: " + nombre + ", Carrera: " + carrera + ", Semestre: " + semestre;
+    }
+}
+
+class Universidad {
+    private String nombre;
+    private List<Estudiante> estudiantes;
+
+    public Universidad(String nombre) {
+        this.nombre = nombre;
+        this.estudiantes = new ArrayList<>();
+    }
+
+    public void agregarEstudiante(Estudiante estudiante) {
+        estudiantes.add(estudiante);
+    }
+
+    public void mostrarUniversidad() {
+        System.out.println("Universidad: " + nombre);
+        System.out.println("Estudiantes:");
+        for (Estudiante estudiante : estudiantes) {
+            System.out.println("- " + estudiante.mostrarInfo());
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Estudiante est1 = new Estudiante("Ana Machicado", "Informática", 4);
+        Estudiante est2 = new Estudiante("analea Garcia", "Medicina", 6);
+
+        Universidad universidad = new Universidad("UMSA");
+        universidad.agregarEstudiante(est1);
+        universidad.agregarEstudiante(est2);
+        universidad.mostrarUniversidad();
+
+        System.out.println("\nEstudiante independiente:");
+        System.out.println(est2.mostrarInfo());
+    }
+}

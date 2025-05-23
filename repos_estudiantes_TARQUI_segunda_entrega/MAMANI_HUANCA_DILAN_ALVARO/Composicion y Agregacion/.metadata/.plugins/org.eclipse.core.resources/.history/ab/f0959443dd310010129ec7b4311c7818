@@ -1,0 +1,7 @@
+package Ejercicio_5;
+
+public class Portero extends Jugador{
+	private String habilidad_especial;
+	
+
+}

@@ -1,0 +1,10 @@
+package Ejercicio_5;
+
+public class Defensa extends Jugador {
+private String habilidad_especial;
+	
+	public Defensa(String nombrex, int numerox, String posicionx, String habilida_especialx) {
+		super(nombrex, numerox, posicionx);
+		this.habilidad_especial=habilida_especialx;	
+	}
+}

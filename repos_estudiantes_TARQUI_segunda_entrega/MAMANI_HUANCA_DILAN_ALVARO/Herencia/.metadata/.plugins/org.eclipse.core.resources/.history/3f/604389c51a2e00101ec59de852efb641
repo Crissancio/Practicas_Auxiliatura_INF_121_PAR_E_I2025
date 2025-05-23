@@ -1,0 +1,13 @@
+package Ejercicio_3;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Estudiante e1 = new Estudiante();
+		Estudiante e2 = new Estudiante(2468112, "Lizbeth", "Hilari", 65433443, "17/07/1999", 4363422, "20/03/2022", "3ro.");
+		Estudiante e3 = new Estudiante(9986288, "Emanuel", "Carpio", 71242223, "08/11/1998", 2352353, "08/07/2021", "5to.");
+		Docente d1= new Docente();
+		Docente d2 = new Docente(123124, "Pedro", "Garcia", 6545565, "24/05/1967", 423521122, "Abogado", "Derecho Penal");
+	}
+
+}

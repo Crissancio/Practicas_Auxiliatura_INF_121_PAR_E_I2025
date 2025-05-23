@@ -1,0 +1,4 @@
+# Practica-2-INF-121
+## **QUISPE MALDONADO CINTHIA JAZMIN**  
+### CI:9908084  
+### RU: 1815360 

@@ -4,21 +4,21 @@ import json
 from git import Repo, GitCommandError
 
 # Ruta del archivo CSV
-ruta_csv = "estudiantes_primera_entrega.csv"
+ruta_csv = "estudiantes_segunda_entrega.csv"
 
 # Leer el CSV
 df = pd.read_csv(ruta_csv)
 
 # --- Solicitar rango de revisión por consola ---
 inicio = 0
-fin = 44
+fin = 42
 sub_df = df.iloc[inicio:fin]
 
 # Lista para errores
 errores = []
 
 # Carpeta base donde guardar todos los repos
-base_dir = "repos_estudiantes_ALVAREZ_primera_entrega"
+base_dir = "repos_estudiantes_ALVAREZ_segunda_entrega"
 os.makedirs(base_dir, exist_ok=True)
 
 # Recorrer cada fila del rango seleccionado
@@ -55,4 +55,4 @@ with open("errores_ALVAREZ.json", "w", encoding="utf-8") as f:
     json.dump(errores, f, indent=2, ensure_ascii=False)
 
 print("\n✅ Proceso finalizado.")
-print(f"Errores encontrados: {len(errores)} (ver 'errores_ALVAREZ.json')")
+print(f"Errores encontrados: {len(errores)} (ver 'errores_ALVAREZ_2.json')")

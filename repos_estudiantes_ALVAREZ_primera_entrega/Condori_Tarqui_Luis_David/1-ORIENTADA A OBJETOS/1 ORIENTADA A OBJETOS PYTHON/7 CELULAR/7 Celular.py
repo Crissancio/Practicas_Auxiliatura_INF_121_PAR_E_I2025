@@ -9,6 +9,8 @@
 # d) Cuando la batería se acabe al tratar de utilizar el celular, este debe mostrar
 #    el mensaje de "Celular apagado".
 
+
+# LAS APLICACIONES SE DEBEN ALMACENAR EN ALGUNA ESTRUCTURA DE DATOS
 class Celular:
     def __init__(self):
         self.espacio_disponible = 1024 

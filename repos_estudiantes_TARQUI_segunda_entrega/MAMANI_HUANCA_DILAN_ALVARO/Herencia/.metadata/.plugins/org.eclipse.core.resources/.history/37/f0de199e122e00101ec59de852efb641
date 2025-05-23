@@ -1,0 +1,17 @@
+package Ejercicio_3;
+
+public class Persona {
+	private int ci;
+	private String nombre;
+	private String apellido;
+	private int celular;
+	private String fecha_Nac;
+	
+	public Persona() {
+		this.ci=123456;
+		this.nombre="Dilan";
+		this.apellido="Huanca";
+		this.celular=73454332;
+		this.fecha_Nac="23/06/2004";
+	}
+}

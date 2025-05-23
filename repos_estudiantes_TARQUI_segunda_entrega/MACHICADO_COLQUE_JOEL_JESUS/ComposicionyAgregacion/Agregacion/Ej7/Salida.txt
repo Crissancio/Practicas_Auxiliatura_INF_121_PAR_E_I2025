@@ -1,0 +1,14 @@
+Universidad: UMSA
+=== Lista de Estudiantes ===
+Nombre: Carlos Pérez
+Carrera: Ingeniería
+Semestre: 3
+------------------------
+Nombre: María López
+Carrera: Derecho
+Semestre: 5
+------------------------
+Nombre: Ana García
+Carrera: Medicina
+Semestre: 2
+------------------------

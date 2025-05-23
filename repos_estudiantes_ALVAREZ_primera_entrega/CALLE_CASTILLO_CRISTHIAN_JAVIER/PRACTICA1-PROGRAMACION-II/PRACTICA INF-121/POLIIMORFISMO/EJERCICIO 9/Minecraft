@@ -5,6 +5,7 @@ class Bloque:
     def accion(self):
         print(f"{self.nombre}: Realizando acción genérica del bloque.")
 
+    # colocar debe ser un metodos de todas las clases
     def colocar(self, orientacion="suelo"):
         print(f"{self.nombre} colocado en el {orientacion}.")
 

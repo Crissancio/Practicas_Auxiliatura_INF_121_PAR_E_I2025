@@ -1,0 +1,26 @@
+package composicion;
+
+public class Parte {
+    private String nombre;
+    private double peso;
+
+    public Parte(String nombre, double peso) {
+        this.nombre = nombre;
+        this.peso = peso;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public double getPeso() {
+        return peso;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+    public void mostrarInfo() {
+        System.out.println(nombre + " - Peso: " + peso + " kg");
+    }
+}

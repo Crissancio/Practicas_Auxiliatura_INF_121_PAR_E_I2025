@@ -1,0 +1,62 @@
+package Ejercicio_3;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
+public class Persona {
+	private int ci;
+	private String nombre;
+	private String apellido;
+	private int celular;
+	private String fecha_Nac;
+	
+	public Persona() {
+		this.ci=123456;
+		this.nombre="Dilan";
+		this.apellido="Huanca";
+		this.celular=73454332;
+		this.fecha_Nac="23-06-2004";
+	}
+	public Persona(int cix, String nombrex, String apellidox, int celularx, String fecha_nacx) {
+		this.ci=cix;
+		this.nombre=nombrex;
+		this.apellido=apellidox;
+		this.celular=celularx;
+		this.fecha_Nac=fecha_nacx;
+	}
+	
+	public void mostrar() {
+		System.out.println("<PERSONA>");
+		System.out.println("C.I.: "+this.ci);
+		System.out.println("Nombre: "+this.nombre);
+		System.out.println("Apellidos: "+this.apellido);
+		System.out.println("Celular: "+this.celular);
+		System.out.println("Fecha Nacimiento: "+this.fecha_Nac);
+	}
+	//Mostrar los estudiantes mayores de 25 años.
+	public int calcularEdad() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate nacimiento = LocalDate.parse(this.fecha_Nac, formatter);
+        LocalDate hoy = LocalDate.now();
+        return Period.between(nacimiento, hoy).getYears();
+    }
+
+    public boolean esMayorDe25() {
+        return calcularEdad() > 25;
+    }
+    /*Mostrar al docente que tiene la profesión de “Ingeniero”, y es el mayor de todos.*/
+    //
+    public boolean MismoApellido(Estudiante e, Docente d) {
+		
+		return false;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+    
+	
+}

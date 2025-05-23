@@ -1,9 +1,37 @@
 [
   {
-    "paterno": "Alcon",
-    "materno": "Payi",
-    "nombre": "Carlos Yamil",
-    "enlace": "https://carl-ap.github.io/tarea1p2/",
-    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- https://carl-ap.github.io/tarea1p2/ repos_estudiantes_ALVAREZ_primera_entrega/Alcon_Payi_Carlos_Yamil\n  stderr: 'Cloning into 'repos_estudiantes_ALVAREZ_primera_entrega/Alcon_Payi_Carlos_Yamil'...\nfatal: repository 'https://carl-ap.github.io/tarea1p2/' not found\n'"
+    "paterno": "Acuña",
+    "materno": "Martinez",
+    "nombre": "Alvin",
+    "enlace": "github.com/Mralvin123/Practica-2-INF-121",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/Mralvin123/Practica-2-INF-121 repos_estudiantes_ALVAREZ_segunda_entrega/Acuña_Martinez_Alvin\n  stderr: 'fatal: repository 'github.com/Mralvin123/Practica-2-INF-121' does not exist\n'"
+  },
+  {
+    "paterno": "Baldivieso",
+    "materno": "Rojas",
+    "nombre": "Gerald Ariel",
+    "enlace": "github.com/geraldbroj/Practica-2-INF-121",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/geraldbroj/Practica-2-INF-121 repos_estudiantes_ALVAREZ_segunda_entrega/Baldivieso_Rojas_Gerald_Ariel\n  stderr: 'fatal: repository 'github.com/geraldbroj/Practica-2-INF-121' does not exist\n'"
+  },
+  {
+    "paterno": "Condori",
+    "materno": "Villca",
+    "nombre": "Eidan Leonel",
+    "enlace": "github.com/LiburC/Practica-2-INF-121",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/LiburC/Practica-2-INF-121 repos_estudiantes_ALVAREZ_segunda_entrega/Condori_Villca_Eidan_Leonel\n  stderr: 'fatal: repository 'github.com/LiburC/Practica-2-INF-121' does not exist\n'"
+  },
+  {
+    "paterno": "CONDORI",
+    "materno": "SALAS",
+    "nombre": "JHONATAN RAMIRO",
+    "enlace": "github.com/jhonatancondori12/PRACTICA_1_INF_121",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/jhonatancondori12/PRACTICA_1_INF_121 repos_estudiantes_ALVAREZ_segunda_entrega/CONDORI_SALAS_JHONATAN_RAMIRO\n  stderr: 'fatal: repository 'github.com/jhonatancondori12/PRACTICA_1_INF_121' does not exist\n'"
+  },
+  {
+    "paterno": "GONZALES",
+    "materno": "CONDORI",
+    "nombre": "HEYNAR ALAN",
+    "enlace": "github.com/HeynarGonzales/Practica-2-INF-121.git",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/HeynarGonzales/Practica-2-INF-121.git repos_estudiantes_ALVAREZ_segunda_entrega/GONZALES_CONDORI_HEYNAR_ALAN\n  stderr: 'fatal: repository 'github.com/HeynarGonzales/Practica-2-INF-121.git' does not exist\n'"
   }
 ]

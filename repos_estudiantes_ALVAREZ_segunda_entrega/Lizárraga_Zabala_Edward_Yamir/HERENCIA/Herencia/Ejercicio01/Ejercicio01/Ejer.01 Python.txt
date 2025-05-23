@@ -1,0 +1,55 @@
+# Superclase
+class Vehiculo:
+    def __init__(self, marca, modelo, año, precio_base):
+        self.marca = marca
+        self.modelo = modelo
+        self.año = año
+        self.precio_base = precio_base
+
+    def mostrar_info(self):
+        return f"{self.marca} {self.modelo} ({self.año}) - Precio base: ${self.precio_base}"
+
+# Subclase Coche
+class Coche(Vehiculo):
+    def __init__(self, marca, modelo, año, precio_base, num_puertas, tipo_combustible):
+        super().__init__(marca, modelo, año, precio_base)
+        self.num_puertas = num_puertas
+        self.tipo_combustible = tipo_combustible
+
+    def mostrar_info(self):
+        base = super().mostrar_info()
+        return f"{base}, Puertas: {self.num_puertas}, Combustible: {self.tipo_combustible}"
+
+# Subclase Moto
+class Moto(Vehiculo):
+    def __init__(self, marca, modelo, año, precio_base, cilindrada, tipo_motor):
+        super().__init__(marca, modelo, año, precio_base)
+        self.cilindrada = cilindrada
+        self.tipo_motor = tipo_motor
+
+    def mostrar_info(self):
+        base = super().mostrar_info()
+        return f"{base}, Cilindrada: {self.cilindrada}cc, Motor: {self.tipo_motor}"
+# (b) Crear instancias y mostrar con mostrar_info()
+coche1 = Coche("Toyota", "Corolla", 2022, 20000, 4, "Gasolina")
+coche2 = Coche("BMW", "Serie 3", 2025, 30000, 2, "Híbrido")
+moto1 = Moto("Honda", "CBR", 2021, 8000, 500, "4T")
+moto2 = Moto("Yamaha", "FZ", 2025, 8500, 250, "2T")
+
+vehiculos = [coche1, coche2, moto1, moto2]
+
+print("--- Todos los vehículos ---")
+for v in vehiculos:
+    print(v.mostrar_info())
+
+# (c) Mostrar coches con más de 4 puertas
+print("\n--- Coches con más de 4 puertas ---")
+for v in vehiculos:
+    if isinstance(v, Coche) and v.num_puertas >= 4:
+        print(v.mostrar_info())
+
+# (d) Mostrar coches y motos del año 2025
+print("\n--- Vehículos modelo 2025 ---")
+for v in vehiculos:
+    if v.año == 2025:
+        print(v.mostrar_info())

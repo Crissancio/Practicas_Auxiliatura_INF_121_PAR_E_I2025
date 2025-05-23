@@ -1,0 +1,29 @@
+package Ejercicio_3;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner leer = new Scanner(System.in);
+
+        System.out.print("Modelo: ");
+        String modelo = leer.nextLine();
+        System.out.print("Fabricante: ");
+        String fabricante = leer.nextLine();
+
+        System.out.print("¿PARTES?");
+        int capacidad = leer.nextInt();
+        leer.nextLine();
+
+        Avion a1 = new Avion(modelo, fabricante, capacidad);
+        Parte p = new Parte("", 0);
+        a1.agregar_parte(p);
+
+        System.out.println("\nINFORMACION DEL AVION:");
+        Casa.mostrar_casa();
+
+	}
+
+}

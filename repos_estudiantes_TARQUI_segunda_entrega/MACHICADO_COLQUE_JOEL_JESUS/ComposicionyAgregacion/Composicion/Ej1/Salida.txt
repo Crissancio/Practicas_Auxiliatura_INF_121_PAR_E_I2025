@@ -1,0 +1,6 @@
+Dirección: Av. Siempre Viva 742
+Habitaciones:
+Habitación: Sala - Tamaño: 20.5 m²
+Habitación: Cocina - Tamaño: 12.3 m²
+Habitación: Dormitorio - Tamaño: 15.0 m²
+Habitación: Baño - Tamaño: 6.7 m²

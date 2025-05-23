@@ -1,0 +1,65 @@
+package Ejercicio_3;
+
+import java.util.Scanner;
+
+public class Avion {
+    private String modelo;
+    private String fabricante;
+    private Parte[] parte;
+
+    public Avion(String modelox, String fabricantex, int capacidadx) {
+        this.modelo = modelox;
+        this.fabricante = fabricantex;
+        this.parte = new Parte[capacidadx]; // ✅ inicializamos el arreglo aquí
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public Parte[] getParte() {
+        return parte;
+    }
+
+    public void setParte(Parte[] parte) {
+        this.parte = parte;
+    }
+
+    // Agregar partes desde consola
+    public void agregar_parte() {
+        Scanner leer = new Scanner(System.in);
+        for (int i = 0; i < parte.length; i++) {
+            System.out.println("\nParte " + (i + 1));
+            System.out.print("Nombre: ");
+            String nombre = leer.nextLine();
+            System.out.print("Peso (Kg): ");
+            double peso = leer.nextDouble();
+            leer.nextLine(); // limpiar buffer
+            parte[i] = new Parte(nombre, peso);
+        }
+    }
+
+    public void mostrar_avion() {
+        System.out.println("\n<AVIÓN>");
+        System.out.println("Modelo: " + this.modelo);
+        System.out.println("Fabricante: " + this.fabricante);
+        System.out.println("Partes:");
+        for (int i = 0; i < parte.length; i++) {
+            if (parte[i] != null) {
+                parte[i].mostrar_info();
+            }
+        }
+    }
+}

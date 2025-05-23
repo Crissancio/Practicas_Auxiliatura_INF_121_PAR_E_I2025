@@ -1,5 +1,6 @@
 # Clase Videojuego
 class Videojuego:
+    # NO SE SOOBRECARGA EL CONSTRUCTOR
     def __init__(self, nombre=None, plataforma=None, cantidad_jugadores=0):
         self.nombre = nombre
         self.plataforma = plataforma
@@ -13,6 +14,7 @@ class Videojuego:
     def agregar_jugador(self, nombre_jugador):
         print(f"El nombre del primer jugador es {nombre_jugador}")
 
+    # NO SE SOBRECARGA EL METODO PARA AGREGAR JUGADORES
     # Método para aumentar la cantidad de jugadores
     def agregar_jugadores(self, cantidad):
         self.cantidad_jugadores += cantidad

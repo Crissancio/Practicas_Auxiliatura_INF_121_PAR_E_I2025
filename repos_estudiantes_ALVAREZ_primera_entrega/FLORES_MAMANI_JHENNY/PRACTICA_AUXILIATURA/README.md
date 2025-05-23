@@ -2,3 +2,9 @@
 JHENNY FLORES MAMANI
 CI:10071447 LP
 RU:1837730 
+
+# OBSERVACIONES
+
+## POLIMORFISMO
+
+- falta implementar 2 ejericico en python

@@ -1,0 +1,54 @@
+package Ejercicio_5;
+
+import java.util.Scanner;
+
+public class Equipo {
+	private String nombre;
+	private Jugador[]jugadores;
+	
+	public Equipo(String nombrex, int capacidadx) {
+		this.nombre=nombrex;
+		this.jugadores = new Jugador[capacidadx];
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Jugador[] getJugadores() {
+		return jugadores;
+	}
+	public void setJugadores(Jugador[] jugadores) {
+		this.jugadores = jugadores;
+	}
+	//Agregar
+    public void agregar_jugador() {
+        Scanner leer = new Scanner(System.in);
+        for (int i = 0; i < jugadores.length; i++) {
+            System.out.println("\nJugador " + (i + 1));
+            System.out.print("Nombre: ");
+            String nombre = leer.nextLine();
+     
+            System.out.print("Nro.: ");
+            int numero = leer.nextInt();
+            System.out.print("Posicion: ");
+            String posicion = leer.nextLine();
+            leer.nextLine();
+            jugadores[i] = new Jugador(nombre, numero, posicion);
+        }
+    }
+    //Mostrar
+    public void mostrar_equipo() {
+        System.out.println("< EQUIPO >");
+        System.out.println("Nombre del Equipo: " + nombre);
+        System.out.println("Jugadores:");
+        for (int i = 0; i < jugadores.length; i++) {
+            if (jugadores[i] != null) {
+                jugadores[i].mostrar_info();
+            }
+        }
+    }
+	
+
+}

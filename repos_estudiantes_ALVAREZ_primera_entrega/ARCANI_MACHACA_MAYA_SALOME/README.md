@@ -3,3 +3,9 @@
 ### **CI: 12638210**
 
 ### **RU: 1838070**
+
+# OBSERVACIONES
+
+## Polimorfismo
+
+- ejericicio 9: sin solucion

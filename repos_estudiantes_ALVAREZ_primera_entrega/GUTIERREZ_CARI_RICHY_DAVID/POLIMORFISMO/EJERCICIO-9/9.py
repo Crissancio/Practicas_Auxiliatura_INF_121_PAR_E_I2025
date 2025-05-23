@@ -10,6 +10,7 @@ d) Sobrescribe romper() en BloqueCofre, BloqueTnt y BloqueHorno, mostrando
 distintos mensajes según el tipo de bloque y que puede suceder al romperlos.
 '''
 class Bloque:
+    # COLOCAR DEBE SER UN METODO DE LOS BLOQUES
     def colocar(self, orientacion="suelo"):
         print(f"Bloque colocado en la orientación: {orientacion}")
 

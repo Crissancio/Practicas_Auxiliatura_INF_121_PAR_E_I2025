@@ -12,7 +12,10 @@ class Videojuego:
     def agregar_jugadores(self, cantidad=1):
         self.cantidad_jugadores += cantidad
         print(f"Se han agregado {cantidad} jugadores. Total ahora: {self.cantidad_jugadores}")
-    
+
+# FALTA LA SOBRECARGA DEL METODO AGREGAR_JUGADORES()
+# FALTA SOBRECARGA DEL CONSTRUCTOR
+
 # a) Instanciar al menos 2 videojuegos
 juego1 = Videojuego("FIFA 23", "PlayStation 5")
 juego2 = Videojuego("Call of Duty", "PC", 4)

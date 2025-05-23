@@ -1,0 +1,96 @@
+/*
+ * TEMA: COMPOSICION/AGREGACION 
+ * COMPOSICION 
+ * 
+ * 1. Sean las siguientes clases:
+ * Habitación<nombre, tamaño (en metros cuadrados)
+ * Métodos: mostrar_info() (muestra el nombre y tamaño de la habitación)
+ * Casa<dirección, habitaciones (lista de objetos de tipo Habitación)
+ * Métodos: agregar_habitacion(habitacion), mostrar_casa() (muestra la 
+ * dirección y la información de todas las habitaciones)
+ * 
+ * Requerimientos:
+ * a) Implementa las clases con sus constructores, getters y setters.
+ * b) Crea una casa y agrega varias habitaciones.
+ * c) Muestra la información de la casa y sus habitaciones.
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Habitacion {
+    private String nombre;
+    private double tamano;
+
+    public Habitacion(String nombre, double tamano) {
+        this.nombre = nombre;
+        this.tamano = tamano;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getTamano() {
+        return tamano;
+    }
+
+    public void setTamano(double tamano) {
+        this.tamano = tamano;
+    }
+
+    public void mostrarInfo() {
+        System.out.printf("Habitación: %s - Tamaño: %.1fm²%n", nombre, tamano);
+    }
+}
+
+class Casa {
+    private String direccion;
+    private List<Habitacion> habitaciones;
+
+    public Casa(String direccion) {
+        this.direccion = direccion;
+        this.habitaciones = new ArrayList<>();
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void agregarHabitacion(Habitacion habitacion) {
+        habitaciones.add(habitacion);
+    }
+
+    public void mostrarCasa() {
+        System.out.println("\nCasa en: " + direccion);
+        System.out.println("Habitaciones:");
+        for (Habitacion h : habitaciones) {
+            h.mostrarInfo();
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Casa miCasa = new Casa("Avenida Libertad 456");
+        
+        Habitacion hab1 = new Habitacion("Sala", 25.0);
+        Habitacion hab2 = new Habitacion("Cocina", 18.5);
+        Habitacion hab3 = new Habitacion("Dormitorio", 15.3);
+        
+        miCasa.agregarHabitacion(hab1);
+        miCasa.agregarHabitacion(hab2);
+        miCasa.agregarHabitacion(hab3);
+        
+        miCasa.mostrarCasa();
+    }
+}

@@ -1,4 +1,5 @@
 class Videojuego:
+    # No hay sobregcarga del constructor
     def __init__(self, nombre="", plataforma="", cantidadJugadores=0):
         self.nombre = nombre
         self.plataforma = plataforma
@@ -11,6 +12,7 @@ class Videojuego:
         print(f"Cantidad de jugadores: {self.cantidadJugadores}")
 
     # Simulación de sobrecarga (métodos distintos)
+    # se debe aplicar sobrecarga (con el mismo nombre ambos metodos)
     def agregarUnJugador(self):
         self.cantidadJugadores += 1
         print("Se agregó 1 jugador.")

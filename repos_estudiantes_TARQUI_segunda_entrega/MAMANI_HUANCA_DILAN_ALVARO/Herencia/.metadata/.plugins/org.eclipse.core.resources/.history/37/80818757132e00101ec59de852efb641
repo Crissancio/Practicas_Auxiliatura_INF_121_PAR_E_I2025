@@ -1,0 +1,14 @@
+package Ejercicio_3;
+
+public class Estudiante extends Persona{
+	private int ru;
+	private String fecha_ingreso;
+	private String semestre;
+	
+	public Estudiante() {
+		super();
+		this.fecha_ingreso="23/02/2024";
+		this.semestre="4to.";
+	}
+	
+}

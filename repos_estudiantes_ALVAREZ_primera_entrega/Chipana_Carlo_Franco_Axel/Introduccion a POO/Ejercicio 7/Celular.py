@@ -4,6 +4,8 @@
     #c)Muestra el porcentaje de batería restante
     #d)Cuando la batería se acabe al tratar de utilizar el celular este debe mostrar el mensaje de celular apagado
 
+# LAS APLICACIONES DEBEN ALMACENARSE EN AGUNA ESTRUCUTURA DE DATOS
+
 class Celular:
     def __init__(self, espacio_total=1024, bateria=100):
         self.espacio_total = espacio_total

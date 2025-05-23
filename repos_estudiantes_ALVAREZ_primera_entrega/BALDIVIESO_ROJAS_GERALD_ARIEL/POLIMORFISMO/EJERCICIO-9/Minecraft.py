@@ -1,8 +1,11 @@
+# la solucion no corresponde al diagrama asignado en el ejericio
+
 class Minecraft:
     def accion(self):
         pass
     def romper(self):
         pass
+    # el metodo colocar debe ser un metodo de cada clase
     def colocar(self, orientacion = "suelo"):
         print(f"Bloque en {orientacion}")
 

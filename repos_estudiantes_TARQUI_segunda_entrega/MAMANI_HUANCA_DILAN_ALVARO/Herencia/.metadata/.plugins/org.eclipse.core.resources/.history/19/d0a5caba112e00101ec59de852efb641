@@ -1,0 +1,8 @@
+package Ejercicio_3;
+
+public class Estudiante extends Persona{
+	private int ru;
+	private String fecha_ingreso;
+	private String semestre;
+	
+}

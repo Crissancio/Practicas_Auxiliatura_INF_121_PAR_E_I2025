@@ -1,0 +1,36 @@
+package Ejercicio_3;
+
+public class Parte {
+	private String nombre;
+	private double kg;
+	
+	public Parte(String nombrex, double kgx) {
+		this.nombre=nombrex;
+		this.kg=kgx;
+	}
+	
+	public void mostrar_info() {
+		System.out.println("<PARTES>");
+		System.out.println("Nombre: "+this.nombre);
+		System.out.println("Peso (Kg.): "+this.kg);
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public double getKg() {
+		return kg;
+	}
+
+	public void setKg(double kg) {
+		this.kg = kg;
+	}
+	
+	
+
+}

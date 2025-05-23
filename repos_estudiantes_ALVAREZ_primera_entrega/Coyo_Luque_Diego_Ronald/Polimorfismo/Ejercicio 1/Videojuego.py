@@ -1,4 +1,6 @@
 class Videojuego:
+    # FALTA SOBRECARGA DEL CONSTRUCTOR
+    # FALTA SOBRECARGA DEL METODO AGREGAR JUGADORES
     def __init__(self, nombre, plataforma):
         self.nombre = nombre
         self.plataforma = plataforma

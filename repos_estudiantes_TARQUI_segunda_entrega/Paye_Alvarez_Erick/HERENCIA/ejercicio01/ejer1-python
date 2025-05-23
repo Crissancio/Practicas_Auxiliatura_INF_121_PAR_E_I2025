@@ -1,0 +1,123 @@
+# 1. Modelar diferentes tipos de vehículos. Las clases deben tener las siguientes 
+# características: 
+# Vehículo<marca, modelo, año, precio_base> 
+# Métodos: mostrar_info() muestra la información básica del vehículo 
+# Coche (hereda de Vehículo)< num_puertas, tipo_combustible> 
+# Métodos: mostrar_info() debe mostrar la información básica más los 
+# atributos adicionales 
+# Moto (hereda de Vehículo)< cilindrada, tipo_motor> 
+# Métodos: mostrar_info() debe mostrar la información básica más los 
+# atributos adicionales 
+# a) Implementa las clases con sus constructores, getters y setters.  
+# b) Crea instancias de Coche y Moto y muestra su información usando el 
+# método mostrar_info(). 
+# c) Muestra todos los coches que tienen más de 4 puertas. 
+# d) Mostrar los coches y motos actuales (gestión 2025)
+
+class Vehiculo:
+    def __init__(self, marca, modelo, año, precio_base):
+        self._marca = marca
+        self._modelo = modelo
+        self._año = año
+        self._precio_base = precio_base
+
+    def mostrar_info(self):
+        print(f"Marca: {self._marca}")
+        print(f"Modelo: {self._modelo}")
+        print(f"Año: {self._año}")
+        print(f"Precio Base: {self._precio_base}")
+
+    def get_marca(self):
+        return self._marca
+
+    def set_marca(self, marca):
+        self._marca = marca
+
+    def get_modelo(self):
+        return self._modelo
+
+    def set_modelo(self, modelo):
+        self._modelo = modelo
+
+    def get_año(self):
+        return self._año
+
+    def set_año(self, año):
+        self._año = año
+
+    def get_precio_base(self):
+        return self._precio_base
+
+    def set_precio_base(self, precio_base):
+        self._precio_base = precio_base
+
+class Coche(Vehiculo):
+    def __init__(self, marca, modelo, año, precio_base, num_puertas, tipo_combustible):
+        super().__init__(marca, modelo, año, precio_base)
+        self._num_puertas = num_puertas
+        self._tipo_combustible = tipo_combustible
+
+    def mostrar_info(self):
+        super().mostrar_info()
+        print(f"Número de puertas: {self._num_puertas}")
+        print(f"Tipo de combustible: {self._tipo_combustible}")
+
+    def get_num_puertas(self):
+        return self._num_puertas
+
+    def set_num_puertas(self, num_puertas):
+        self._num_puertas = num_puertas
+
+    def get_tipo_combustible(self):
+        return self._tipo_combustible
+
+    def set_tipo_combustible(self, tipo_combustible):
+        self._tipo_combustible = tipo_combustible
+
+class Moto(Vehiculo):
+    def __init__(self, marca, modelo, año, precio_base, cilindrada, tipo_motor):
+        super().__init__(marca, modelo, año, precio_base)
+        self._cilindrada = cilindrada
+        self._tipo_motor = tipo_motor
+
+    def mostrar_info(self):
+        super().mostrar_info()
+        print(f"Cilindrada: {self._cilindrada}")
+        print(f"Tipo de motor: {self._tipo_motor}")
+
+    def get_cilindrada(self):
+        return self._cilindrada
+
+    def set_cilindrada(self, cilindrada):
+        self._cilindrada = cilindrada
+
+    def get_tipo_motor(self):
+        return self._tipo_motor
+
+    def set_tipo_motor(self, tipo_motor):
+        self._tipo_motor = tipo_motor
+
+if __name__ == "__main__":
+    coche1 = Coche("Toyota", "Corolla", 2020, 25000, 4, "Gasolina")
+    coche2 = Coche("Honda", "Civic", 2025, 28000, 5, "Híbrido")
+    moto1 = Moto("Yamaha", "YZF-R3", 2023, 8000, 321, "4 Tiempos")
+    moto2 = Moto("Kawasaki", "Ninja 650", 2025, 12000, 649, "4 Tiempos")
+
+    print("Información del coche 1:")
+    coche1.mostrar_info()
+    print("\nInformación de la moto 1:")
+    moto1.mostrar_info()
+
+    print("\nCoches con más de 4 puertas:")
+    coches = [coche1, coche2]
+    for coche in coches:
+        if coche.get_num_puertas() > 4:
+            coche.mostrar_info()
+            print()
+
+    print("\nVehículos de gestión 2025:")
+    vehiculos = [coche1, coche2, moto1, moto2]
+    for vehiculo in vehiculos:
+        if vehiculo.get_año() == 2025:
+            vehiculo.mostrar_info()
+            print()

@@ -1,0 +1,70 @@
+from datetime import datetime
+
+# Clase base
+class Persona:
+    def __init__(self, ci, nombre, apellido, celular, fecha_nac):
+        self.ci = ci
+        self.nombre = nombre
+        self.apellido = apellido
+        self.celular = celular
+        self.fecha_nac = fecha_nac  # formato 'YYYY-MM-DD'
+
+    def mostrar_info(self):
+        return f"{self.nombre} {self.apellido}, CI: {self.ci}, Cel: {self.celular}, Nacido: {self.fecha_nac}"
+
+    def edad(self):
+        nacimiento = datetime.strptime(self.fecha_nac, "%Y-%m-%d")
+        hoy = datetime.today()
+        return hoy.year - nacimiento.year - ((hoy.month, hoy.day) < (nacimiento.month, nacimiento.day))
+
+
+class Estudiante(Persona):
+    def __init__(self, ci, nombre, apellido, celular, fecha_nac, ru, fecha_ingreso, semestre):
+        super().__init__(ci, nombre, apellido, celular, fecha_nac)
+        self.ru = ru
+        self.fecha_ingreso = fecha_ingreso
+        self.semestre = semestre
+
+    def mostrar_info(self):
+        return super().mostrar_info() + f", RU: {self.ru}, Ingreso: {self.fecha_ingreso}, Semestre: {self.semestre}"
+
+
+class Docente(Persona):
+    def __init__(self, ci, nombre, apellido, celular, fecha_nac, nit, profesion, especialidad):
+        super().__init__(ci, nombre, apellido, celular, fecha_nac)
+        self.nit = nit
+        self.profesion = profesion
+        self.especialidad = especialidad
+
+    def mostrar_info(self):
+        return super().mostrar_info() + f", NIT: {self.nit}, Profesión: {self.profesion}, Especialidad: {self.especialidad}"
+
+e1 = Estudiante("123", "Ana", "Pérez", "70101010", "2000-05-01", "2020456", "2020-02-01", 8)
+e2 = Estudiante("124", "Luis", "García", "70202020", "1997-04-10", "2020789", "2019-01-15", 10)
+d1 = Docente("200", "Carlos", "Pérez", "70303030", "1980-01-01", "NIT100", "Ingeniero", "Sistemas")
+d2 = Docente("201", "Lucía", "Mamani", "70404040", "1985-07-20", "NIT200", "Licenciada", "Educación")
+
+personas = [e1, e2, d1, d2]
+
+print("\n--- Todas las personas ---")
+for p in personas:
+    print(p.mostrar_info())
+
+# (c) Mostrar estudiantes > 25 años
+print("\n--- Estudiantes mayores de 25 años ---")
+for p in personas:
+    if isinstance(p, Estudiante) and p.edad() > 25:
+        print(p.mostrar_info())
+
+# (d) Docente de profesión “Ingeniero”, sexo masculino y mayor de todos
+docentes = [p for p in personas if isinstance(p, Docente) and p.profesion == "Ingeniero" and "Carlos" in p.nombre]
+mayor_doc = max(docentes, key=lambda d: d.edad(), default=None)
+print("\n--- Docente con profesión 'Ingeniero', sexo masculino y mayor ---")
+if mayor_doc:
+    print(mayor_doc.mostrar_info())
+
+# (e) Mostrar personas con el mismo apellido
+print("\n--- Personas con apellido 'Pérez' ---")
+for p in personas:
+    if p.apellido == "Pérez":
+        print(p.mostrar_info())

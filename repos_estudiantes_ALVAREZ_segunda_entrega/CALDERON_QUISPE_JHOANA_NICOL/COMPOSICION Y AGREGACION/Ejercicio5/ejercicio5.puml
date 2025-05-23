@@ -1,0 +1,24 @@
+@startuml ejercicio5
+'efecutarlo con alt+d y aparecera el diagrama uml
+
+class Producto {
+    - nombre: str
+    - precio: float
+    + __init__(nombre: str, precio: float)
+    + mostrar_info(): void
+    + getNombre(): str
+    + getPrecio(): float
+    + setNombre(nombre: str): void
+    + setPrecio(precio: float): void
+}
+
+class CarritoCompras {
+    - productos: list
+    + __init__(): void
+    + agregar_producto(nombre: str, precio: float): void
+    + mostrar_carrito(): void
+}
+
+CarritoCompras "1" o-- "*" Producto : contiene
+
+@enduml

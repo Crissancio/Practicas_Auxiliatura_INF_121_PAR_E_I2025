@@ -21,6 +21,7 @@ public class Celular {
         this.bateria = 100;
     }
 
+    // LAS APLICACIONES SE DEBEN ALMACENAR EN ALGUNA ESTRUCTURA DE DATOS
     public void instalar(String nombreApp, int tamaño) {
         if (aplicaciones <= 0) {
             System.out.println("No se pueden instalar más aplicaciones.");

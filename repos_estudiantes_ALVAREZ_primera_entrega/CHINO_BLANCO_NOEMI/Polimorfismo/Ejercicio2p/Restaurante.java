@@ -66,6 +66,8 @@ public class Restaurante {
 
         System.out.println("Sueldos Totales:");
         System.out.println("noemi chino blanco");
+
+        // debe ser un metodo de las clases
         for (Object emp : empleados) {
             String nombre = "";
             float sueldo = 0;

@@ -1,0 +1,68 @@
+package Ejercicio_3;
+
+import java.util.Scanner;
+
+import Ejercicio_1.Habitacion;
+
+public class Avion {
+	private String modelo;
+	private String fabricante;
+	private Parte[]parte;
+	
+	public Avion(String modelox, String fabricantex) {
+		this.modelo=modelox;
+		this.fabricante=fabricantex;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public String getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(String fabricante) {
+		this.fabricante = fabricante;
+	}
+
+	public Parte[] getParte() {
+		return parte;
+	}
+
+	public void setParte(Parte[] parte) {
+		this.parte = parte;
+	}
+	//Agregar
+    public void agregar_parte(Parte partex) {
+        Scanner leer = new Scanner(System.in);
+        System.out.print("¿Partes que desea agregar?");
+        int cantidad_par = leer.nextInt();
+        leer.nextLine();
+        for (int i = 0; i < habitacion.length && i < cantidad_par; i++) {
+            System.out.println("Habitacion " + (i + 1));
+            System.out.print("Nombre: ");
+            String nombre = leer.nextLine();
+            System.out.print("Tamaño (m2): ");
+            double tamano = leer.nextDouble();
+            leer.nextLine(); 
+            Parte nueva = new Parte(nombre, tamano);
+            this.parte[i] = nueva;
+        }
+    }
+    //Mostrar Casa
+    public void mostrar_casa() {
+        System.out.println("Direccion de la Casa: " + direccion);
+        for (int i = 0; i < habitacion.length; i++) {
+            if (habitacion[i] != null) {
+                habitacion[i].mostrar_info();
+            }
+        }
+	}
+	
+	
+}

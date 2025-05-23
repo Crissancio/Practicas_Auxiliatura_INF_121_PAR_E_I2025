@@ -3,7 +3,7 @@ class Videojuego:
         self.nombre = nombre
         self.plataforma = plataforma
         self.cantidadjugadores = cantidadjugadores
-
+    # falta sobrecarga del constructor
     def mostrar(self):
         print(f"Nombre del videojuego: {self.nombre}")
         print(f"Plataforma: {self.plataforma}")

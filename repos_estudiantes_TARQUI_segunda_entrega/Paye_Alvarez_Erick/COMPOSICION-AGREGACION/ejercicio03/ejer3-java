@@ -1,0 +1,106 @@
+/*
+ * TEMA: COMPOSICIÓN
+ * Modelado de un avión y sus partes:
+ * 
+ * Clases:
+ * Parte<nombre, peso (en kg)>
+ * Métodos: mostrar_info() (muestra nombre y peso)
+ * Avión<modelo, fabricante, partes (lista de Partes)>
+ * Métodos: agregar_parte(parte), mostrar_avion() (muestra modelo, fabricante y partes)
+ * 
+ * Requerimientos:
+ * a) Implementar clases con constructores, getters y setters
+ * b) Crear avión y agregar partes
+ * c) Mostrar información del avión y partes
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Parte {
+    private String nombre;
+    private double peso;
+    
+    public Parte(String nombre, double peso) {
+        this.nombre = nombre;
+        this.peso = peso;
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+    
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public double getPeso() {
+        return peso;
+    }
+    
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+    
+    public void mostrar_info() {
+        System.out.printf("Parte: %s - Peso: %.1fkg%n", nombre, peso);
+    }
+}
+
+class Avion {
+    private String modelo;
+    private String fabricante;
+    private List<Parte> partes;
+    
+    public Avion(String modelo, String fabricante) {
+        this.modelo = modelo;
+        this.fabricante = fabricante;
+        this.partes = new ArrayList<>();
+    }
+    
+    public String getModelo() {
+        return modelo;
+    }
+    
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+    
+    public String getFabricante() {
+        return fabricante;
+    }
+    
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+    
+    public void agregar_parte(Parte parte) {
+        partes.add(parte);
+    }
+    
+    public void mostrar_avion() {
+        System.out.println("\nAvión: " + modelo);
+        System.out.println("Fabricante: " + fabricante);
+        System.out.println("Partes componentes:");
+        for (Parte p : partes) {
+            p.mostrar_info();
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Avion airbusA380 = new Avion("A380-800", "Airbus");
+        
+        Parte motor = new Parte("Turbofan Engine", 6200.5);
+        Parte ala = new Parte("Ala delta", 4100.0);
+        Parte tren = new Parte("Tren principal", 2800.75);
+        
+        airbusA380.agregar_parte(motor);
+        airbusA380.agregar_parte(ala);
+        airbusA380.agregar_parte(tren);
+        
+        airbusA380.mostrar_avion();
+    }
+}

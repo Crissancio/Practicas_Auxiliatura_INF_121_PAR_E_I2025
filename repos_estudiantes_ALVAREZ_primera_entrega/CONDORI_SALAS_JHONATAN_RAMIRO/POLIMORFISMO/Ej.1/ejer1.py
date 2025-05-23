@@ -22,3 +22,6 @@ if __name__ == "__main__":
 
     print("\nJuego 2")
     juego2.mostrar()
+
+
+# falta sobrecarga del constructor

@@ -1,0 +1,47 @@
+@startuml ejercicio3
+'efecutarlo con alt+d y aparecera el diagrama uml
+
+class Empleado {
+    - nombre: str
+    - apellido: str
+    - salario_base: float
+    - años_antiguedad: int
+    + __init__(nombre, apellido, salario_base, años_antiguedad)
+    + calcular_salario(): float
+    + mostrar(): void
+    + get_nombre(): str
+    + get_apellido(): str
+    + get_salario_base(): float
+    + get_años_antiguedad(): int
+    + set_nombre(nombre): void
+    + set_apellido(apellido): void
+    + set_salario_base(salario): void
+    + set_años_antiguedad(años): void
+}
+
+class Gerente {
+    - departamento: str
+    - bono_gerencial: float
+    + __init__(..., departamento, bono_gerencial)
+    + get_departamento(): str
+    + get_bono_gerencial(): float
+    + set_departamento(departamento): void
+    + set_bono_gerencial(bono): void
+    + calcular_salario(): float
+}
+
+class Desarrollador {
+    - lenguaje_programacion: str
+    - horas_extras: int
+    + __init__(..., lenguaje_programacion, horas_extras)
+    + get_lenguaje_programacion(): str
+    + get_horas_extras(): int
+    + set_lenguaje_programacion(lenguaje): void
+    + set_horas_extras(horas): void
+    + calcular_salario(): float
+}
+
+Empleado <|-- Gerente
+Empleado <|-- Desarrollador
+
+@enduml

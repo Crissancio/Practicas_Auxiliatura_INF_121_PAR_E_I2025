@@ -1,0 +1,9 @@
+package Ejercicio_3;
+
+public class Docente extends Persona {
+	private int nit;
+	private String profesion;
+	private String especialidad;
+	
+	
+}

@@ -1,23 +1,37 @@
 [
   {
-    "paterno": "MARQUEZ",
-    "materno": "ANAGUA",
-    "nombre": "DENNIS ISMAEL",
-    "enlace": "https://github.com/Ismael2405/Aux_121/tree/main/PractiAux",
-    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- https://github.com/Ismael2405/Aux_121/tree/main/PractiAux repos_estudiantes_TARQUI_primera_entrega/MARQUEZ_ANAGUA_DENNIS_ISMAEL\n  stderr: 'Cloning into 'repos_estudiantes_TARQUI_primera_entrega/MARQUEZ_ANAGUA_DENNIS_ISMAEL'...\nfatal: repository 'https://github.com/Ismael2405/Aux_121/tree/main/PractiAux/' not found\n'"
+    "paterno": "LUNA",
+    "materno": "CRUZ",
+    "nombre": "CAMILA MILENKA",
+    "enlace": "github.com/Cmluna55/PRACTICA3-4",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/Cmluna55/PRACTICA3-4 repos_estudiantes_TARQUI_segunda_entrega/LUNA_CRUZ_CAMILA_MILENKA\n  stderr: 'fatal: repository 'github.com/Cmluna55/PRACTICA3-4' does not exist\n'"
   },
   {
-    "paterno": "Siñani",
-    "materno": "Quelali",
-    "nombre": "Ivan",
-    "enlace": "https://github.com/Ivansinaniquelali/PRACTICA.git",
-    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- https://github.com/Ivansinaniquelali/PRACTICA.git repos_estudiantes_TARQUI_primera_entrega/Siñani_Quelali_Ivan\n  stderr: 'Cloning into 'repos_estudiantes_TARQUI_primera_entrega/Siñani_Quelali_Ivan'...\nremote: Repository not found.\nfatal: repository 'https://github.com/Ivansinaniquelali/PRACTICA.git/' not found\n'"
+    "paterno": "MENDOZA",
+    "materno": "HUANCA",
+    "nombre": "YERKO",
+    "enlace": "github.com/Lord-Kazuma-18/Practica2INF121-AUXI",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/Lord-Kazuma-18/Practica2INF121-AUXI repos_estudiantes_TARQUI_segunda_entrega/MENDOZA_HUANCA_YERKO\n  stderr: 'fatal: repository 'github.com/Lord-Kazuma-18/Practica2INF121-AUXI' does not exist\n'"
   },
   {
-    "paterno": "VALLE",
-    "materno": "SALAS",
-    "nombre": "MAYERLY DANIELA",
-    "enlace": "https://github.com/Mayesalas/Pr-ctica-1-INF-121.git",
-    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- https://github.com/Mayesalas/Pr-ctica-1-INF-121.git repos_estudiantes_TARQUI_primera_entrega/VALLE_SALAS_MAYERLY_DANIELA\n  stderr: 'Cloning into 'repos_estudiantes_TARQUI_primera_entrega/VALLE_SALAS_MAYERLY_DANIELA'...\nremote: Repository not found.\nfatal: repository 'https://github.com/Mayesalas/Pr-ctica-1-INF-121.git/' not found\n'"
+    "paterno": "PLATA",
+    "materno": "CRUZ",
+    "nombre": "JHONATAN",
+    "enlace": "github.com/ionjpgUwu/Practica",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/ionjpgUwu/Practica repos_estudiantes_TARQUI_segunda_entrega/PLATA_CRUZ_JHONATAN\n  stderr: 'fatal: repository 'github.com/ionjpgUwu/Practica' does not exist\n'"
+  },
+  {
+    "paterno": "Quispe",
+    "materno": "Mollisaca",
+    "nombre": "Jimmy Brandon",
+    "enlace": "github.com/JimmyBrandon/Practica2-Auxi",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/JimmyBrandon/Practica2-Auxi repos_estudiantes_TARQUI_segunda_entrega/Quispe_Mollisaca_Jimmy_Brandon\n  stderr: 'fatal: repository 'github.com/JimmyBrandon/Practica2-Auxi' does not exist\n'"
+  },
+  {
+    "paterno": "VILLALOBOS",
+    "materno": "CERRILLO",
+    "nombre": "MARCELO JESUS",
+    "enlace": "github.com/Villalobos456/PracticaDeAuxiliatura2-VillalobosCerrilloMarceloJesus.git",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/Villalobos456/PracticaDeAuxiliatura2-VillalobosCerrilloMarceloJesus.git repos_estudiantes_TARQUI_segunda_entrega/VILLALOBOS_CERRILLO_MARCELO_JESUS\n  stderr: 'fatal: repository 'github.com/Villalobos456/PracticaDeAuxiliatura2-VillalobosCerrilloMarceloJesus.git' does not exist\n'"
   }
 ]

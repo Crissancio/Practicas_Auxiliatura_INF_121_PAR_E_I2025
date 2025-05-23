@@ -11,6 +11,9 @@ class VideoJuego:
      def agregarJugadores(self, cantidad=10):
         self.cantidadJugadores = self.cantidadJugadores + cantidad
         print(f"Se agregaron {cantidad} jugador(es)\nLos datos actualizados son ")
+
+# FALTA SOBRECARGA DEL CONSTRUCTOR
+# FALTA SOBRECARGA DEL METODO AGREGAR JUGADORES
         
 juego1 = VideoJuego("Minecraft", "PC", 2)
 juego1.mostrar()

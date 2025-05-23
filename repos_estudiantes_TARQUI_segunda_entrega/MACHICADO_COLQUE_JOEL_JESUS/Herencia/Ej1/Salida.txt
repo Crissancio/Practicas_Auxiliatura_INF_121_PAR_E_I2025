@@ -1,0 +1,61 @@
+ Todos los coches:
+Marca: Toyota
+Modelo: Corolla
+Año: 2025
+Precio base: $20000.0
+Número de puertas: 4
+Tipo de combustible: Gasolina
+-----------------
+Marca: Chevrolet
+Modelo: Suburban
+Año: 2024
+Precio base: $35000.0
+Número de puertas: 5
+Tipo de combustible: Diesel
+-----------------
+Marca: Tesla
+Modelo: Model S
+Año: 2025
+Precio base: $80000.0
+Número de puertas: 5
+Tipo de combustible: Eléctrico
+-----------------
+
+ Coches con más de 4 puertas:
+Marca: Chevrolet
+Modelo: Suburban
+Año: 2024
+Precio base: $35000.0
+Número de puertas: 5
+Tipo de combustible: Diesel
+-----------------
+Marca: Tesla
+Modelo: Model S
+Año: 2025
+Precio base: $80000.0
+Número de puertas: 5
+Tipo de combustible: Eléctrico
+-----------------
+
+ Vehículos del año 2025:
+Marca: Toyota
+Modelo: Corolla
+Año: 2025
+Precio base: $20000.0
+Número de puertas: 4
+Tipo de combustible: Gasolina
+-----------------
+Marca: Tesla
+Modelo: Model S
+Año: 2025
+Precio base: $80000.0
+Número de puertas: 5
+Tipo de combustible: Eléctrico
+-----------------
+Marca: Yamaha
+Modelo: FZ
+Año: 2025
+Precio base: $3500.0
+Cilindrada: 250cc
+Tipo de motor: 2 tiempos
+-----------------

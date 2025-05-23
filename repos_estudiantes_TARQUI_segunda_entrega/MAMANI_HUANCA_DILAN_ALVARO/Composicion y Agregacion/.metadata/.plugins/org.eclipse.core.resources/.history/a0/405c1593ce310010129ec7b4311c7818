@@ -1,0 +1,24 @@
+package Ejercicio_1;
+
+import java.util.Scanner;
+
+public class Casa {
+	private String direccion;
+	private Habitacion[][]habitacion;
+	
+	public void agregar_habitacion(Habitacion habitacionx) {
+		System.out.println("Agregar Habitaciones:");
+		Scanner leer= new Scanner(System.in);
+		int cantidad_hab=0;
+		cantidad_hab=leer.nextInt();
+		this.habitacion = new Habitacion[cantidad_hab];
+		for (int i = 0; i < cantidad_hab; i++) {
+			System.out.println("Intro.: Nombre y Tamaño:");
+			habitacionx.setNombre(leer.next());     
+			this.habitacion[i] = habitacionx;
+			habitacionx.setTamaño(leer.nextFloat());     
+			this.habitacion[i] = habitacionx;
+			
+		}
+	}
+}

@@ -14,8 +14,12 @@ class Celular:
         elif self.espacio < 1:
             return print("Espacio lleno!!!")
         else:
+            # las aplicaciones y su informacion no se almacenan en ningun lugar
+            # solo se muestra el nombre y el tamaño de la app
             return print(f"{self.nombre} instalado espacio restante {self.espacio}")
     def App(self):
+        # no se manda el nombre de la app
+        # no se utiliza lainformacion que se introdujo de la app
         if self.tamaño > 100 and self.tamaño <250:
             self.bateria -= 2
         elif self.tamaño > 250:

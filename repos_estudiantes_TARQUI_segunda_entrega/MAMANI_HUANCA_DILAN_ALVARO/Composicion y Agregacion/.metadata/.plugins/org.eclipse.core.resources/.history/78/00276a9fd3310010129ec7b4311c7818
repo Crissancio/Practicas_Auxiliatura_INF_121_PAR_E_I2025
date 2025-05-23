@@ -1,0 +1,27 @@
+package Ejercicio_1;
+
+import java.util.Scanner;
+
+//COMPOSICION
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+
+        System.out.print("Dirección de la casa: ");
+        String direccion = leer.nextLine();
+
+        System.out.print("¿Capacidad máxima de habitaciones? ");
+        int capacidad = leer.nextInt();
+        leer.nextLine(); // limpiar buffer
+
+        Casa miCasa = new Casa(direccion, capacidad);
+        Habitacion dummy = new Habitacion("", 0); // solo para cumplir el argumento
+        miCasa.agregar_habitacion(dummy);
+
+        System.out.println("\nInformación de la casa:");
+        miCasa.mostrar_casa();
+
+	}
+
+}

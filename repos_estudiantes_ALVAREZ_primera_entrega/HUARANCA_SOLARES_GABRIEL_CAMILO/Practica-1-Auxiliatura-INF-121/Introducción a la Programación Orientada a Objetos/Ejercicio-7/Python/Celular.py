@@ -6,6 +6,7 @@ class Celular:
     self.na = 0
   def instalarApp(self, nopa, tana):
     if self.na < 20 and self.ad >= tana:
+      # se debe almacenar tambien el tamaño de la app
       self.W.append(nopa)
       self.ad -= tana
       self.na = self.na + 1
@@ -13,6 +14,7 @@ class Celular:
     else:
         print(f"Espacio Insuficiente")
 
+  # se debe utilizar solo el nombre de la app para buscarlo en las ya instaladas
   def usarApp(self, nopa, tana, time):
     if(self.power > 0):
       consumoBateria = 0

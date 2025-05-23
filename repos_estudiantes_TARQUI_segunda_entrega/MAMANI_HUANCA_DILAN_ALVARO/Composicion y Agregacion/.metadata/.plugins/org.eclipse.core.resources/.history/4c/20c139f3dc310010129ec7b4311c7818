@@ -1,0 +1,13 @@
+package Ejercicio_5;
+
+public class Jugador {
+	private String nombre;
+	private int numero;
+	private String posicion;
+	
+	public Jugador(String nombrex, int numerox, String posicionx) {
+		this.nombre=nombrex;
+		this.numero=numerox;
+		this.posicion=posicionx;
+	}
+}

@@ -3,6 +3,8 @@ class Videojuego {
     String plataforma;
     int cantidadjugadores;
 
+    // FALTA SOBRECARGA DEL CONSTRUCTOR
+
     public Videojuego(String nombre, String plataforma, int cantidadjugadores) {
         this.nombre = nombre;
         this.plataforma = plataforma;
@@ -15,6 +17,8 @@ class Videojuego {
         System.out.println("Cantidad de jugadores: " + this.cantidadjugadores);
     }
 
+
+    // FALTA SOBRECARGA DEL METODO AGREGAR JUGADORES
     public void agregarJugadores(int cantidad) {
         this.cantidadjugadores += cantidad;
         System.out.println("Ahora el videojuego " + this.nombre + " tiene " + this.cantidadjugadores + " jugadores.");

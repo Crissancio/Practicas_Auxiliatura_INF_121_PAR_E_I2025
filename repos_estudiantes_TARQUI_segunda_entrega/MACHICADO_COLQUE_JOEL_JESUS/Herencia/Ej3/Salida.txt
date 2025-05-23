@@ -1,0 +1,17 @@
+Estudiantes mayores de 25 años:
+Ana López (CI: 123)
+RU: RU001, Semestre: 8
+Edad: 28
+---
+
+Docente ingeniero masculino y mayor:
+Carlos López (CI: 321)
+Profesión: Ingeniero, Especialidad: Sistemas
+Edad: 45
+
+Estudiantes y docentes con el mismo apellido:
+Ana López (CI: 123)
+RU: RU001, Semestre: 8
+Carlos López (CI: 321)
+Profesión: Ingeniero, Especialidad: Sistemas
+---

@@ -1,4 +1,5 @@
 class Videojuego:
+    # se debe sobrecargar el constructor 2 veces
     def __init__(self, nombre, plataforma, cantidadJugadores=0):
         self.nombre = nombre
         self.plataforma = plataforma
@@ -10,6 +11,8 @@ class Videojuego:
         print("Cantidad de jugadores:", self.cantidadJugadores)
         print("--------------------------")
 
+
+    # el metodo debe sobrecargarse
     def agregarJugadores(self):
         self.cantidadJugadores += 1
 

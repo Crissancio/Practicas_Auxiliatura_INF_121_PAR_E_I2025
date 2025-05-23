@@ -5,6 +5,8 @@
 
 package empleado;
 
+// DEBE SER CLASE MESERO
+// NO SIGUE CON EL DIAGRAMA ASIGNADO EN EL EJERCICIO
 import java.util.ArrayList;
 class Empleado {
     protected String nombre;

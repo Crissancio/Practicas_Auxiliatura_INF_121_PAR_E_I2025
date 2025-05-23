@@ -1,0 +1,26 @@
+package Ejercicio_5;
+
+public class Equipo {
+	private String nombre;
+	private Jugador[]jugadores;
+	
+	public Equipo(String nombrex, int capacidadx) {
+		this.nombre=nombrex;
+		this.jugadores = new Jugador[capacidadx];
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Jugador[] getJugadores() {
+		return jugadores;
+	}
+	public void setJugadores(Jugador[] jugadores) {
+		this.jugadores = jugadores;
+	}
+	
+	
+
+}

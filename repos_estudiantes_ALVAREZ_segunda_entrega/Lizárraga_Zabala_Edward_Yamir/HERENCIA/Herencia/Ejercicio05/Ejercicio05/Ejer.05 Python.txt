@@ -1,0 +1,60 @@
+# Superclase
+class Empleado:
+    def __init__(self, nombre, apellido, salario_base, años_antiguedad):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.salario_base = salario_base
+        self.años_antiguedad = años_antiguedad
+
+    def calcular_salario(self):
+        return self.salario_base + (self.salario_base * 0.05 * self.años_antiguedad)
+
+    def mostrar_info(self):
+        return f"{self.nombre} {self.apellido} - Base: {self.salario_base} - Años: {self.años_antiguedad}"
+
+
+# Subclase Gerente
+class Gerente(Empleado):
+    def __init__(self, nombre, apellido, salario_base, años_antiguedad, departamento, bono_gerencial):
+        super().__init__(nombre, apellido, salario_base, años_antiguedad)
+        self.departamento = departamento
+        self.bono_gerencial = bono_gerencial
+
+    def calcular_salario(self):
+        return super().calcular_salario() + self.bono_gerencial
+
+
+# Subclase Desarrollador
+class Desarrollador(Empleado):
+    def __init__(self, nombre, apellido, salario_base, años_antiguedad, lenguaje, horas_extras):
+        super().__init__(nombre, apellido, salario_base, años_antiguedad)
+        self.lenguaje = lenguaje
+        self.horas_extras = horas_extras
+
+    def calcular_salario(self):
+        return super().calcular_salario() + (self.horas_extras * 100)
+
+# (b) Instancias
+gerente = Gerente("Laura", "Mendoza", 5000, 5, "Finanzas", 1200)
+gerente2 = Gerente("Carlos", "Ruiz", 6000, 10, "Ventas", 900)
+dev1 = Desarrollador("Ana", "López", 4000, 3, "Python", 12)
+dev2 = Desarrollador("Luis", "Rojas", 3500, 1, "Java", 8)
+
+empleados = [gerente, gerente2, dev1, dev2]
+
+# (b) Mostrar salarios
+print("\n--- Salarios calculados ---")
+for emp in empleados:
+    print(f"{emp.nombre} {emp.apellido} gana: {emp.calcular_salario()}")
+
+# (c) Mostrar gerente con bono > 1000
+print("\n--- Gerentes con bono mayor a 1000 ---")
+for emp in empleados:
+    if isinstance(emp, Gerente) and emp.bono_gerencial > 1000:
+        print(emp.mostrar_info())
+
+# (d) Mostrar desarrolladores con más de 10 horas extras
+print("\n--- Desarrolladores con más de 10 horas extras ---")
+for emp in empleados:
+    if isinstance(emp, Desarrollador) and emp.horas_extras > 10:
+        print(emp.mostrar_info())

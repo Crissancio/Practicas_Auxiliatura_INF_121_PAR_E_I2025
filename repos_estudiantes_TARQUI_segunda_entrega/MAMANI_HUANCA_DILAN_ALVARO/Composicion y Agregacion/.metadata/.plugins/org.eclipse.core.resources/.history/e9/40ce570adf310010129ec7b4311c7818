@@ -1,0 +1,39 @@
+package Ejercicio_5;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+
+        // b) Crear equipo
+        System.out.print("Nombre del Equipo: ");
+        String nombreEquipo = leer.nextLine();
+
+        System.out.print("Cantidad de jugadores: ");
+        int cantidad = leer.nextInt();
+        leer.nextLine(); // limpiar buffer
+
+        Equipo equipo = new Equipo(nombreEquipo, cantidad);
+
+        // Agregar jugadores de diferentes tipos
+        for (int i = 0; i < cantidad; i++) {
+            System.out.println("\nJugador " + (i + 1));
+            System.out.print("Nombre: ");
+            String nombre = leer.nextLine();
+            System.out.print("Edad: ");
+            int edad = leer.nextInt();
+            leer.nextLine();
+            System.out.print("Tipo (portero, defensa, delantero, etc.): ");
+            String tipo = leer.nextLine();
+
+            Jugador jugador = new Jugador(nombre, edad, tipo);
+            equipo.getJugadores()[i] = jugador;
+        }
+
+        // c) Mostrar información del equipo y sus jugadores
+        System.out.println("\nINFORMACIÓN DEL EQUIPO:");
+        equipo.mostrar_equipo();
+
+	}
+
+}

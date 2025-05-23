@@ -1,4 +1,5 @@
 class Bloque:
+    # colocar debe ser un metodo de todas las clases
     def colocar(self, orientacion="suelo"):
         print(f"Bloque colocado en la orientación: {orientacion}")
 

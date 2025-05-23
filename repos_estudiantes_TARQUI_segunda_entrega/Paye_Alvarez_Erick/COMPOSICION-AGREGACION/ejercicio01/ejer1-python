@@ -1,0 +1,76 @@
+'''
+TEMA: COMPOSICION/AGREGACION 
+COMPOSICION 
+
+1. Sean las siguientes clases:
+Habitación<nombre, tamaño (en metros cuadrados)
+Métodos: mostrar_info() (muestra el nombre y tamaño de la habitación)
+Casa<dirección, habitaciones (lista de objetos de tipo Habitación)
+Métodos: agregar_habitacion(habitacion), mostrar_casa() (muestra la 
+dirección y la información de todas las habitaciones)
+
+Requerimientos:
+a) Implementa las clases con sus constructores, getters y setters.
+b) Crea una casa y agrega varias habitaciones.
+c) Muestra la información de la casa y sus habitaciones.
+'''
+
+class Habitacion:
+    def __init__(self, nombre="", tamano=0.0):
+        self._nombre = nombre
+        self._tamano = tamano
+
+    @property
+    def nombre(self):
+        return self._nombre
+
+    @nombre.setter
+    def nombre(self, value):
+        self._nombre = value
+
+    @property
+    def tamano(self):
+        return self._tamano
+
+    @tamano.setter
+    def tamano(self, value):
+        self._tamano = value
+
+    def mostrar_info(self):
+        print(f"Habitación: {self._nombre} - Tamaño: {self._tamano}m²")
+
+class Casa:
+    def __init__(self, direccion=""):
+        self._direccion = direccion
+        self._habitaciones = []
+
+    @property
+    def direccion(self):
+        return self._direccion
+
+    @direccion.setter
+    def direccion(self, value):
+        self._direccion = value
+
+    def agregar_habitacion(self, habitacion):
+        self._habitaciones.append(habitacion)
+
+    def mostrar_casa(self):
+        print(f"\nCasa en: {self._direccion}")
+        print("Habitaciones:")
+        for habitacion in self._habitaciones:
+            habitacion.mostrar_info()
+
+if __name__ == "__main__":
+    mi_casa = Casa("Calle Principal 123")
+    
+    habitacion1 = Habitacion("Sala", 20.5)
+    habitacion2 = Habitacion("Cocina", 15.0)
+    habitacion3 = Habitacion("Dormitorio", 12.8)
+    
+    mi_casa.agregar_habitacion(habitacion1)
+    mi_casa.agregar_habitacion(habitacion2)
+    mi_casa.agregar_habitacion(habitacion3)
+    
+    
+    mi_casa.mostrar_casa()

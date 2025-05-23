@@ -1,0 +1,14 @@
+Equipo: Real Madrid
+Jugadores:
+Thibaut Courtois | #1 | Posición: Portero
+Habilidad Especial: Atajadas Felinas
+----------------------
+Antonio Rudiger | #4 | Posición: Defensa
+Habilidad Especial: Marcaje Hombre a Hombre
+----------------------
+Luca Modric | #8 | Posición: Mediocampista
+Habilidad Especial: Pases Láser
+----------------------
+Vinicius Junior | #9 | Posición: Delantero
+Habilidad Especial: Velocidad Explosiva
+----------------------

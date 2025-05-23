@@ -1,0 +1,130 @@
+public class VehiculosApp {
+    /*
+1. Modelar diferentes tipos de vehículos. Las clases deben tener las siguientes características:
+Vehículo<marca, modelo, año, precio_base>
+Métodos: mostrar_info() muestra la información básica del vehículo
+Coche (hereda de Vehículo)< num_puertas, tipo_combustible>
+Métodos: mostrar_info() debe mostrar la información básica más los atributos adicionales
+Moto (hereda de Vehículo)< cilindrada, tipo_motor>
+Métodos: mostrar_info() debe mostrar la información básica más los atributos adicionales
+a) Implementa las clases con sus constructores, getters y setters.  
+b) Crea instancias de Coche y Moto y muestra su información usando el 
+método mostrar_info(). 
+c) Muestra todos los coches que tienen más de 4 puertas. 
+d) Mostrar los coches y motos actuales (gestión 2025) 
+*/
+    // Clase base Vehiculo
+    static class Vehiculo {
+        private String marca;
+        private String modelo;
+        private int anio;
+        private double precioBase;
+
+        public Vehiculo(String marca, String modelo, int anio, double precioBase) {
+            this.marca = marca;
+            this.modelo = modelo;
+            this.anio = anio;
+            this.precioBase = precioBase;
+        }
+
+        public void mostrarInfo() {
+            System.out.println("Marca: " + marca);
+            System.out.println("Modelo: " + modelo);
+            System.out.println("Año: " + anio);
+            System.out.println("Precio Base: " + precioBase);
+        }
+
+        public String getMarca() { return marca; }
+        public void setMarca(String marca) { this.marca = marca; }
+
+        public String getModelo() { return modelo; }
+        public void setModelo(String modelo) { this.modelo = modelo; }
+
+        public int getAnio() { return anio; }
+        public void setAnio(int anio) { this.anio = anio; }
+
+        public double getPrecioBase() { return precioBase; }
+        public void setPrecioBase(double precioBase) { this.precioBase = precioBase; }
+    }
+
+    // Clase derivada Coche
+    static class Coche extends Vehiculo {
+        private int numPuertas;
+        private String tipoCombustible;
+
+        public Coche(String marca, String modelo, int anio, double precioBase, int numPuertas, String tipoCombustible) {
+            super(marca, modelo, anio, precioBase);
+            this.numPuertas = numPuertas;
+            this.tipoCombustible = tipoCombustible;
+        }
+
+        @Override
+        public void mostrarInfo() {
+            super.mostrarInfo();
+            System.out.println("Número de puertas: " + numPuertas);
+            System.out.println("Tipo de combustible: " + tipoCombustible);
+        }
+
+        public int getNumPuertas() { return numPuertas; }
+        public void setNumPuertas(int numPuertas) { this.numPuertas = numPuertas; }
+
+        public String getTipoCombustible() { return tipoCombustible; }
+        public void setTipoCombustible(String tipoCombustible) { this.tipoCombustible = tipoCombustible; }
+    }
+
+    // Clase derivada Moto
+    static class Moto extends Vehiculo {
+        private int cilindrada;
+        private String tipoMotor;
+
+        public Moto(String marca, String modelo, int anio, double precioBase, int cilindrada, String tipoMotor) {
+            super(marca, modelo, anio, precioBase);
+            this.cilindrada = cilindrada;
+            this.tipoMotor = tipoMotor;
+        }
+
+        @Override
+        public void mostrarInfo() {
+            super.mostrarInfo();
+            System.out.println("Cilindrada: " + cilindrada);
+            System.out.println("Tipo de motor: " + tipoMotor);
+        }
+
+        public int getCilindrada() { return cilindrada; }
+        public void setCilindrada(int cilindrada) { this.cilindrada = cilindrada; }
+
+        public String getTipoMotor() { return tipoMotor; }
+        public void setTipoMotor(String tipoMotor) { this.tipoMotor = tipoMotor; }
+    }
+
+    public static void main(String[] args) {
+        Coche coche1 = new Coche("Toyota", "Corolla", 2020, 25000, 4, "Gasolina");
+        Coche coche2 = new Coche("Honda", "Civic", 2025, 28000, 5, "Híbrido");
+        Moto moto1 = new Moto("Yamaha", "YZF-R3", 2023, 8000, 321, "4 Tiempos");
+        Moto moto2 = new Moto("Kawasaki", "Ninja 650", 2025, 12000, 649, "4 Tiempos");
+
+        System.out.println("Información del coche 1:");
+        coche1.mostrarInfo();
+
+        System.out.println("\nInformación de la moto 1:");
+        moto1.mostrarInfo();
+
+        System.out.println("\nCoches con más de 4 puertas:");
+        Coche[] coches = { coche1, coche2 };
+        for (Coche coche : coches) {
+            if (coche.getNumPuertas() > 4) {
+                coche.mostrarInfo();
+                System.out.println();
+            }
+        }
+
+        System.out.println("\nVehículos de gestión 2025:");
+        Vehiculo[] vehiculos = { coche1, coche2, moto1, moto2 };
+        for (Vehiculo v : vehiculos) {
+            if (v.getAnio() == 2025) {
+                v.mostrarInfo();
+                System.out.println();
+            }
+        }
+    }
+}

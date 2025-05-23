@@ -1,0 +1,18 @@
+package Ejercicio_3;
+
+public class Docente extends Persona {
+	private int nit;
+	private String profesion;
+	private String especialidad;
+	
+	public Docente() {
+		super();
+		this.nit=987654321;
+		this.profesion="Ingeniero";
+		this.especialidad="TIC'S";
+	}
+	
+	public void mostrar() {
+		
+	}
+}

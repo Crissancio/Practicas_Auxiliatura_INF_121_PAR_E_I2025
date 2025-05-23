@@ -1,0 +1,5 @@
+INDEX VERSION 1.134+D:\Proyectos GitHub\Practica-2-INF-121\Composicion y Agregacion\.metadata\.plugins\org.eclipse.jdt.core
+4277999275.index
+396276638.index
+1865797976.index
+4187017906.index

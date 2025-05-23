@@ -1,0 +1,105 @@
+'''
+Ejercicio de POO con herencia
+
+Definir las clases:
+Persona <ci, nombre, apellido, celular, fecha_Nac>
+Estudiante (heredado de persona) <ru, fecha_Ingreso, semestre>
+Docente (heredado de persona) <nit, profesión, especialidad>
+
+Requerimientos:
+a) Diseñar el diagrama UML de las clases
+b) Implementar clases con constructores, datos por defecto y mostrar
+c) Mostrar estudiantes mayores de 25 años
+d) Mostrar docente con profesión "Ingeniero", sexo masculino y el mayor
+e) Mostrar estudiantes y docentes con mismo apellido
+'''
+from datetime import datetime, date
+
+class Persona:
+    def __init__(self, ci="", nombre="", apellido="", celular="", fecha_nac="", sexo=""):
+        self.ci = ci
+        self.nombre = nombre
+        self.apellido = apellido
+        self.celular = celular
+        self.fecha_nac = fecha_nac
+        self.sexo = sexo
+
+    def mostrar(self):
+        print(f"CI: {self.ci}\nNombre: {self.nombre}\nApellido: {self.apellido}\nCelular: {self.celular}\nFecha Nacimiento: {self.fecha_nac}\nSexo: {self.sexo}")
+
+    def calcular_edad(self):
+        hoy = datetime.now().date()
+        nacimiento = datetime.strptime(self.fecha_nac, "%Y-%m-%d").date()
+        return hoy.year - nacimiento.year - ((hoy.month, hoy.day) < (nacimiento.month, nacimiento.day))
+
+class Estudiante(Persona):
+    def __init__(self, ci="", nombre="", apellido="", celular="", fecha_nac="", sexo="", ru="", fecha_ingreso="", semestre=0):
+        super().__init__(ci, nombre, apellido, celular, fecha_nac, sexo)
+        self.ru = ru
+        self.fecha_ingreso = fecha_ingreso
+        self.semestre = semestre
+
+    def mostrar(self):
+        super().mostrar()
+        print(f"RU: {self.ru}\nFecha Ingreso: {self.fecha_ingreso}\nSemestre: {self.semestre}\n")
+
+class Docente(Persona):
+    def __init__(self, ci="", nombre="", apellido="", celular="", fecha_nac="", sexo="", nit="", profesion="", especialidad=""):
+        super().__init__(ci, nombre, apellido, celular, fecha_nac, sexo)
+        self.nit = nit
+        self.profesion = profesion
+        self.especialidad = especialidad
+
+    def mostrar(self):
+        super().mostrar()
+        print(f"NIT: {self.nit}\nProfesión: {self.profesion}\nEspecialidad: {self.especialidad}\n")
+
+
+def estudiantes_mayores_25(estudiantes):
+    print("Estudiantes mayores de 25 años:")
+    for e in estudiantes:
+        if e.calcular_edad() > 25:
+            e.mostrar()
+
+def docente_ingeniero_masculino_mayor(docentes):
+    filtrados = [d for d in docentes if d.profesion.lower() == "ingeniero" and d.sexo.lower() == "masculino"]
+    if not filtrados:
+        print("No hay docentes que cumplan los criterios")
+        return
+    
+    mayor = min(filtrados, key=lambda x: datetime.strptime(x.fecha_nac, "%Y-%m-%d"))
+    print("Docente Ingeniero Masculino Mayor:")
+    mayor.mostrar()
+
+def mismos_apellidos(estudiantes, docentes):
+    apellidos = {}
+    for e in estudiantes:
+        apellidos[e.apellido] = apellidos.get(e.apellido, []) + [e]
+    for d in docentes:
+        apellidos[d.apellido] = apellidos.get(d.apellido, []) + [d]
+    
+    print("Coincidencias de apellidos:")
+    for apellido, personas in apellidos.items():
+        if len(personas) > 1 and any(isinstance(p, Estudiante) for p in personas) and any(isinstance(p, Docente) for p in personas):
+            print(f"Apellido: {apellido}")
+            for p in personas:
+                p.mostrar()
+
+
+if __name__ == "__main__":
+    estudiantes = [
+        Estudiante("123", "Juan", "Perez", "777", "1990-05-15", "masculino", "RU001", "2010-01-01", 5),
+        Estudiante("456", "Ana", "Gomez", "888", "2005-08-20", "femenino", "RU002", "2020-01-01", 3)
+    ]
+    
+    docentes = [
+        Docente("789", "Carlos", "Lopez", "999", "1980-12-01", "masculino", "NIT001", "Ingeniero", "Sistemas"),
+        Docente("321", "Maria", "Gomez", "666", "1975-03-25", "femenino", "NIT002", "Arquitecto", "Diseño")
+    ]
+    
+    
+    estudiantes_mayores_25(estudiantes)
+    
+    docente_ingeniero_masculino_mayor(docentes)
+    
+    mismos_apellidos(estudiantes, docentes)

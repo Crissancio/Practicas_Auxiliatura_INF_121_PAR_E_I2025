@@ -45,10 +45,13 @@ for emp in empleados:
     print(f"{emp.nombre}: ${emp.sueldo_total()}")
 
 
+# debe ser un metodo de las clases
+
 def mostrar_por_sueldo_mensual(x):
     print(f"\nEmpleados con sueldo mensual igual a {x}:")
     for emp in empleados:
         if emp.sueldo_mes == x:
             print(f"{emp.nombre}")
+
 
 mostrar_por_sueldo_mensual(2000)

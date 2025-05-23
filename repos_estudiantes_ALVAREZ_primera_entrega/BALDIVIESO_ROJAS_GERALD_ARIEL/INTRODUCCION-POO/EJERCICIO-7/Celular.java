@@ -12,11 +12,14 @@ class Celular {
 		} if(espacio < 1) {
 			System.err.println("Espacio lleno!!!");
 		}else {
+			// las aplicaciones y su informacion no se alamacenan en ningun lugar
+			// solo se muestran en la consola
 			System.out.println(nombre + " instalado. espacio disponible: "+espacio);
 		}
 		return;
 	}
 	public void App(String nombre,int tamaño) {
+		// se debe buscar una aplicacion ya instalada y tenerminar su uso por la informacion introducida
 		if (tamaño > 100 && tamaño < 250) {
 			bateria -=2;
 		} if(tamaño > 250) {

@@ -1,0 +1,46 @@
+@startuml ejercicio1
+'efecutarlo con alt+d y aparecera el diagrama uml
+
+class Vehiculo {
+    - marca: str
+    - modelo: str
+    - año: int
+    - precio_base: float
+    + __init__(marca, modelo, año, precio_base)
+    + get_marca(): str
+    + get_modelo(): str
+    + get_año(): int
+    + get_precio_base(): float
+    + set_marca(marca: str)
+    + set_modelo(modelo: str)
+    + set_año(año: int)
+    + set_precio_base(precio_base: float)
+    + mostrar_info(): void
+}
+
+class Coche {
+    - num_puertas: int
+    - tipo_combustible: str
+    + __init__(marca, modelo, año, precio_base, num_puertas, tipo_combustible)
+    + get_num_puertas(): int
+    + get_tipo_combustible(): str
+    + set_num_puertas(num_puertas: int)
+    + set_tipo_combustible(tipo_combustible: str)
+    + mostrar_info(): void
+}
+
+class Moto {
+    - cilindrada: int
+    - tipo_motor: str
+    + __init__(marca, modelo, año, precio_base, cilindrada, tipo_motor)
+    + get_cilindrada(): int
+    + get_tipo_motor(): str
+    + set_cilindrada(cilindrada: int)
+    + set_tipo_motor(tipo_motor: str)
+    + mostrar_info(): void
+}
+
+Vehiculo <|-- Coche
+Vehiculo <|-- Moto
+
+@enduml

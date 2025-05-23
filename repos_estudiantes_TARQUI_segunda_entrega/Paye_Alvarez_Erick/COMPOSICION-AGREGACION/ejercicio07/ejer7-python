@@ -1,0 +1,83 @@
+'''
+TEMA: AGREGACIÓN
+Modelado de una universidad y sus estudiantes:
+
+Clases:
+- Estudiante <nombre, carrera, semestre>
+- Universidad <nombre, estudiantes> (relación de agregación)
+
+Requerimientos:
+a) Implementar clases con constructores, getters y setters
+b) Crear universidad y agregar estudiantes
+c) Mostrar información de la universidad y estudiantes
+'''
+
+class Estudiante:
+    def __init__(self, nombre: str, carrera: str, semestre: int):
+        self._nombre = nombre
+        self._carrera = carrera
+        self._semestre = semestre
+
+    @property
+    def nombre(self):
+        return self._nombre
+    
+    @nombre.setter
+    def nombre(self, value: str):
+        self._nombre = value
+        
+    @property
+    def carrera(self):
+        return self._carrera
+    
+    @carrera.setter
+    def carrera(self, value: str):
+        self._carrera = value
+        
+    @property
+    def semestre(self):
+        return self._semestre
+    
+    @semestre.setter
+    def semestre(self, value: int):
+        self._semestre = value
+        
+    def mostrar_info(self):
+        print(f"Estudiante: {self._nombre} | Carrera: {self._carrera} | Semestre: {self._semestre}")
+
+class Universidad:
+    def __init__(self, nombre: str):
+        self._nombre = nombre
+        self._estudiantes = []
+        
+    @property
+    def nombre(self):
+        return self._nombre
+    
+    @nombre.setter
+    def nombre(self, value: str):
+        self._nombre = value
+        
+    def agregar_estudiante(self, estudiante: Estudiante):
+        self._estudiantes.append(estudiante)
+        
+    def mostrar_universidad(self):
+        print(f"\nUniversidad: {self._nombre}")
+        print("Estudiantes registrados:")
+        for estudiante in self._estudiantes:
+            estudiante.mostrar_info()
+
+if __name__ == "__main__":
+
+    uam = Universidad("Universidad Autónoma de Madrid")
+    
+    
+    est1 = Estudiante("Ana García", "Ingeniería Informática", 3)
+    est2 = Estudiante("Carlos Ruiz", "Medicina", 5)
+    est3 = Estudiante("María López", "Derecho", 2)
+    
+    uam.agregar_estudiante(est1)
+    uam.agregar_estudiante(est2)
+    uam.agregar_estudiante(est3)
+    
+    uam.mostrar_universidad()

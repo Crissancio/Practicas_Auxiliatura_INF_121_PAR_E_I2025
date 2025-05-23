@@ -1,0 +1,12 @@
+package Ejercicio_1;
+
+public class Habitacion {
+	private String nombre;
+	private float tamaño;
+	
+	public Habitacion(String nombrex, float tamañox) {
+		this.nombre=nombrex;
+		this.tamaño=tamañox;
+	}
+
+}

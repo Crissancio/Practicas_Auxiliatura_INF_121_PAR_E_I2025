@@ -11,6 +11,8 @@ import java.util.List;
  *
  * @author Trabajo
  */
+
+// FALTA IMPLEMENTACION DE APLICACION
 public class Celular {
     private int espacioTotal;
     private List<Aplicacion> aplicaciones;

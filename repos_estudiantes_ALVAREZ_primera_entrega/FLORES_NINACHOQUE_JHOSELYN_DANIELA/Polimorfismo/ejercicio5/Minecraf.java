@@ -5,6 +5,7 @@ public abstract  class Minecraf {
 
     public abstract void accion();
     
+    // COLOCAR DEBE SE UN METODPO DE LAS LAS CLASES DE BLOQUES
     public void colocar() {
         System.out.println("Bloque colocado en el suelo");
     }

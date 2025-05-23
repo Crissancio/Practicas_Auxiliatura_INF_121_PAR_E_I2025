@@ -1,0 +1,18 @@
+package Ejercicio_1;
+
+public class Habitacion {
+	private String nombre;
+	private float tamaño;
+	
+	public Habitacion(String nombrex, float tamañox) {
+		this.nombre=nombrex;
+		this.tamaño=tamañox;
+	}
+	
+	public void mostrar_info() {
+		System.out.println("<HABITACION>");
+		System.out.println("Nombre: "+this.nombre);
+		System.out.println("Tamaño: "+this.tamaño);
+	}
+	
+}

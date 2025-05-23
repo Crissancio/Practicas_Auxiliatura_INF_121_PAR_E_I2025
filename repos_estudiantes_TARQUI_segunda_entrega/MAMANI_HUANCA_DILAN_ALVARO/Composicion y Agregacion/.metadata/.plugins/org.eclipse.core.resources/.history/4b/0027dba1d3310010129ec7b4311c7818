@@ -1,0 +1,40 @@
+package Ejercicio_1;
+
+import java.util.Scanner;
+
+public class Casa {
+	private String direccion;
+	private Habitacion[]habitacion;
+	
+	public Casa(String direccion, int capacidad) {
+        this.direccion = direccion;
+        this.habitacion = new Habitacion[capacidad];
+    }
+	public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+	
+	public void agregar_habitacion(Habitacion h) {
+        for (int i = 0; i < habitacion.length; i++) {
+            if (habitacion[i] == null) {
+                habitacion[i] = h;
+                return;
+            }
+        }
+        System.out.println("No se pueden agregar más habitaciones. Capacidad llena.");
+    }
+	
+	public void mostrar_casa() {
+        System.out.println("Direccion: " + this.direccion);
+        System.out.println("Habitaciones:");
+        for (int i = 0; i < habitacion.length; i++) {
+            if (habitacion[i] != null) {
+                habitacion[i].mostrar_info();
+            }
+        }
+    }
+}

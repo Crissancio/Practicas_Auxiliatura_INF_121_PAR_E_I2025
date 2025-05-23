@@ -1,0 +1,158 @@
+/*
+ * Ejercicio de POO con herencia
+ * 
+ * Definir las clases:
+ * Persona <ci, nombre, apellido, celular, fecha_Nac>
+ * Estudiante (heredado de persona) <ru, fecha_Ingreso, semestre>
+ * Docente (heredado de persona) <nit, profesión, especialidad>
+ * 
+ * Requerimientos:
+ * a) Diseñar diagrama UML de las clases
+ * b) Implementar clases con constructores, datos por defecto y mostrar
+ * c) Mostrar estudiantes mayores de 25 años
+ * d) Mostrar docente con profesión "Ingeniero", sexo masculino y el mayor
+ * e) Mostrar estudiantes y docentes con mismo apellido
+ */
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
+
+class Persona {
+    protected String ci;
+    protected String nombre;
+    protected String apellido;
+    protected String celular;
+    protected LocalDate fechaNac;
+    protected String sexo;
+
+    public Persona(String ci, String nombre, String apellido, String celular, LocalDate fechaNac, String sexo) {
+        this.ci = ci != null ? ci : "";
+        this.nombre = nombre != null ? nombre : "";
+        this.apellido = apellido != null ? apellido : "";
+        this.celular = celular != null ? celular : "";
+        this.fechaNac = fechaNac != null ? fechaNac : LocalDate.now();
+        this.sexo = sexo != null ? sexo : "";
+    }
+
+    public Persona() {
+        this("", "", "", "", LocalDate.now(), "");
+    }
+
+    public void mostrar() {
+        System.out.println("CI: " + ci + 
+                         "\nNombre: " + nombre + 
+                         "\nApellido: " + apellido + 
+                         "\nCelular: " + celular + 
+                         "\nFecha Nac: " + fechaNac +
+                         "\nSexo: " + sexo);
+    }
+
+    public int calcularEdad() {
+        return Period.between(fechaNac, LocalDate.now()).getYears();
+    }
+
+    public String getApellido() { return apellido; }
+    public LocalDate getFechaNac() { return fechaNac; }
+}
+
+class Estudiante extends Persona {
+    private String ru;
+    private LocalDate fechaIngreso;
+    private int semestre;
+
+    public Estudiante(String ci, String nombre, String apellido, String celular, 
+                     LocalDate fechaNac, String sexo, String ru, LocalDate fechaIngreso, int semestre) {
+        super(ci, nombre, apellido, celular, fechaNac, sexo);
+        this.ru = ru != null ? ru : "";
+        this.fechaIngreso = fechaIngreso != null ? fechaIngreso : LocalDate.now();
+        this.semestre = semestre;
+    }
+
+    public Estudiante() {
+        this("", "", "", "", LocalDate.now(), "", "", LocalDate.now(), 0);
+    }
+
+    @Override
+    public void mostrar() {
+        super.mostrar();
+        System.out.println("RU: " + ru + 
+                         "\nFecha Ingreso: " + fechaIngreso + 
+                         "\nSemestre: " + semestre + "\n");
+    }
+}
+
+class Docente extends Persona {
+    private String nit;
+    private String profesion;
+    private String especialidad;
+
+    public Docente(String ci, String nombre, String apellido, String celular,
+                  LocalDate fechaNac, String sexo, String nit, String profesion, String especialidad) {
+        super(ci, nombre, apellido, celular, fechaNac, sexo);
+        this.nit = nit != null ? nit : "";
+        this.profesion = profesion != null ? profesion : "";
+        this.especialidad = especialidad != null ? especialidad : "";
+    }
+
+    public Docente() {
+        this("", "", "", "", LocalDate.now(), "", "", "", "");
+    }
+
+    @Override
+    public void mostrar() {
+        super.mostrar();
+        System.out.println("NIT: " + nit + 
+                         "\nProfesión: " + profesion + 
+                         "\nEspecialidad: " + especialidad + "\n");
+    }
+
+    public String getProfesion() { return profesion; }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        List<Estudiante> estudiantes = new ArrayList<>();
+        estudiantes.add(new Estudiante("123", "Juan", "Perez", "777", 
+            LocalDate.of(1990, 5, 15), "masculino", "RU001", 
+            LocalDate.of(2010, 1, 1), 5));
+        
+        List<Docente> docentes = new ArrayList<>();
+        docentes.add(new Docente("789", "Carlos", "Lopez", "999", 
+            LocalDate.of(1980, 12, 1), "masculino", "NIT001", 
+            "Ingeniero", "Sistemas"));
+        
+        // c) Estudiantes mayores de 25
+        System.out.println("Estudiantes mayores de 25:");
+        for (Estudiante e : estudiantes) {
+            if (e.calcularEdad() > 25) {
+                e.mostrar();
+            }
+        }
+        
+        Docente mayor = null;
+        for (Docente d : docentes) {
+            if (d.getProfesion().equalsIgnoreCase("ingeniero") && 
+                d.sexo.equalsIgnoreCase("masculino")) {
+                if (mayor == null || d.getFechaNac().isBefore(mayor.getFechaNac())) {
+                    mayor = d;
+                }
+            }
+        }
+        if (mayor != null) {
+            System.out.println("Docente Ingeniero Masculino Mayor:");
+            mayor.mostrar();
+        }
+        
+        System.out.println("Coincidencias de apellidos:");
+        for (Estudiante e : estudiantes) {
+            for (Docente d : docentes) {
+                if (e.getApellido().equalsIgnoreCase(d.getApellido())) {
+                    System.out.println("Apellido coincidente: " + e.getApellido());
+                    e.mostrar();
+                    d.mostrar();
+                }
+            }
+        }
+    }
+}

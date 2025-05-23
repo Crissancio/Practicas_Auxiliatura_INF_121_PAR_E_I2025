@@ -1,0 +1,24 @@
+package Ejercicio_3;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner leer = new Scanner(System.in);
+
+        System.out.print("Modelo: ");
+        String modelo = leer.nextLine();
+        System.out.print("Fabricante: ");
+        String fabricante = leer.nextLine();
+
+        System.out.print("¿Cuantas partes tendra el avion? ");
+        int capacidad = leer.nextInt();
+        leer.nextLine(); // limpiar buffer
+
+        Avion a1 = new Avion(modelo, fabricante, capacidad);
+        a1.agregar_parte();
+
+        System.out.println("\nINFORMACIÓN DEL AVIÓN:");
+        a1.mostrar_avion();
+    }
+}

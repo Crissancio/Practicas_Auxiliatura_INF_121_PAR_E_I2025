@@ -1,0 +1,36 @@
+public class Desarrollador extends Empleado {
+    private String lenguaje_programacion;
+    private int horas_extras;
+    public Desarrollador(String nombre, String apellido, double salario_base, int años_antiguedad,
+            String lenguaje_programacion, int horas_extras) {
+        super(nombre, apellido, salario_base, años_antiguedad);
+        this.lenguaje_programacion = lenguaje_programacion;
+        this.horas_extras = horas_extras;
+    }
+
+    public double calcular_salario(){
+        double monto_adicional = this.horas_extras * 20;
+        return super.calcular_salario() + monto_adicional;
+    }
+
+    public String toString(){
+        return ("-----------Desarrollador----------\n"+
+                "Lenguaje de Programacion:"+ this.lenguaje_programacion +"\n" + 
+                "Horas extras:"+ this.horas_extras  
+        );
+    }
+
+    public String getLenguaje_programacion() {
+        return lenguaje_programacion;
+    }
+    public void setLenguaje_programacion(String lenguaje_programacion) {
+        this.lenguaje_programacion = lenguaje_programacion;
+    }
+    public int getHoras_extras() {
+        return horas_extras;
+    }
+    public void setHoras_extras(int horas_extras) {
+        this.horas_extras = horas_extras;
+    }
+    
+}

@@ -10,6 +10,7 @@ public class Celular {
         this.espatomb=espatomb;
         arreglo=new long[espatomb+1];
     }
+    // se debe agregar informacion de una aplicacion(nombre y espacio)
     public void agrega(){
         this.numapli=this.numapli+1;
         arreglo[this.numapli]=espatomb;

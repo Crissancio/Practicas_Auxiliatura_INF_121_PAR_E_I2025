@@ -1,4 +1,5 @@
 class Bloque:
+    # EL METODO COLOR CDEBE SER UN METODO DE LAS CALSES DE LOS BLOQUES
     def colocar(self, orientacion):
         print(f"Bloque colocado en la orientación: {orientacion}")
 class BloqueCofre(Bloque):

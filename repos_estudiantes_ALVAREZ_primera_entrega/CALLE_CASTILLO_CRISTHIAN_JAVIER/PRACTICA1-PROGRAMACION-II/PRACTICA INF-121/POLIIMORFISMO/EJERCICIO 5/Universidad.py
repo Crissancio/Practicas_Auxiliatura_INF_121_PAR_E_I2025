@@ -47,3 +47,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# las clases no corresponden a los diagramas de clases del enunciado

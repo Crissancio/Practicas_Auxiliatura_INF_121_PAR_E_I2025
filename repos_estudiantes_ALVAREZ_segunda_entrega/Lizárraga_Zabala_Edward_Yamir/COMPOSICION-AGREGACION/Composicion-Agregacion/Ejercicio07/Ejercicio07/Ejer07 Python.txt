@@ -1,0 +1,37 @@
+# (a) Implementar clases con constructores, getters y setters
+
+class Estudiante:
+    def __init__(self, nombre, carrera, semestre):
+        self.nombre = nombre
+        self.carrera = carrera
+        self.semestre = semestre
+
+    def mostrar_info(self):
+        return f"{self.nombre} - {self.carrera} - Semestre {self.semestre}"
+
+
+class Universidad:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.estudiantes = []  # agregación: los estudiantes existen fuera de la universidad
+
+    def agregar_estudiante(self, estudiante):
+        self.estudiantes.append(estudiante)
+
+    def mostrar_universidad(self):
+        print(f"Universidad: {self.nombre}")
+        print("Estudiantes:")
+        for e in self.estudiantes:
+            print(f"- {e.mostrar_info()}")
+
+# (b) Crear universidad y agregar varios estudiantes
+
+uni = Universidad("Universidad Mayor de San Simón")
+uni.agregar_estudiante(Estudiante("Luis Pérez", "Ingeniería", 6))
+uni.agregar_estudiante(Estudiante("María García", "Medicina", 4))
+uni.agregar_estudiante(Estudiante("Ana Torres", "Derecho", 8))
+
+# (c) Mostrar información de la universidad y estudiantes
+
+print("\n--- INFORMACIÓN UNIVERSIDAD ---")
+uni.mostrar_universidad()

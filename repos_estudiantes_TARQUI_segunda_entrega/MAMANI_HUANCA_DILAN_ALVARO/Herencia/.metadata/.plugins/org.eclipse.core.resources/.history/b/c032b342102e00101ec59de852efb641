@@ -1,0 +1,11 @@
+package Ejercicio_3;
+
+public class Persona {
+	private int ci;
+	private String nombre;
+	private String apellido;
+	private int celular;
+	private String fecha_Nac;
+	
+	
+}

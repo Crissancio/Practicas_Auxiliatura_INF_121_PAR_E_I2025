@@ -1,0 +1,30 @@
+@startuml ejercicio4
+
+'efecutarlo con alt+d y aparecera el diagrama uml
+class Estudiante {
+    - nombre: str
+    - carrera: str
+    - semestre: str
+    + __init__(nombre: str, carrera: str, semestre: str)
+    + mostrar_info(): void
+    + getNombre(): str
+    + getCarrera(): str
+    + getSemestre(): str
+    + setNombre(nombre: str): void
+    + setCarrera(carrera: str): void
+    + setSemestre(semestre: str): void
+}
+
+class Universidad {
+    - nombre: str
+    - estudiantes: list
+    + __init__(nombre: str)
+    + agregar_estudiantes(nombre: str, carrera: str, semestre: str): void
+    + mostrar_universidad(): void
+    + getNombre(): str
+    + setNombre(nombre: str): void
+}
+
+Universidad "1" *-- "0..*" Estudiante
+
+@enduml

@@ -2,7 +2,7 @@
 class Bloque:
     def accion(self):
         print("Este bloque no tiene una acción definida.")
-    
+    # colocar debe ser un metodo de cada clase
     def colocar(self, orientacion="suelo"):
         print(f"Bloque colocado en el {orientacion}.")
     

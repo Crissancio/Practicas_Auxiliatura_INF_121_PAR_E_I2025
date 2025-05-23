@@ -1,0 +1,150 @@
+'''
+TEMA: COMPOSICIÓN Y HERENCIA
+Modelado de un equipo de fútbol y sus jugadores:
+
+Clases:
+- Jugador (clase base) <nombre, número, posición>
+- Subclases: Portero, Defensa, Mediocampista, Delantero
+  (con atributo adicional: habilidad_especial)
+- Equipo <nombre, jugadores> (relación de composición)
+
+Requerimientos:
+a) Implementar clases con constructores, getters y setters
+b) Crear equipo y agregar jugadores de diferentes tipos
+c) Mostrar información del equipo y jugadores
+'''
+
+class Jugador:
+    def __init__(self, nombre, numero, posicion):
+        self._nombre = nombre
+        self._numero = numero
+        self._posicion = posicion
+
+    @property
+    def nombre(self):
+        return self._nombre
+    
+    @nombre.setter
+    def nombre(self, value):
+        self._nombre = value
+        
+    @property
+    def numero(self):
+        return self._numero
+    
+    @numero.setter
+    def numero(self, value):
+        self._numero = value
+        
+    @property
+    def posicion(self):
+        return self._posicion
+    
+    @posicion.setter
+    def posicion(self, value):
+        self._posicion = value
+        
+    def mostrar_info(self):
+        print(f"{self._nombre} - N°{self._numero} ({self._posicion})")
+
+class Portero(Jugador):
+    def __init__(self, nombre, numero, habilidad_especial):
+        super().__init__(nombre, numero, "Portero")
+        self._habilidad_especial = habilidad_especial
+        
+    @property
+    def habilidad_especial(self):
+        return self._habilidad_especial
+    
+    @habilidad_especial.setter
+    def habilidad_especial(self, value):
+        self._habilidad_especial = value
+        
+    def mostrar_info(self):
+        super().mostrar_info()
+        print(f"  Habilidad especial: {self._habilidad_especial}")
+
+class Defensa(Jugador):
+    def __init__(self, nombre, numero, habilidad_especial):
+        super().__init__(nombre, numero, "Defensa")
+        self._habilidad_especial = habilidad_especial
+        
+    @property
+    def habilidad_especial(self):
+        return self._habilidad_especial
+    
+    @habilidad_especial.setter
+    def habilidad_especial(self, value):
+        self._habilidad_especial = value
+        
+    def mostrar_info(self):
+        super().mostrar_info()
+        print(f"  Habilidad especial: {self._habilidad_especial}")
+
+class Mediocampista(Jugador):
+    def __init__(self, nombre, numero, habilidad_especial):
+        super().__init__(nombre, numero, "Mediocampista")
+        self._habilidad_especial = habilidad_especial
+        
+    @property
+    def habilidad_especial(self):
+        return self._habilidad_especial
+    
+    @habilidad_especial.setter
+    def habilidad_especial(self, value):
+        self._habilidad_especial = value
+        
+    def mostrar_info(self):
+        super().mostrar_info()
+        print(f"  Habilidad especial: {self._habilidad_especial}")
+
+class Delantero(Jugador):
+    def __init__(self, nombre, numero, habilidad_especial):
+        super().__init__(nombre, numero, "Delantero")
+        self._habilidad_especial = habilidad_especial
+        
+    @property
+    def habilidad_especial(self):
+        return self._habilidad_especial
+    
+    @habilidad_especial.setter
+    def habilidad_especial(self, value):
+        self._habilidad_especial = value
+        
+    def mostrar_info(self):
+        super().mostrar_info()
+        print(f"  Habilidad especial: {self._habilidad_especial}")
+
+class Equipo:
+    def __init__(self, nombre):
+        self._nombre = nombre
+        self._jugadores = []
+        
+    @property
+    def nombre(self):
+        return self._nombre
+    
+    @nombre.setter
+    def nombre(self, value):
+        self._nombre = value
+        
+    def agregar_jugador(self, jugador):
+        self._jugadores.append(jugador)
+        
+    def mostrar_equipo(self):
+        print(f"\nEquipo: {self._nombre}")
+        print("Jugadores:")
+        for jugador in self._jugadores:
+            jugador.mostrar_info()
+
+
+if __name__ == "__main__":
+    
+    real_madrid = Equipo("Real Madrid")
+    
+    real_madrid.agregar_jugador(Portero("Thibaut Courtois", 1, "Atajadas aéreas"))
+    real_madrid.agregar_jugador(Defensa("Sergio Ramos", 4, "Marcaje fuerte"))
+    real_madrid.agregar_jugador(Mediocampista("Luka Modric", 10, "Pases precisos"))
+    real_madrid.agregar_jugador(Delantero("Karim Benzema", 9, "Finalización letal"))
+    
+    real_madrid.mostrar_equipo()

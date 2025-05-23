@@ -1,0 +1,34 @@
+package Ejercicio_1;
+//COMPOSICION
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+
+        System.out.print("Ingrese la dirección de la casa: ");
+        String direccion = leer.nextLine();
+
+        System.out.print("¿Cuántas habitaciones desea agregar? ");
+        int capacidad = leer.nextInt();
+        leer.nextLine(); // Limpiar buffer
+
+        Casa miCasa = new Casa(direccion, capacidad);
+
+        for (int i = 0; i < capacidad; i++) {
+            System.out.println("Habitación " + (i + 1));
+            System.out.print("Nombre: ");
+            String nombre = leer.nextLine();
+            System.out.print("Tamaño (m²): ");
+            double tamano = leer.nextDouble();
+            leer.nextLine(); // Limpiar buffer
+
+            Habitacion h = new Habitacion(nombre, tamano);
+            miCasa.agregar_habitacion(h);
+        }
+
+        System.out.println("\nInformación de la casa:");
+        miCasa.mostrar_casa();
+
+	}
+
+}

@@ -1,0 +1,162 @@
+'''
+5. Definir las siguientes clases:
+Empleado<nombre, apellido, salario_base, años_antigüedad
+Métodos: calcular_salario() (retorna el salario base más un bono
+del 5% por cada año de antigüedad)
+Gerente (hereda de Empleado)< departamento, bono_gerencial>
+Métodos: calcular_salario() (debe sumar el bono gerencial al
+salario calculado en la clase base)
+Desarrollador (hereda de Empleado) <lenguaje_programación, horas_extras>
+Métodos: calcular_salario() (debe sumar un monto adicional por
+horas extras al salario calculado en la clase base)
+
+Requerimientos:
+a) Implementa las clases con sus constructores, getters y setters.
+b) Crea instancias de Gerente y Desarrollador y muestra su salario calculado.
+c) Muestra todos los gerentes que tienen un bono gerencial mayor a 1000.
+d) Muestra todos los desarrolladores que trabajan más de 10 horas extras.
+'''
+
+class Empleado:
+    def __init__(self, nombre='', apellido='', salario_base=0.0, años_antigüedad=0):
+        self._nombre = nombre
+        self._apellido = apellido
+        self._salario_base = salario_base
+        self._años_antigüedad = años_antigüedad
+
+    @property
+    def nombre(self):
+        return self._nombre
+
+    @nombre.setter
+    def nombre(self, value):
+        self._nombre = value
+
+    @property
+    def apellido(self):
+        return self._apellido
+
+    @apellido.setter
+    def apellido(self, value):
+        self._apellido = value
+
+    @property
+    def salario_base(self):
+        return self._salario_base
+
+    @salario_base.setter
+    def salario_base(self, value):
+        self._salario_base = value
+
+    @property
+    def años_antigüedad(self):
+        return self._años_antigüedad
+
+    @años_antigüedad.setter
+    def años_antigüedad(self, value):
+        self._años_antigüedad = value
+
+    def calcular_salario(self):
+        return self._salario_base * (1 + 0.05 * self._años_antigüedad)
+
+    def __str__(self):
+        return f"{self._nombre} {self._apellido} - Salario base: ${self._salario_base}"
+
+
+class Gerente(Empleado):
+    def __init__(self, nombre='', apellido='', salario_base=0.0, años_antigüedad=0, 
+                 departamento='', bono_gerencial=0.0):
+        super().__init__(nombre, apellido, salario_base, años_antigüedad)
+        self._departamento = departamento
+        self._bono_gerencial = bono_gerencial
+
+   
+    @property
+    def departamento(self):
+        return self._departamento
+
+    @departamento.setter
+    def departamento(self, value):
+        self._departamento = value
+
+    @property
+    def bono_gerencial(self):
+        return self._bono_gerencial
+
+    @bono_gerencial.setter
+    def bono_gerencial(self, value):
+        self._bono_gerencial = value
+
+    def calcular_salario(self):
+        return super().calcular_salario() + self._bono_gerencial
+
+    def __str__(self):
+        return f"{super().__str__()} | Departamento: {self._departamento}"
+
+
+class Desarrollador(Empleado):
+    def __init__(self, nombre='', apellido='', salario_base=0.0, años_antigüedad=0, 
+                 lenguaje_programacion='', horas_extras=0):
+        super().__init__(nombre, apellido, salario_base, años_antigüedad)
+        self._lenguaje_programacion = lenguaje_programacion
+        self._horas_extras = horas_extras
+
+    
+    @property
+    def lenguaje_programacion(self):
+        return self._lenguaje_programacion
+
+    @lenguaje_programacion.setter
+    def lenguaje_programacion(self, value):
+        self._lenguaje_programacion = value
+
+    @property
+    def horas_extras(self):
+        return self._horas_extras
+
+    @horas_extras.setter
+    def horas_extras(self, value):
+        self._horas_extras = value
+
+    def calcular_salario(self):
+        return super().calcular_salario() + (self._horas_extras * 30)  
+
+    def __str__(self):
+        return f"{super().__str__()} | Lenguaje: {self._lenguaje_programacion}"
+
+
+def mostrar_salarios(empleados):
+    for emp in empleados:
+        print(f"{emp} - Salario total: ${emp.calcular_salario():.2f}")
+
+def gerentes_bono_alto(gerentes, limite=1000):
+    return [g for g in gerentes if g.bono_gerencial > limite]
+
+def desarrolladores_horas_altas(desarrolladores, minimo=10):
+    return [d for d in desarrolladores if d.horas_extras > minimo]
+
+
+if __name__ == "__main__":
+    
+    gerentes = [
+        Gerente("Ana", "Gómez", 5000, 5, "TI", 1500),
+        Gerente("Carlos", "López", 6000, 8, "Ventas", 800)
+    ]
+    
+    desarrolladores = [
+        Desarrollador("Luisa", "Martínez", 4000, 3, "Python", 15),
+        Desarrollador("Pedro", "Sánchez", 4500, 2, "Java", 8)
+    ]
+    
+    print("\n--- Salarios calculados (Requerimiento b) ---")
+    mostrar_salarios(gerentes + desarrolladores)
+    
+    
+    print("\n--- Gerentes con bono > $1000 (Requerimiento c) ---")
+    for g in gerentes_bono_alto(gerentes):
+        print(f"{g} | Bono: ${g.bono_gerencial}")
+    
+    
+    print("\n--- Desarrolladores con +10 horas extras (Requerimiento d) ---")
+    for d in desarrolladores_horas_altas(desarrolladores):
+        print(f"{d} | Horas extras: {d.horas_extras}")

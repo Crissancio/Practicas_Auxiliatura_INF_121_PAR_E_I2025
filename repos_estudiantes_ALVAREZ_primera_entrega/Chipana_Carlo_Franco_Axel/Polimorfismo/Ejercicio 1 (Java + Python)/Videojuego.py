@@ -10,6 +10,7 @@ class Videojuego:
         self.plataforma = plataforma
         self.cantidadJugadores = cantidadJugadores
 
+    # SE DEBE SOBRECARGAR EL CONSTRUCTOR
     @classmethod
     def solo_datos_basicos(cls, nombre, plataforma):
         return cls(nombre, plataforma, 1)
@@ -19,6 +20,7 @@ class Videojuego:
         print(f"Plataforma: {self.plataforma}")
         print(f"Cantidad de jugadores: {self.cantidadJugadores}")
 
+    # SE DEBE APLICAR SOBRECARGA
     def agregarJugadores(self):
         self.cantidadJugadores += 1
 

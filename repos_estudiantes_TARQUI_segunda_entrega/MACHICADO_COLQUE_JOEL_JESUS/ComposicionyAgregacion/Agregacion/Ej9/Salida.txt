@@ -1,0 +1,43 @@
+Producto agregado: Laptop
+Producto agregado: Mouse
+Producto agregado: Teclado
+Producto agregado: Monitor
+Producto agregado: ProductoExtra1
+Producto agregado: ProductoExtra2
+Producto agregado: ProductoExtra3
+Producto agregado: ProductoExtra4
+Producto agregado: ProductoExtra5
+Producto agregado: ProductoExtra6
+No se puede agregar más de 10 productos.
+No se puede agregar más de 10 productos.
+=== Carrito de Compras ===
+Producto: Laptop
+Precio: $1500.0
+------------------------
+Producto: Mouse
+Precio: $25.99
+------------------------
+Producto: Teclado
+Precio: $45.5
+------------------------
+Producto: Monitor
+Precio: $300.0
+------------------------
+Producto: ProductoExtra1
+Precio: $10.0
+------------------------
+Producto: ProductoExtra2
+Precio: $10.0
+------------------------
+Producto: ProductoExtra3
+Precio: $10.0
+------------------------
+Producto: ProductoExtra4
+Precio: $10.0
+------------------------
+Producto: ProductoExtra5
+Precio: $10.0
+------------------------
+Producto: ProductoExtra6
+Precio: $10.0
+------------------------

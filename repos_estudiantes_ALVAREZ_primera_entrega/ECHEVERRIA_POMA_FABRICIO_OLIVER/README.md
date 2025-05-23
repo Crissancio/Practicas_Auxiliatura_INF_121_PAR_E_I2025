@@ -4,3 +4,14 @@
 <h3 align="center"> FABRIICIO OLIVER ECHEVERRIA POMA</h3>
 <h3 align="center"> C.I. 13762846 LP </h3>
 <h3 align="center"> R.U. 1837715 </h3>
+
+
+# OBSERVACIONES
+
+## INTRODUCCION A POO
+
+- falta un ejericio en python y uno en java
+
+## POLIMORFISMO
+
+- falta la implementacion de un ejercicio en python

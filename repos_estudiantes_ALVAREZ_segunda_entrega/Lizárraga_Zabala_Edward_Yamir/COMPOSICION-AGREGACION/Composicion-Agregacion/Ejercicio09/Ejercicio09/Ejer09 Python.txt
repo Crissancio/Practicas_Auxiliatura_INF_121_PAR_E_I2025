@@ -1,0 +1,36 @@
+# (a) Implementar clases con constructores, getters y setters
+
+class Producto:
+    def __init__(self, nombre, precio):
+        self.nombre = nombre
+        self.precio = precio
+
+    def mostrar_info(self):
+        return f"{self.nombre} - ${self.precio}"
+
+
+class CarritoCompras:
+    def __init__(self):
+        self.productos = []
+
+    def agregar_producto(self, producto):
+        # (b) Validar límite de 10 productos
+        if len(self.productos) < 10:
+            self.productos.append(producto)
+        else:
+            print("No se pueden agregar más de 10 productos al carrito.")
+
+    def mostrar_carrito(self):
+        print("Carrito de Compras:")
+        for prod in self.productos:
+            print(f"- {prod.mostrar_info()}")
+
+carrito = CarritoCompras()
+
+# (b) Agregar productos al carrito (hasta el límite)
+for i in range(12):  # 2 de más para probar el límite
+    carrito.agregar_producto(Producto(f"Producto {i+1}", 10 * (i+1)))
+
+# (c) Mostrar carrito
+print("\n--- CONTENIDO DEL CARRITO ---")
+carrito.mostrar_carrito()
