@@ -1,0 +1,22 @@
+@startuml Ejercicio1
+
+'efecutarlo con alt+d y aparecera el diagrama uml
+class Habitacion {
+    - nombre: str
+    - tamaño: float
+    + __init__(nombre: str, tamaño: float)
+    + mostrar_info(): void
+}
+
+class Casa {
+    - direccion: str
+    - habitaciones: list
+    + __init__(direccion: str)
+    + agregarhabitacion(nombre: str, tamaño: float): void
+    + mostrarcasa(): void
+}
+
+Casa "1" *-- "0..*" Habitacion : contiene >
+
+@enduml
+

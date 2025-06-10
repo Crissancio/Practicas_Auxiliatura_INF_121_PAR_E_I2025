@@ -1,0 +1,96 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+class Cliente implements Serializable {
+    private int id;
+    private String nombre;
+    private int telefono;
+
+    public Cliente(int id, String nombre, int telefono) {
+        this.id = id;
+        this.nombre = nombre;
+        this.telefono = telefono;
+    }
+
+    
+    public int getId() { return id; }
+    public String getNombre() { return nombre; }
+    public int getTelefono() { return telefono; }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Nombre: " + nombre + ", Teléfono: " + telefono;
+    }
+}
+
+class ArchivoCliente {
+    private String nomArchivo;
+    private List<Cliente> clientes;
+
+    public ArchivoCliente(String nomArchivo) {
+        this.nomArchivo = nomArchivo;
+        this.clientes = new ArrayList<>();
+        cargarArchivo();
+    }
+
+    public void guardaCliente(Cliente c) {
+        clientes.add(c);
+        guardarEnArchivo();
+    }
+
+    
+    public Cliente buscarCliente(int id) {
+        for (Cliente cli : clientes) {
+            if (cli.getId() == id) {
+                return cli;
+            }
+        }
+        return null;
+    }
+
+    
+    public Cliente buscarCelularCliente(int telefono) {
+        for (Cliente cli : clientes) {
+            if (cli.getTelefono() == telefono) {
+                return cli;
+            }
+        }
+        return null;
+    }
+
+    private void cargarArchivo() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomArchivo))) {
+            clientes = (List<Cliente>) ois.readObject();
+        } catch (FileNotFoundException e) {
+            System.out.println("Creando nuevo archivo de clientes...");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void guardarEnArchivo() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(nomArchivo))) {
+            oos.writeObject(clientes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        ArchivoCliente archivo = new ArchivoCliente("clientes.dat");
+
+        
+        archivo.guardaCliente(new Cliente(1, "Juan Pérez", 70123456));
+        archivo.guardaCliente(new Cliente(2, "María Gómez", 68754321));
+        archivo.guardaCliente(new Cliente(3, "Carlos Ruiz", 76543210));
+
+        
+        Cliente encontrado = archivo.buscarCliente(2);
+        System.out.println("Cliente encontrado por ID: " + encontrado);
+
+        
+        Cliente porTelefono = archivo.buscarCelularCliente(76543210);
+        System.out.println("Cliente encontrado por teléfono: " + porTelefono);
+    }
+}

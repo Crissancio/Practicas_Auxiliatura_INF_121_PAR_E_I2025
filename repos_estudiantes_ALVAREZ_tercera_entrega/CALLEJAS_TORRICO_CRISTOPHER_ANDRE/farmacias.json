@@ -1,0 +1,30 @@
+[
+    {
+        "numero": 1,
+        "direccion": "Prado",
+        "medicamentos": [
+            {
+                "nombre": "Golpex",
+                "tipo": "dolor"
+            },
+            {
+                "nombre": "clorferinamina",
+                "tipo": "picazon"
+            }
+        ]
+    },
+    {
+        "numero": 2,
+        "direccion": "Miraflores",
+        "medicamentos": [
+            {
+                "nombre": "ibuprofeno",
+                "tipo": "tos"
+            },
+            {
+                "nombre": "medicasp",
+                "tipo": "cabello"
+            }
+        ]
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "nombre": "Carlas P\u00e9rez",
+        "telefono": 76512469
+    },
+    {
+        "id": 2,
+        "nombre": "Pancho G\u00f3mez",
+        "telefono": 78924598
+    },
+    {
+        "id": 3,
+        "nombre": "Pepito Alcachofas",
+        "telefono": 60182356
+    }
+]

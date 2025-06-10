@@ -1,0 +1,46 @@
+[
+  {
+    "nombre": "VidaSana",
+    "sucursal": 1,
+    "direccion": "Av. Sur 456",
+    "medicamentos": [
+      {
+        "nombre": "Aspirina",
+        "codigo": 201,
+        "tipo": "Dolor",
+        "precio": 3.5
+      },
+      {
+        "nombre": "Antigripal",
+        "codigo": 202,
+        "tipo": "Resfr\u00edo",
+        "precio": 6.0
+      },
+      {
+        "nombre": "JarabeTos",
+        "codigo": 203,
+        "tipo": "Tos",
+        "precio": 7.0
+      }
+    ]
+  },
+  {
+    "nombre": "SaludPlus",
+    "sucursal": 2,
+    "direccion": "Av. Norte 123",
+    "medicamentos": [
+      {
+        "nombre": "Golpex",
+        "codigo": 301,
+        "tipo": "Tos",
+        "precio": 8.5
+      },
+      {
+        "nombre": "Paracetamol",
+        "codigo": 302,
+        "tipo": "Dolor",
+        "precio": 4.0
+      }
+    ]
+  }
+]

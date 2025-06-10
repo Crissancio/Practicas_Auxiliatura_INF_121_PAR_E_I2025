@@ -1,0 +1,262 @@
+"""
+TEMA: PERSISTENCIA DE OBJETOS
+
+5.- Sea el siguiente diagrama de clases:
+
+- **Medicamento**
+  - nombre: String
+  - codMedicamento: int
+  - tipo: String
+  - precio: double
+  + Medicamento()
+  + leer()
+  + mostrar()
+  + getTipo(): String
+  + getPrecio(): double
+
+- **Farmacia**
+  - nombreFarmacia: String
+  - sucursal: int
+  - direccion: String
+  - numMedicamentos: int
+  - Medicamento m[100]
+  + Farmacia()
+  + leer()
+  + mostrar()
+  + getDireccion(): String
+  + getSucursal(): int
+  + mostrarMedicamentos(x)
+  + buscaMedicamento(x)
+
+- **ArchFarmacia**
+  - na: String
+  + ArchFarmacia(na)
+  + crearArchivo()
+  + adicionar()
+  + listar()
+  + mostrarMedicamentosResfrios()
+  + precioMedicamentoTos(): double
+  + mostrarMedicamentosMenosTos()
+
+a) Crear, leer y mostrar un Archivo de Farmacias
+b) Mostrar los medicamentos para la tos, de la Sucursal numero X
+c) Mostrar el número de sucursal y su dirección que tienen el medicamento "Golpex"
+"""
+
+import os
+import pickle
+
+class Medicamento:
+    def __init__(self):
+        self.nombre = ""
+        self.codMedicamento = 0
+        self.tipo = ""
+        self.precio = 0.0
+
+    def leer(self):
+        self.nombre = input("Nombre medicamento: ")
+        
+        # Manejo de error para código
+        while True:
+            try:
+                self.codMedicamento = int(input("Código medicamento: "))
+                break
+            except ValueError:
+                print("Error: Debe ingresar un número entero. Intente nuevamente.")
+        
+        self.tipo = input("Tipo (resfrio/tos/etc): ")
+        
+        # Manejo de error para precio
+        while True:
+            try:
+                self.precio = float(input("Precio: "))
+                break
+            except ValueError:
+                print("Error: Debe ingresar un número. Intente nuevamente.")
+
+    def mostrar(self):
+        print(f"Medicamento: {self.nombre} | Código: {self.codMedicamento} | Tipo: {self.tipo} | Precio: {self.precio}")
+
+    def getTipo(self):
+        return self.tipo
+
+    def getPrecio(self):
+        return self.precio
+
+class Farmacia:
+    def __init__(self):
+        self.nombreFarmacia = ""
+        self.sucursal = 0
+        self.direccion = ""
+        self.numMedicamentos = 0
+        self.m = [None] * 100  # Arreglo de 100 medicamentos
+
+    def leer(self):
+        self.nombreFarmacia = input("Nombre Farmacia: ")
+        
+        # Manejo de error para sucursal
+        while True:
+            try:
+                self.sucursal = int(input("Número de Sucursal: "))
+                break
+            except ValueError:
+                print("Error: Debe ingresar un número entero. Intente nuevamente.")
+        
+        self.direccion = input("Dirección: ")
+        
+        while True:
+            try:
+                self.numMedicamentos = int(input("Cantidad de Medicamentos: "))
+                if 0 <= self.numMedicamentos <= 100:
+                    break
+                else:
+                    print("Error: Debe ser entre 0 y 100. Intente nuevamente.")
+            except ValueError:
+                print("Error: Debe ingresar un número entero. Intente nuevamente.")
+        
+        for i in range(self.numMedicamentos):
+            print(f"\nMedicamento #{i+1}")
+            self.m[i] = Medicamento()
+            self.m[i].leer()
+
+    def mostrar(self):
+        print(f"\nFarmacia: {self.nombreFarmacia}")
+        print(f"Sucursal: {self.sucursal}")
+        print(f"Dirección: {self.direccion}")
+        print("Medicamentos disponibles:")
+        for i in range(self.numMedicamentos):
+            if self.m[i] is not None:
+                self.m[i].mostrar()
+
+    def getDireccion(self):
+        return self.direccion
+
+    def getSucursal(self):
+        return self.sucursal
+
+    def mostrarMedicamentosTos(self):
+        print(f"\nMedicamentos para la tos en Sucursal {self.sucursal}:")
+        encontrados = False
+        for i in range(self.numMedicamentos):
+            if self.m[i] is not None and self.m[i].getTipo().lower() == "tos":
+                self.m[i].mostrar()
+                encontrados = True
+        if not encontrados:
+            print("No se encontraron medicamentos para la tos")
+
+    def tieneMedicamento(self, nombre):
+        for i in range(self.numMedicamentos):
+            if self.m[i] is not None and self.m[i].nombre.lower() == nombre.lower():
+                return True
+        return False
+
+class ArchFarmacia:
+    def __init__(self, na):
+        self.na = na
+    
+    def crearArchivo(self):
+        if not os.path.exists(self.na):
+            with open(self.na, "wb") as f:
+                pickle.dump([], f)
+    
+    def adicionar(self):
+        farmacia = Farmacia()
+        farmacia.leer()
+        
+        farmacias = self.leerFarmacias()
+        farmacias.append(farmacia)
+        
+        with open(self.na, "wb") as f:
+            pickle.dump(farmacias, f)
+    
+    
+    def listar(self):
+        farmacias = self.leerFarmacias()
+        if not farmacias:
+            print("\nNo hay farmacias registradas")
+            return
+            
+        print("\n--- LISTADO DE FARMACIAS ---")
+        for farmacia in farmacias:
+            farmacia.mostrar()
+    
+    
+    def mostrarMedicamentosTosSucursal(self, sucursalX):
+        farmacias = self.leerFarmacias()
+        encontrada = False
+        
+        for farmacia in farmacias:
+            if farmacia.getSucursal() == sucursalX:
+                farmacia.mostrarMedicamentosTos()
+                encontrada = True
+                
+        if not encontrada:
+            print(f"No se encontró la sucursal {sucursalX}")
+    
+    
+    def mostrarSucursalesConMedicamento(self, medicamento):
+        farmacias = self.leerFarmacias()
+        encontradas = False
+        
+        print(f"\nSucursales con medicamento '{medicamento}':")
+        for farmacia in farmacias:
+            if farmacia.tieneMedicamento(medicamento):
+                print(f"Sucursal: {farmacia.getSucursal()} | Dirección: {farmacia.getDireccion()}")
+                encontradas = True
+        
+        if not encontradas:
+            print(f"No se encontraron sucursales con el medicamento '{medicamento}'")
+    
+    
+    def leerFarmacias(self):
+        if not os.path.exists(self.na) or os.path.getsize(self.na) == 0:
+            return []
+        
+        try:
+            with open(self.na, "rb") as f:
+                return pickle.load(f)
+        except:
+            return []
+
+if __name__ == "__main__":
+    archivo = ArchFarmacia("farmacias.pkl")
+    archivo.crearArchivo()
+    
+    while True:
+        print("\n--- MENÚ PRINCIPAL ---")
+        print("1. Agregar Farmacia")
+        print("2. Listar Farmacias")
+        print("3. Buscar Medicamentos para Tos en Sucursal")
+        print("4. Buscar Sucursales con Medicamento")
+        print("5. Salir")
+        
+        opcion = input("Seleccione una opción: ")
+        
+        if opcion == "1":
+            print("\n--- AGREGAR FARMACIA ---")
+            archivo.adicionar()
+            print("\nFarmacia agregada exitosamente!")
+            
+        elif opcion == "2":
+            print("\n--- LISTAR FARMACIAS ---")
+            archivo.listar()
+            
+        elif opcion == "3":
+            try:
+                sucursal = int(input("\nIngrese número de sucursal: "))
+                print(f"\n--- MEDICAMENTOS PARA TOS EN SUCURSAL {sucursal} ---")
+                archivo.mostrarMedicamentosTosSucursal(sucursal)
+            except ValueError:
+                print("Error: Debe ingresar un número entero")
+                
+        elif opcion == "4":
+            medicamento = input("\nIngrese nombre del medicamento: ")
+            print(f"\n--- SUCURSALES CON MEDICAMENTO '{medicamento}' ---")
+            archivo.mostrarSucursalesConMedicamento(medicamento)
+            
+        elif opcion == "5":
+            print("Saliendo del programa...")
+            break
+            
+        else:
+            print("Opción inválida. Intente nuevamente.")

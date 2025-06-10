@@ -1,0 +1,12 @@
+@startuml ejercicio1
+package EJERCICIO1 {
+
+  class Caja<T> {
+    - valor : T
+    + Caja(valor : T)
+    + guardar(nuevoValor : T) : void
+    + obtener() : T
+  }
+
+}
+@enduml

@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Catalogo<T> {
+    private List<T> elementos;
+
+    public Catalogo() {
+        elementos = new ArrayList<>();
+    }
+
+    public void agregar(T elemento) {
+        elementos.add(elemento);
+    }
+
+    public T buscar(int indice) {
+        if (indice >= 0 && indice < elementos.size()) {
+            return elementos.get(indice);
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        
+        Catalogo<String> catalogoLibros = new Catalogo<>();
+        catalogoLibros.agregar("El Principito");
+        catalogoLibros.agregar("Cien años de soledad");
+        System.out.println("Libro en posición 1: " + catalogoLibros.buscar(1));
+
+        
+        Catalogo<Double> catalogoProductos = new Catalogo<>();
+        catalogoProductos.agregar(19.99);
+        catalogoProductos.agregar(29.99);
+        System.out.println("Precio en posición 0: " + catalogoProductos.buscar(0));
+    }
+}

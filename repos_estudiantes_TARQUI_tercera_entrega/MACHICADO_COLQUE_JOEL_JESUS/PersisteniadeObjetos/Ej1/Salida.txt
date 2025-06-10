@@ -1,0 +1,2 @@
+Buscado: Empleado: Luis, Edad: 40, Salario: 3200.0
+Mayor salario: Empleado: Luis, Edad: 40, Salario: 3200.0

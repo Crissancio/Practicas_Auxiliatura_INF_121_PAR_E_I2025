@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nombre": "Ana",
+        "edad": 25,
+        "ciudad": "La Paz",
+        "celular": 76543210
+    },
+    {
+        "id": 2,
+        "nombre": "Luis",
+        "edad": 28,
+        "ciudad": "Cochabamba",
+        "celular": 71234567
+    },
+    {
+        "id": 3,
+        "nombre": "Eduardo",
+        "edad": 40,
+        "ciudad": "La Paz",
+        "celular": 79876543
+    }
+]

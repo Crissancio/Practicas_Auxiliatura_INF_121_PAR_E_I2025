@@ -1,0 +1,31 @@
+@startuml ejercicio2
+package EJERCICIO2 {
+
+  class Catalogo<T> {
+    - elementos : List<T>
+    + Catalogo()
+    + agregar(elemento : T) : void
+    + buscar(busc : buscador<T>) : T
+    + getElementos() : List<T>
+  }
+
+  interface buscador<T> {
+    + coincide(elemento : T) : boolean
+  }
+
+  class Libro {
+    - titulo : String
+    - autor : String
+    + Libro(titulo : String, autor : String)
+    + toString() : String
+  }
+
+  class Producto {
+    - nombre : String
+    - codigo : int
+    + Producto(nombre : String, codigo : int)
+    + toString() : String
+  }
+
+}
+@enduml

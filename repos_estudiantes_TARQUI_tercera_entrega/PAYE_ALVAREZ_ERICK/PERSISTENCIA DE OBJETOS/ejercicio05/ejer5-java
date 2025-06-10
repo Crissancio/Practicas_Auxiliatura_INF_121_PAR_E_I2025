@@ -1,0 +1,263 @@
+/*
+TEMA: PERSISTENCIA DE OBJETOS
+
+5.- Sea el siguiente diagrama de clases:
+
+- **Medicamento**
+  - nombre: String
+  - codMedicamento: int
+  - tipo: String
+  - precio: double
+  + Medicamento()
+  + leer()
+  + mostrar()
+  + getTipo(): String
+  + getPrecio(): double
+
+- **Farmacia**
+  - nombreFarmacia: String
+  - sucursal: int
+  - direccion: String
+  - numMedicamentos: int
+  - Medicamento m[100]
+  + Farmacia()
+  + leer()
+  + mostrar()
+  + getDireccion(): String
+  + getSucursal(): int
+  + mostrarMedicamentos(x)
+  + buscaMedicamento(x)
+
+- **ArchFarmacia**
+  - na: String
+  + ArchFarmacia(na)
+  + crearArchivo()
+  + adicionar()
+  + listar()
+  + mostrarMedicamentosResfrios()
+  + precioMedicamentoTos(): double
+  + mostrarMedicamentosMenosTos()
+
+a) Crear, leer y mostrar un Archivo de Farmacias
+b) Mostrar los medicamentos para la tos, de la Sucursal numero X
+c) Mostrar el número de sucursal y su dirección que tienen el medicamento "Golpex"
+*/
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Medicamento implements Serializable {
+    private String nombre;
+    private int codMedicamento;
+    private String tipo;
+    private double precio;
+
+    public Medicamento() {}
+
+    public void leer() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nombre: ");
+        this.nombre = sc.nextLine();
+        System.out.print("Codigo: ");
+        this.codMedicamento = sc.nextInt();
+        sc.nextLine(); // Limpiar buffer
+        System.out.print("Tipo (resfrio/tos/etc): ");
+        this.tipo = sc.nextLine();
+        System.out.print("Precio: ");
+        this.precio = sc.nextDouble();
+    }
+
+    public void mostrar() {
+        System.out.println("Medicamento: " + nombre + 
+                          " | Codigo: " + codMedicamento + 
+                          " | Tipo: " + tipo + 
+                          " | Precio: " + precio);
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+}
+
+class Farmacia implements Serializable {
+    private String nombreFarmacia;
+    private int sucursal;
+    private String direccion;
+    private int numMedicamentos;
+    private Medicamento[] m = new Medicamento[100];
+
+    public Farmacia() {}
+
+    public void leer() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nombre Farmacia: ");
+        this.nombreFarmacia = sc.nextLine();
+        System.out.print("Sucursal: ");
+        this.sucursal = sc.nextInt();
+        sc.nextLine(); 
+        System.out.print("Direccion: ");
+        this.direccion = sc.nextLine();
+        System.out.print("Numero de medicamentos: ");
+        this.numMedicamentos = sc.nextInt();
+        
+        for (int i = 0; i < numMedicamentos; i++) {
+            System.out.println("\nMedicamento #" + (i + 1));
+            m[i] = new Medicamento();
+            m[i].leer();
+        }
+    }
+
+    public void mostrar() {
+        System.out.println("\nFarmacia: " + nombreFarmacia);
+        System.out.println("Sucursal: " + sucursal);
+        System.out.println("Direccion: " + direccion);
+        System.out.println("Medicamentos disponibles:");
+        for (int i = 0; i < numMedicamentos; i++) {
+            m[i].mostrar();
+        }
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public int getSucursal() {
+        return sucursal;
+    }
+
+    
+    public void mostrarMedicamentosTos() {
+        System.out.println("\nMedicamentos para la tos en Sucursal " + sucursal + ":");
+        for (int i = 0; i < numMedicamentos; i++) {
+            if (m[i].getTipo().equalsIgnoreCase("tos")) {
+                m[i].mostrar();
+            }
+        }
+    }
+
+    
+    public boolean tieneMedicamento(String nombre) {
+        for (int i = 0; i < numMedicamentos; i++) {
+            if (m[i] != null && m[i].getTipo().equalsIgnoreCase(nombre)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+class ArchFarmacia {
+    private String na;
+
+    public ArchFarmacia(String na) {
+        this.na = na;
+    }
+
+    
+    public void crearArchivo() {
+        try {
+            File file = new File(na);
+            if (file.createNewFile()) {
+                System.out.println("Archivo creado: " + na);
+            }
+        } catch (IOException e) {
+            System.err.println("Error al crear archivo: " + e.getMessage());
+        }
+    }
+
+   
+    public void adicionar() {
+        Farmacia f = new Farmacia();
+        f.leer();
+        
+        List<Farmacia> farmacias = leerFarmacias();
+        farmacias.add(f);
+        
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(na))) {
+            oos.writeObject(farmacias);
+        } catch (IOException ex) {
+            System.err.println("Error al guardar farmacia: " + ex.getMessage());
+        }
+    }
+
+    
+    public void listar() {
+        List<Farmacia> farmacias = leerFarmacias();
+        System.out.println("\n--- LISTADO DE FARMACIAS ---");
+        for (Farmacia f : farmacias) {
+            f.mostrar();
+        }
+    }
+
+   
+    public void mostrarMedicamentosTosSucursal(int sucursalX) {
+        List<Farmacia> farmacias = leerFarmacias();
+        for (Farmacia f : farmacias) {
+            if (f.getSucursal() == sucursalX) {
+                f.mostrarMedicamentosTos();
+            }
+        }
+    }
+
+    
+    public void mostrarSucursalesConMedicamento(String medicamento) {
+        List<Farmacia> farmacias = leerFarmacias();
+        System.out.println("\nSucursales con medicamento '" + medicamento + "':");
+        for (Farmacia f : farmacias) {
+            if (f.tieneMedicamento(medicamento)) {
+                System.out.println("Sucursal: " + f.getSucursal() + " | Direccion: " + f.getDireccion());
+            }
+        }
+    }
+
+   
+    private List<Farmacia> leerFarmacias() {
+        List<Farmacia> farmacias = new ArrayList<>();
+        File file = new File(na);
+        
+        if (file.exists() && file.length() > 0) {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(na))) {
+                Object obj = ois.readObject();
+                if (obj instanceof List) {
+                    for (Object item : (List<?>) obj) {
+                        if (item instanceof Farmacia) {
+                            farmacias.add((Farmacia) item);
+                        }
+                    }
+                }
+            } catch (IOException | ClassNotFoundException e) {
+                System.err.println("Error al leer farmacias: " + e.getMessage());
+            }
+        }
+        return farmacias;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ArchFarmacia archivo = new ArchFarmacia("farmacias.dat");
+        archivo.crearArchivo();
+        
+        
+        System.out.println("--- AGREGAR FARMACIAS ---");
+        archivo.adicionar(); 
+        archivo.adicionar(); 
+        
+        
+        archivo.listar();
+        
+        
+        System.out.println("\n--- MEDICAMENTOS PARA LA TOS EN SUCURSAL 1 ---");
+        archivo.mostrarMedicamentosTosSucursal(1);
+        
+        
+        System.out.println("\n--- SUCURSALES CON MEDICAMENTO 'Golpex' ---");
+        archivo.mostrarSucursalesConMedicamento("Golpex");
+    }
+}

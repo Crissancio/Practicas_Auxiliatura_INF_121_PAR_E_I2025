@@ -1,0 +1,65 @@
+from typing import Generic, TypeVar, List
+
+# Crear un tipo genérico T
+T = TypeVar('T')
+
+class Pila(Generic[T]):
+    def __init__(self):
+        self.elementos: List[T] = []
+
+    # a) Método para apilar
+    def apilar(self, elemento: T):
+        self.elementos.append(elemento)
+
+    # b) Método para desapilar
+    def desapilar(self) -> T:
+        if not self.esta_vacia():
+            return self.elementos.pop()
+        else:
+            print("La pila está vacía.")
+            return None
+
+    # d) Método para mostrar
+    def mostrar(self):
+        print("Contenido de la pila:")
+        for elem in reversed(self.elementos):
+            print(elem)
+
+    # Método auxiliar
+    def esta_vacia(self) -> bool:
+        return len(self.elementos) == 0
+
+# c) Probar la pila con diferentes tipos de datos
+
+# Pila de enteros
+pila_enteros = Pila[int]()
+pila_enteros.apilar(10)
+pila_enteros.apilar(20)
+pila_enteros.apilar(30)
+
+print("\nPila de Enteros:")
+pila_enteros.mostrar()
+print("Elemento desapilado:", pila_enteros.desapilar())
+pila_enteros.mostrar()
+
+# Pila de strings
+pila_strings = Pila[str]()
+pila_strings.apilar("Hola")
+pila_strings.apilar("Mundo")
+pila_strings.apilar("Python")
+
+print("\nPila de Strings:")
+pila_strings.mostrar()
+print("Elemento desapilado:", pila_strings.desapilar())
+pila_strings.mostrar()
+
+# Pila de floats
+pila_floats = Pila[float]()
+pila_floats.apilar(1.1)
+pila_floats.apilar(2.2)
+pila_floats.apilar(3.3)
+
+print("\nPila de Floats:")
+pila_floats.mostrar()
+print("Elemento desapilado:", pila_floats.desapilar())
+pila_floats.mostrar()

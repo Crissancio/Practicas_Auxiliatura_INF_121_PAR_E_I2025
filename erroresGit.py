@@ -2,8 +2,10 @@ import os
 import shutil
 import glob
 
+user = "ALVAREZ"
+
 # Ruta base con comodín
-base_path = "./repos_estudiantes_*_segunda_entrega/*/"
+base_path = f"./repos_estudiantes_{user}_tercera_entrega/*/"
 
 # Usa glob para obtener todas las rutas que coincidan
 carpetas = glob.glob(base_path)

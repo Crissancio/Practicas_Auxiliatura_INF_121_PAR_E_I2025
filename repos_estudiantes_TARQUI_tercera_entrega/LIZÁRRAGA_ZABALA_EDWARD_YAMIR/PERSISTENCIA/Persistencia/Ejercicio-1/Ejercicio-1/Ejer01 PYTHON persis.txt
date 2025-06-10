@@ -1,0 +1,90 @@
+import pickle
+
+class Empleado:
+    def __init__(self, nombre, edad, salario):
+        self.nombre = nombre
+        self.edad = edad
+        self.salario = salario
+
+    def get_nombre(self):
+        return self.nombre
+
+    def get_salario(self):
+        return self.salario
+
+    def __str__(self):
+        return f"Nombre: {self.nombre}, Edad: {self.edad}, Salario: {self.salario}"
+
+import os
+import pickle
+
+class ArchivoEmpleado:
+    def __init__(self, nombre_archivo):
+        self.nombre_archivo = nombre_archivo
+
+    # a) Crear archivo
+    def crear_archivo(self):
+        with open(self.nombre_archivo, 'wb') as f:
+            pickle.dump([], f)
+        print("Archivo creado.")
+
+    # a) Guardar empleado
+    def guardar_empleado(self, empleado):
+        empleados = []
+        if os.path.exists(self.nombre_archivo):
+            with open(self.nombre_archivo, 'rb') as f:
+                try:
+                    empleados = pickle.load(f)
+                except EOFError:
+                    pass
+
+        empleados.append(empleado)
+        with open(self.nombre_archivo, 'wb') as f:
+            pickle.dump(empleados, f)
+        print("Empleado guardado.")
+
+    # b) Buscar empleado por nombre
+    def buscar_empleado(self, nombre):
+        try:
+            with open(self.nombre_archivo, 'rb') as f:
+                empleados = pickle.load(f)
+                for e in empleados:
+                    if e.get_nombre().lower() == nombre.lower():
+                        return e
+        except Exception as e:
+            print("Error:", e)
+        print(" Empleado no encontrado.")
+        return None
+
+    # c) Buscar empleado con salario mayor a sueldo
+    def mayor_salario(self, sueldo):
+        try:
+            with open(self.nombre_archivo, 'rb') as f:
+                empleados = pickle.load(f)
+                for e in empleados:
+                    if e.get_salario() > sueldo:
+                        return e
+        except Exception as e:
+            print("Error:", e)
+        print("No hay empleados con salario mayor a", sueldo)
+        return None
+
+
+archivo = ArchivoEmpleado("empleados.dat")
+
+archivo.crear_archivo()
+
+# a) Agregar empleados
+archivo.guardar_empleado(Empleado("Ana", 28, 3200))
+archivo.guardar_empleado(Empleado("Luis", 35, 4500))
+archivo.guardar_empleado(Empleado("Sofía", 30, 2900))
+
+# b) Buscar por nombre
+emp = archivo.buscar_empleado("Luis")
+if emp:
+    print("Empleado encontrado:", emp)
+
+# c) Buscar con salario mayor
+mejor = archivo.mayor_salario(3000)
+if mejor:
+    print("Empleado con mayor salario:", mejor)

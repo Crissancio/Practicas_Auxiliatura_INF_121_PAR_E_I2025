@@ -1,0 +1,101 @@
+"""
+TEMA: PERSISTENCIA DE OBJETOS
+
+1. Sea el siguiente diagrama de clases:
+
+- **Empleado**  
+  - nombre: String  
+  - edad: int  
+  - salario: float  
+
+- **ArchivoEmpleado**  
+  - nomA: String  
+    + ArchivoEmpleado(n:String)  
+    + crearArchivo()  
+    + guardarEmpleado(e:Empleado)  
+    + buscarEmpleado(n:String):Empleado  
+    + mayorSalario(s: float): Empleado  
+
+a) Implementa el metodo guardarEmpleado(Empleado e) para almacenar empleados.
+b) Implementa buscaEmpleado(String n) a traves del nombre, para ver los datos del Empleado n.
+c) Implementa mayorSalario(float sueldo), que devuelva al primer empleado con sueldo mayor al ingresado.
+"""
+
+
+import os
+
+class Empleado:
+    def __init__(self, nombre, edad, salario):
+        self.nombre = nombre
+        self.edad = edad
+        self.salario = salario
+    
+    def __str__(self):
+        return f"Nombre: {self.nombre}, Edad: {self.edad}, Salario: {self.salario}"
+
+class ArchivoEmpleado:
+    def __init__(self, nomA):
+        self.nomA = nomA
+    
+    def crearArchivo(self):
+        
+        if not os.path.exists(self.nomA):
+            with open(self.nomA, "w") as f:
+                pass  
+    
+    def guardarEmpleado(self, empleado):
+        
+        empleados = self.leerEmpleados()
+        
+        empleados.append(empleado)
+        
+        with open(self.nomA, "w") as f:
+            for emp in empleados:
+                f.write(f"{emp.nombre},{emp.edad},{emp.salario}\n")
+    
+    def buscarEmpleado(self, nombre):
+        empleados = self.leerEmpleados()
+        for emp in empleados:
+            if emp.nombre == nombre:
+                return emp
+        return None
+    
+    def mayorSalario(self, sueldo):
+        empleados = self.leerEmpleados()
+        for emp in empleados:
+            if emp.salario > sueldo:
+                return emp
+        return None
+    
+    def leerEmpleados(self):
+        empleados = []
+        if not os.path.exists(self.nomA):
+            return empleados
+            
+        with open(self.nomA, "r") as f:
+            lineas = f.readlines()
+            for linea in lineas:
+                datos = linea.strip().split(",")
+                if len(datos) == 3:
+                    try:
+                        nombre = datos[0]
+                        edad = int(datos[1])
+                        salario = float(datos[2])
+                        empleados.append(Empleado(nombre, edad, salario))
+                    except ValueError:
+                        continue
+        return empleados
+
+if __name__ == "__main__":
+    archivo = ArchivoEmpleado("empleados.txt")
+    archivo.crearArchivo()
+    
+    archivo.guardarEmpleado(Empleado("Juan Perez", 35, 2500.50))
+    archivo.guardarEmpleado(Empleado("Maria Lopez", 28, 3200.75))
+    archivo.guardarEmpleado(Empleado("Carlos Ruiz", 42, 4100.25))
+    
+    buscado = archivo.buscarEmpleado("Maria Lopez")
+    print("Empleado encontrado:", buscado)
+    
+    mejor_pagado = archivo.mayorSalario(3000.0)
+    print("Empleado con salario > 3000:", mejor_pagado)

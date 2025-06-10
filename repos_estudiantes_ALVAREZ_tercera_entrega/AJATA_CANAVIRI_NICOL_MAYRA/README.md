@@ -1,0 +1,7 @@
+# Practica-3-INF-121
+
+## NICOL MAYRA AJATA CANAVIRI
+
+### CI: 15422823
+
+### RU:1852096

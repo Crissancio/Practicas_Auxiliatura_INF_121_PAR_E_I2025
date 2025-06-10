@@ -1,0 +1,146 @@
+/*
+TEMA: PERSISTENCIA DE OBJETOS
+
+3.- Sea el siguiente diagrama de clases:
+
+- **Cliente**
+  - id: int
+  - nombre: String
+  - telefono: int
+
+- **ArchivoCliente**
+  - nomA: String
+    + ArchivoCliente(n: String)
+    + crearArchivo()
+    + guardaCliente(c: Cliente)
+    + buscarCliente(c: int): Cliente
+    + buscarCelularCliente(c: int): Cliente
+
+a) Implementar el diagrama de clases.
+b) Implementa buscarCliente(int c) a través del id.
+c) Implementa buscarCelularCliente(int c), que devuelva los datos del cliente junto al número de celular.
+*/
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+class Cliente implements Serializable {
+    private int id;
+    private String nombre;
+    private int telefono;
+
+    public Cliente(int id, String nombre, int telefono) {
+        this.id = id;
+        this.nombre = nombre;
+        this.telefono = telefono;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Nombre: " + nombre + ", Telefono: " + telefono;
+    }
+}
+
+class ArchivoCliente {
+    private String nomA;
+
+    public ArchivoCliente(String nomA) {
+        this.nomA = nomA;
+    }
+
+    public void crearArchivo() {
+        try {
+            File file = new File(nomA);
+            if (file.createNewFile()) {
+                System.out.println("Archivo creado: " + nomA);
+            }
+        } catch (IOException e) {
+            System.err.println("Error al crear archivo: " + e.getMessage());
+        }
+    }
+
+    
+    public void guardaCliente(Cliente c) {
+        List<Cliente> clientes = leerClientes();
+        clientes.add(c);
+        
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(nomA))) {
+            oos.writeObject(clientes);
+        } catch (IOException ex) {
+            System.err.println("Error al guardar cliente: " + ex.getMessage());
+        }
+    }
+
+    
+    public Cliente buscarCliente(int id) {
+        List<Cliente> clientes = leerClientes();
+        for (Cliente cliente : clientes) {
+            if (cliente.getId() == id) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    
+    public Cliente buscarCelularCliente(int telefono) {
+        List<Cliente> clientes = leerClientes();
+        for (Cliente cliente : clientes) {
+            if (cliente.getTelefono() == telefono) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    
+    private List<Cliente> leerClientes() {
+        List<Cliente> clientes = new ArrayList<>();
+        File file = new File(nomA);
+        
+        if (file.exists() && file.length() > 0) {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomA))) {
+                Object obj = ois.readObject();
+                if (obj instanceof List) {
+                    for (Object item : (List<?>) obj) {
+                        if (item instanceof Cliente) {
+                            clientes.add((Cliente) item);
+                        }
+                    }
+                }
+            } catch (IOException | ClassNotFoundException e) {
+                System.err.println("Error al leer clientes: " + e.getMessage());
+            }
+        }
+        return clientes;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ArchivoCliente archivo = new ArchivoCliente("clientes.dat");
+        archivo.crearArchivo();
+        
+        
+        archivo.guardaCliente(new Cliente(1, "Juan Perez", 987654321));
+        archivo.guardaCliente(new Cliente(2, "Maria Lopez", 912345678));
+        archivo.guardaCliente(new Cliente(3, "Carlos Ruiz", 923456789));
+        
+        
+        Cliente clientePorId = archivo.buscarCliente(2);
+        System.out.println("Cliente encontrado por ID: " + clientePorId);
+        
+        
+        Cliente clientePorTelefono = archivo.buscarCelularCliente(923456789);
+        System.out.println("Cliente encontrado por telefono: " + clientePorTelefono);
+    }
+}

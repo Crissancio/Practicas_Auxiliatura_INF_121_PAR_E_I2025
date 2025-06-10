@@ -1,0 +1,15 @@
+class Par:
+    def _init_(self, clave, valor):
+        self.clave = clave
+        self.valor = valor
+    
+    def mostrar_par(self):
+        print(f"Clave: {self.clave}, Valor: {self.valor}")
+
+
+if _name_ == "_main_":
+    estudiante = Par(101, "Ana García")
+    estudiante.mostrar_par()
+    
+    producto = Par("PROD-001", 15.99)
+    producto.mostrar_par()

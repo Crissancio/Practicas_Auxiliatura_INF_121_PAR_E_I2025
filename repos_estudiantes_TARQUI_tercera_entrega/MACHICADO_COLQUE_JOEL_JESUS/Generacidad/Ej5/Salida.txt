@@ -1,0 +1,6 @@
+Contenido de la pila: [Hola, Mundo]
+Desapilado: Mundo
+Contenido de la pila: [Hola]
+Contenido de la pila: [1, 2]
+Desapilado: 2
+Contenido de la pila: [1]

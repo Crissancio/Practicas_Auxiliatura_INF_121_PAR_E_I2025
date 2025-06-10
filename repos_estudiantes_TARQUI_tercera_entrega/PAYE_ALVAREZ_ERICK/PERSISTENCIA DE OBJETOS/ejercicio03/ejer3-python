@@ -1,0 +1,97 @@
+"""
+TEMA: PERSISTENCIA DE OBJETOS
+
+3.- Sea el siguiente diagrama de clases:
+
+- **Cliente**
+  - id: int
+  - nombre: String
+  - telefono: int
+
+- **ArchivoCliente**
+  - nomA: String
+    + ArchivoCliente(n: String)
+    + crearArchivo()
+    + guardaCliente(c: Cliente)
+    + buscarCliente(c: int): Cliente
+    + buscarCelularCliente(c: int): Cliente
+
+a) Implementar el diagrama de clases.
+b) Implementa buscarCliente(int c) a través del id.
+c) Implementa buscarCelularCliente(int c), que devuelva los datos del cliente junto al número de celular.
+"""
+
+import os
+
+class Cliente:
+    def __init__(self, id, nombre, telefono):
+        self.id = id
+        self.nombre = nombre
+        self.telefono = telefono
+    
+    def __str__(self):
+        return f"ID: {self.id}, Nombre: {self.nombre}, Teléfono: {self.telefono}"
+
+class ArchivoCliente:
+    def __init__(self, nomA):
+        self.nomA = nomA
+    
+    def crearArchivo(self):
+        if not os.path.exists(self.nomA):
+            with open(self.nomA, "w") as f:
+                pass
+    
+    def guardaCliente(self, cliente):
+        clientes = self.leerClientes()
+        clientes.append(cliente)
+        with open(self.nomA, "w") as f:
+            for cli in clientes:
+                f.write(f"{cli.id},{cli.nombre},{cli.telefono}\n")
+    
+    def buscarCliente(self, id):
+        clientes = self.leerClientes()
+        for cliente in clientes:
+            if cliente.id == id:
+                return cliente
+        return None
+    
+    def buscarCelularCliente(self, telefono):
+        clientes = self.leerClientes()
+        for cliente in clientes:
+            if cliente.telefono == telefono:
+                return cliente
+        return None
+    
+    def leerClientes(self):
+        clientes = []
+        if not os.path.exists(self.nomA):
+            return clientes
+            
+        with open(self.nomA, "r") as f:
+            lineas = f.readlines()
+            for linea in lineas:
+                datos = linea.strip().split(",")
+                if len(datos) == 3:
+                    try:
+                        id = int(datos[0])
+                        nombre = datos[1]
+                        telefono = int(datos[2])
+                        clientes.append(Cliente(id, nombre, telefono))
+                    except ValueError:
+                        continue
+        return clientes
+
+if __name__ == "__main__":
+    archivo = ArchivoCliente("clientes.txt")
+    archivo.crearArchivo()
+    
+    
+    archivo.guardaCliente(Cliente(1, "Juan Perez", 987654321))
+    archivo.guardaCliente(Cliente(2, "Maria Lopez", 912345678))
+    archivo.guardaCliente(Cliente(3, "Carlos Ruiz", 923456789))
+    
+    cliente_por_id = archivo.buscarCliente(2)
+    print("Cliente encontrado por ID:", cliente_por_id)
+    
+    cliente_por_telefono = archivo.buscarCelularCliente(923456789)
+    print("Cliente encontrado por teléfono:", cliente_por_telefono)

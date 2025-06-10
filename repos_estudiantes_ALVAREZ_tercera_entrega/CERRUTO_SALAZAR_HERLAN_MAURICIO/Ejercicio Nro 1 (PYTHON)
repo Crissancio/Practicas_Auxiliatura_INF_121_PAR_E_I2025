@@ -1,0 +1,20 @@
+class Caja:
+    def _init_(self):
+        self.contenido = None
+    
+    def guardar(self, nuevo_contenido):
+        self.contenido = nuevo_contenido
+    
+    def obtener(self):
+        return self.contenido
+
+
+if _name_ == "_main_":
+    caja_str = Caja()
+    caja_str.guardar("Python es genial")
+    
+    caja_int = Caja()
+    caja_int.guardar(100)
+    
+    print(f"Caja de string: {caja_str.obtener()}")
+    print(f"Caja de int: {caja_int.obtener()}")

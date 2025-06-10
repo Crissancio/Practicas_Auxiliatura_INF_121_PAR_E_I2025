@@ -1,0 +1,56 @@
+import pickle
+import os
+
+class Producto:
+    def _init_(self, codigo, nombre, precio):
+        self.codigo = codigo
+        self.nombre = nombre
+        self.precio = precio
+    
+    def _str_(self):
+        return f"Código: {self.codigo}, Nombre: {self.nombre}, Precio: ${self.precio:.2f}"
+
+class ArchivoProducto:
+    def _init_(self, nom_archivo):
+        self.nom_archivo = nom_archivo
+        self.productos = []
+        self.cargar_archivo()
+    
+    
+    def guarda_producto(self, producto):
+        self.productos.append(producto)
+        self.guardar_en_archivo()
+    
+    
+    def busca_producto(self, codigo):
+        for prod in self.productos:
+            if prod.codigo == codigo:
+                return prod
+        return None
+    
+    def cargar_archivo(self):
+        if os.path.exists(self.nom_archivo):
+            try:
+                with open(self.nom_archivo, 'rb') as f:
+                    self.productos = pickle.load(f)
+            except:
+                print("Error al cargar el archivo de productos")
+    
+    def guardar_en_archivo(self):
+        try:
+            with open(self.nom_archivo, 'wb') as f:
+                pickle.dump(self.productos, f)
+        except:
+            print("Error al guardar el archivo")
+
+if _name_ == "_main_":
+    archivo = ArchivoProducto("productos.pkl")
+    
+    
+    archivo.guarda_producto(Producto(201, "Monitor", 199.99))
+    archivo.guarda_producto(Producto(202, "Impresora", 150.50))
+    archivo.guarda_producto(Producto(203, "Tablet", 299.75))
+    
+    
+    encontrado = archivo.busca_producto(202)
+    print("Producto encontrado:", encontrado)

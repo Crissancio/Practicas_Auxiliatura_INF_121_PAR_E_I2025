@@ -1,0 +1,83 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+class Producto implements Serializable {
+    private int codigo;
+    private String nombre;
+    private float precio;
+
+    public Producto(int codigo, String nombre, float precio) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
+    
+    public int getCodigo() { return codigo; }
+    public String getNombre() { return nombre; }
+    public float getPrecio() { return precio; }
+
+    @Override
+    public String toString() {
+        return "Código: " + codigo + ", Nombre: " + nombre + ", Precio: $" + precio;
+    }
+}
+
+class ArchivoProducto {
+    private String nomArchivo;
+    private List<Producto> productos;
+
+    public ArchivoProducto(String nomArchivo) {
+        this.nomArchivo = nomArchivo;
+        this.productos = new ArrayList<>();
+        cargarArchivo();
+    }
+
+    
+    public void guardaProducto(Producto p) {
+        productos.add(p);
+        guardarEnArchivo();
+    }
+
+    
+    public Producto buscaProducto(int codigo) {
+        for (Producto prod : productos) {
+            if (prod.getCodigo() == codigo) {
+                return prod;
+            }
+        }
+        return null;
+    }
+
+    private void cargarArchivo() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomArchivo))) {
+            productos = (List<Producto>) ois.readObject();
+        } catch (FileNotFoundException e) {
+            System.out.println("Creando nuevo archivo de productos...");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void guardarEnArchivo() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(nomArchivo))) {
+            oos.writeObject(productos);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        ArchivoProducto archivo = new ArchivoProducto("productos.dat");
+
+        
+        archivo.guardaProducto(new Producto(101, "Laptop", 1200.99f));
+        archivo.guardaProducto(new Producto(102, "Mouse", 25.50f));
+        archivo.guardaProducto(new Producto(103, "Teclado", 45.75f));
+
+        
+        Producto encontrado = archivo.buscaProducto(102);
+        System.out.println("Producto encontrado: " + encontrado);
+    }
+}

@@ -1,0 +1,7 @@
+# Practica-3-INF-121
+
+## NICOLE BELEN TERAN QUIROGA
+
+### CI: 13675982
+
+### RU:1865695

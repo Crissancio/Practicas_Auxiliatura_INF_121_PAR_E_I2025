@@ -1,0 +1,34 @@
+"""
+TEMA: GENERICIDAD
+Clase genérica Caja[T] para almacenar cualquier tipo de objeto.
+
+a) Implementa métodos guardar() y obtener()
+b) Crea dos instancias con diferentes tipos de datos
+c) Muestra el contenido de las cajas
+"""
+from typing import TypeVar, Generic
+
+T = TypeVar('T')
+
+class Caja(Generic[T]):
+    def __init__(self):
+        self.contenido = None
+    
+    def guardar(self, objeto: T) -> None:
+        self.contenido = objeto
+    
+    def obtener(self) -> T:
+        return self.contenido
+
+if __name__ == "__main__":
+    # Caja para str
+    caja_texto = Caja[str]()
+    caja_texto.guardar("Bolivia gana se va al mundia!!")
+    
+  
+    caja_entero = Caja[int]()
+    caja_entero.guardar(100)
+    
+    
+    print(f"Caja 1: {caja_texto.obtener()}")
+    print(f"Caja 2: {caja_entero.obtener()}")

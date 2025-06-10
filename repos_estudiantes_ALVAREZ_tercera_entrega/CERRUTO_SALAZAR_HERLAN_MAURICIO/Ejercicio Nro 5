@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Pila<T> {
+    private List<T> elementos;
+    private int tope;
+
+    public Pila() {
+        elementos = new ArrayList<>();
+        tope = -1;
+    }
+
+    public void apilar(T elemento) {
+        elementos.add(elemento);
+        tope++;
+    }
+
+    public T desapilar() {
+        if (tope >= 0) {
+            T elemento = elementos.remove(tope);
+            tope--;
+            return elemento;
+        }
+        return null;
+    }
+
+    public void mostrar() {
+        System.out.println("Contenido de la pila:");
+        for (int i = tope; i >= 0; i--) {
+            System.out.println(elementos.get(i));
+        }
+    }
+
+    public static void main(String[] args) {
+        
+        Pila<String> pilaString = new Pila<>();
+        pilaString.apilar("Primero");
+        pilaString.apilar("Segundo");
+        pilaString.mostrar();
+        System.out.println("Desapilado: " + pilaString.desapilar());
+
+        
+        Pila<Integer> pilaInt = new Pila<>();
+        pilaInt.apilar(10);
+        pilaInt.apilar(20);
+        pilaInt.mostrar();
+    }
+}

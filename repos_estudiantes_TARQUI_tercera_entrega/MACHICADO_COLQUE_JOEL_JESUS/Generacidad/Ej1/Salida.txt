@@ -1,0 +1,2 @@
+Caja de texto: ¡Hola mundo!
+Caja de número: 123

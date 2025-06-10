@@ -1,0 +1,15 @@
+{
+    "nombreFarmacia": "Farmacia RAFAEL",
+    "sucursal": 2,
+    "direccion": "CALLE 11 A ",
+    "nroMedicamentos": 1,
+    "medicamentos": [
+        {
+            "id": 3,
+            "nombre": "Bronquis",
+            "tipo": "tos",
+            "precio": 12.0,
+            "stock": 20
+        }
+    ]
+}

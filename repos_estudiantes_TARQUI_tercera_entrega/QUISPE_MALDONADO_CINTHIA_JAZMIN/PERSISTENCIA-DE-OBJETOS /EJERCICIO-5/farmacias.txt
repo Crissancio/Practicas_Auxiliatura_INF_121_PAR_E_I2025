@@ -1,0 +1,2 @@
+Farmacia San Juan|1|Av. Siempre Viva 123|2|Golpex,101,tos,8.5;Frenadol,102,resfrio,10.0
+Farmacia Central|2|Calle Salud 456|2|Bronquiosan,201,tos,7.2;Antigripal,202,resfrio,11.5

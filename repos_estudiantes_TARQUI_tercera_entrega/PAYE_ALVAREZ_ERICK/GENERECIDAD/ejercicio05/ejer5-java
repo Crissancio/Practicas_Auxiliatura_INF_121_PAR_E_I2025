@@ -1,0 +1,64 @@
+// TEMA: GENERICIDAD
+// Clase generica Pila<T> para operaciones de apilar y desapilar
+// a) Metodo apilar
+// b) Metodo desapilar
+// c) Prueba con diferentes tipos de datos
+// d) Mostrar datos de la pila
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Pila<T> {
+    private List<T> elementos = new ArrayList<>();
+    
+    
+    public void apilar(T elemento) {
+        elementos.add(elemento);
+    }
+    
+    
+    public T desapilar() {
+        if (estaVacia()) {
+            throw new IllegalStateException("La pila esta vacia");
+        }
+        return elementos.remove(elementos.size() - 1);
+    }
+    
+    
+    public boolean estaVacia() {
+        return elementos.isEmpty();
+    }
+    
+    
+    public void mostrar() {
+        System.out.print("Pila: ");
+        for (int i = elementos.size() - 1; i >= 0; i--) {
+            System.out.print(elementos.get(i) + " ");
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Pila<Integer> pilaEnteros = new Pila<>();
+        pilaEnteros.apilar(10);
+        pilaEnteros.apilar(20);
+        pilaEnteros.apilar(30);
+        
+        pilaEnteros.mostrar();
+        System.out.println("Desapilado: " + pilaEnteros.desapilar());
+        pilaEnteros.mostrar();
+        
+        
+        Pila<String> pilaCadenas = new Pila<>();
+        pilaCadenas.apilar("Java");
+        pilaCadenas.apilar("Python");
+        pilaCadenas.apilar("C++");
+        
+        pilaCadenas.mostrar();
+        System.out.println("Desapilado: " + pilaCadenas.desapilar());
+        pilaCadenas.mostrar();
+    }
+}

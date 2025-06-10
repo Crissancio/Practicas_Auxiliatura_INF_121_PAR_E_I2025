@@ -1,0 +1,34 @@
+@startuml ejercicio2
+'efecutarlo con alt+d y aparecera el diagrama uml
+
+class Persona {
+    - nombre: str
+    - apellido: str
+    - celular: str
+    - fecha_Nac: str
+    - ci: str
+    - sexo: str
+    + __init__(nombre, apellido, celular, fecha_Nac, ci, sexo)
+    + mostrar(): void
+}
+
+class Estudiante {
+    - ru: str
+    - fecha_Ingreso: str
+    - semestre: str
+    + __init__(nombre, apellido, celular, fecha_Nac, ci, sexo, ru, fecha_Ingreso, semestre)
+    + mostrar(): void
+}
+
+class Docente {
+    - nit: str
+    - profesion: str
+    - especialidad: str
+    + __init__(nombre, apellido, celular, fecha_Nac, ci, sexo, nit, profesion, especialidad)
+    + mostrar(): void
+}
+
+Persona <|-- Estudiante
+Persona <|-- Docente
+
+@enduml

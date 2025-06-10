@@ -1,0 +1,11 @@
+=== Sueldos Calculados ===
+Gerente: Ana Lopez - Salario: $5200.0
+Gerente: Carlos Ruiz - Salario: $4400.0
+Dev: Luis Perez - Salario: $3240.0
+Dev: Marta Gomez - Salario: $3360.0
+
+=== Gerentes con bono > 1000 ===
+Ana Lopez - Bono: $1200.0
+
+=== Desarrolladores con +10 horas extras ===
+Luis Perez - Horas Extra: 12

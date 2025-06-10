@@ -1,0 +1,30 @@
+[
+  {
+    "paterno": "MENDOZA",
+    "materno": "HUANCA",
+    "nombre": "YERKO",
+    "enlace": "github.com/Lord-Kazuma-18/Programaci-n-ll-Practica-3",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/Lord-Kazuma-18/Programaci-n-ll-Practica-3 repos_estudiantes_TARQUI_tercera_entrega/MENDOZA_HUANCA_YERKO\n  stderr: 'fatal: repository 'github.com/Lord-Kazuma-18/Programaci-n-ll-Practica-3' does not exist\n'"
+  },
+  {
+    "paterno": "MORALES",
+    "materno": "GONZALES",
+    "nombre": "ARNOLD FABIAN",
+    "enlace": "github.com/fabiaNmGg/ProgramacaionII.git",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/fabiaNmGg/ProgramacaionII.git repos_estudiantes_TARQUI_tercera_entrega/MORALES_GONZALES_ARNOLD_FABIAN\n  stderr: 'fatal: repository 'github.com/fabiaNmGg/ProgramacaionII.git' does not exist\n'"
+  },
+  {
+    "paterno": "PLATA",
+    "materno": "CRUZ",
+    "nombre": "JHONATAN",
+    "enlace": "github.com/ionjpgUwu/Practica",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/ionjpgUwu/Practica repos_estudiantes_TARQUI_tercera_entrega/PLATA_CRUZ_JHONATAN\n  stderr: 'fatal: repository 'github.com/ionjpgUwu/Practica' does not exist\n'"
+  },
+  {
+    "paterno": "QUISPE",
+    "materno": "MOLLISACA",
+    "nombre": "JIMMY BRANDON",
+    "enlace": "github.com/JimmyBrandon/Practica3-Aux",
+    "error_msg": "Cmd('git') failed due to: exit code(128)\n  cmdline: git clone -v -- github.com/JimmyBrandon/Practica3-Aux repos_estudiantes_TARQUI_tercera_entrega/QUISPE_MOLLISACA_JIMMY_BRANDON\n  stderr: 'fatal: repository 'github.com/JimmyBrandon/Practica3-Aux' does not exist\n'"
+  }
+]

@@ -1,0 +1,47 @@
+import java.util.Arrays;
+
+public class Vector<T extends Comparable<T>> {
+    private T[] elementos;
+
+    public Vector(T[] elementos) {
+        this.elementos = elementos;
+    }
+
+    public T obtener(int i) {
+        if (i >= 0 && i < elementos.length) {
+            return elementos[i];
+        }
+        return null;
+    }
+
+    public T mayor() {
+        if (elementos.length == 0) return null;
+        T max = elementos[0];
+        for (T elem : elementos) {
+            if (elem.compareTo(max) > 0) {
+                max = elem;
+            }
+        }
+        return max;
+    }
+
+    public T menor() {
+        if (elementos.length == 0) return null;
+        T min = elementos[0];
+        for (T elem : elementos) {
+            if (elem.compareTo(min) < 0) {
+                min = elem;
+            }
+        }
+        return min;
+    }
+
+    public static void main(String[] args) {
+        Integer[] numeros = {5, 2, 8, 1, 9};
+        Vector<Integer> vector = new Vector<>(numeros);
+        
+        System.out.println("Elemento en posición 2: " + vector.obtener(2));
+        System.out.println("Mayor: " + vector.mayor());
+        System.out.println("Menor: " + vector.menor());
+    }
+}

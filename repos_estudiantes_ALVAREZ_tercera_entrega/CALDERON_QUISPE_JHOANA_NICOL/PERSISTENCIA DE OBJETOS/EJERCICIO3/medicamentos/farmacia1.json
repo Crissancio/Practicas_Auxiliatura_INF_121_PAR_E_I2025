@@ -1,0 +1,22 @@
+{
+    "nombreFarmacia": "Farmacia NICOL",
+    "sucursal": 1,
+    "direccion": "Ciudad Satelite",
+    "nroMedicamentos": 2,
+    "medicamentos": [
+        {
+            "id": 1,
+            "nombre": "Golpex",
+            "tipo": "tos",
+            "precio": 10.5,
+            "stock": 50
+        },
+        {
+            "id": 2,
+            "nombre": "Tapcin",
+            "tipo": "resfrio",
+            "precio": 8.0,
+            "stock": 40
+        }
+    ]
+}

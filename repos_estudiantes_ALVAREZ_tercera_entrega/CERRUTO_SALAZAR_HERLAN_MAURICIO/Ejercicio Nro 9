@@ -1,0 +1,96 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+class Contacto implements Serializable {
+    private String nombre;
+    private int celular;
+    private String email;
+
+    public Contacto(String nombre, int celular, String email) {
+        this.nombre = nombre;
+        this.celular = celular;
+        this.email = email;
+    }
+
+    
+    public String getNombre() { return nombre; }
+    public int getCelular() { return celular; }
+    public String getEmail() { return email; }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + ", Celular: " + celular + ", Email: " + email;
+    }
+}
+
+class ArchivoContacto {
+    private String nomArchivo;
+    private List<Contacto> contactos;
+
+    public ArchivoContacto(String nomArchivo) {
+        this.nomArchivo = nomArchivo;
+        this.contactos = new ArrayList<>();
+        cargarArchivo();
+    }
+
+    public void guardaContacto(Contacto c) {
+        contactos.add(c);
+        guardarEnArchivo();
+    }
+
+    
+    public String buscarContacto(String nombre) {
+        for (Contacto cont : contactos) {
+            if (cont.getNombre().equalsIgnoreCase(nombre)) {
+                return cont.getEmail();
+            }
+        }
+        return null;
+    }
+
+    
+    public Contacto buscarEmail(String email) {
+        for (Contacto cont : contactos) {
+            if (cont.getEmail().equalsIgnoreCase(email)) {
+                return cont;
+            }
+        }
+        return null;
+    }
+
+    private void cargarArchivo() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomArchivo))) {
+            contactos = (List<Contacto>) ois.readObject();
+        } catch (FileNotFoundException e) {
+            System.out.println("Creando nuevo archivo de contactos...");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void guardarEnArchivo() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(nomArchivo))) {
+            oos.writeObject(contactos);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        ArchivoContacto archivo = new ArchivoContacto("contactos.dat");
+
+        
+        archivo.guardaContacto(new Contacto("Ana Torres", 71234567, "ana@example.com"));
+        archivo.guardaContacto(new Contacto("Luis Méndez", 68765432, "luis@example.com"));
+        archivo.guardaContacto(new Contacto("Sofía Castro", 76543210, "sofia@example.com"));
+
+        
+        String email = archivo.buscarContacto("Luis Méndez");
+        System.out.println("Email encontrado: " + email);
+
+        
+        Contacto porEmail = archivo.buscarEmail("sofia@example.com");
+        System.out.println("Contacto encontrado por email: " + porEmail);
+    }
+}

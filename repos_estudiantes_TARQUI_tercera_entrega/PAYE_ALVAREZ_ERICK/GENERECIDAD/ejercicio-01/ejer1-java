@@ -1,0 +1,31 @@
+/**
+ * TEMA: GENERICIDAD
+ * Clase genérica Caja<T> para almacenar cualquier tipo de objeto.
+ * 
+ * a) Implementa métodos guardar() y obtener()
+ * b) Crea dos instancias con diferentes tipos de datos
+ * c) Muestra el contenido de las cajas
+ */
+public class Caja<T> {
+    private T contenido;
+
+    public void guardar(T nuevoContenido) {
+        this.contenido = nuevoContenido;
+    }
+
+    public T obtener() {
+        return contenido;
+    }
+
+    public static void main(String[] args) {
+        // Caja para String
+        Caja<String> cajaTexto = new Caja<>();
+        cajaTexto.guardar(" Hola Mundo!");
+        
+        Caja<Integer> cajaNumero = new Caja<>();
+        cajaNumero.guardar(42);
+
+        System.out.println("Caja 1: " + cajaTexto.obtener());
+        System.out.println("Caja 2: " + cajaNumero.obtener());
+    }
+}

@@ -1,0 +1,65 @@
+# TEMA: GENERICIDAD
+# Clase generica Catalogo[T] para almacenar productos o libros
+# a) Metodos agregar() y buscar()
+# b) Prueba con libros
+# c) Prueba con productos
+
+from typing import Generic, TypeVar, List, Optional
+
+T = TypeVar('T')
+
+class Libro:
+    def __init__(self, nombre: str, autor: str):
+        self.nombre = nombre
+        self.autor = autor
+        
+    def __str__(self):
+        return f"{self.nombre} ({self.autor})"
+
+class Producto:
+    def __init__(self, nombre: str, precio: float):
+        self.nombre = nombre
+        self.precio = precio
+        
+    def __str__(self):
+        return f"{self.nombre} - ${self.precio}"
+
+class Catalogo(Generic[T]):
+    def __init__(self):
+        self.elementos: List[T] = []
+    
+    def agregar(self, elemento: T) -> None:
+        self.elementos.append(elemento)
+    
+    def buscar(self, nombre: str) -> Optional[T]:
+        for elemento in self.elementos:
+            if hasattr(elemento, 'nombre') and elemento.nombre == nombre:
+                return elemento
+        return None
+    
+    def mostrar(self) -> None:
+        for elemento in self.elementos:
+            print(f" - {elemento}")
+
+if __name__ == "__main__":
+    
+    catalogo_libros = Catalogo[Libro]()
+    catalogo_libros.agregar(Libro("El Principito", "Antoine de Saint-Exupery"))
+    catalogo_libros.agregar(Libro("1984", "George Orwell"))
+    
+    print("Catalogo de Libros:")
+    catalogo_libros.mostrar()
+    
+    libro = catalogo_libros.buscar("1984")
+    print(f"\nBusqueda: {libro}")
+    
+    
+    catalogo_productos = Catalogo[Producto]()
+    catalogo_productos.agregar(Producto("Laptop", 1200.0))
+    catalogo_productos.agregar(Producto("Telefono", 800.0))
+    
+    print("\nCatalogo de Productos:")
+    catalogo_productos.mostrar()
+    
+    producto = catalogo_productos.buscar("Telefono")
+    print(f"\nBusqueda: {producto}")

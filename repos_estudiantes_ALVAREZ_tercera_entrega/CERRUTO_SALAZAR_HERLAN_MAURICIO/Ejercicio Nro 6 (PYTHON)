@@ -1,0 +1,67 @@
+import pickle
+import os
+
+class Empleado:
+    def _init_(self, nombre, edad, salario):
+        self.nombre = nombre
+        self.edad = edad
+        self.salario = salario
+    
+    def _str_(self):
+        return f"Nombre: {self.nombre}, Edad: {self.edad}, Salario: {self.salario}"
+
+class ArchivoEmpleado:
+    def _init_(self, nom_archivo):
+        self.nom_archivo = nom_archivo
+        self.empleados = []
+        self.cargar_archivo()
+    
+    
+    def guardar_empleado(self, empleado):
+        self.empleados.append(empleado)
+        self.guardar_en_archivo()
+    
+    
+    def busca_empleado(self, nombre):
+        for emp in self.empleados:
+            if emp.nombre.lower() == nombre.lower():
+                return emp
+        return None
+    
+    
+    def mayor_salario(self, sueldo):
+        for emp in self.empleados:
+            if emp.salario > sueldo:
+                return emp
+        return None
+    
+    def cargar_archivo(self):
+        if os.path.exists(self.nom_archivo):
+            try:
+                with open(self.nom_archivo, 'rb') as f:
+                    self.empleados = pickle.load(f)
+            except:
+                print("Error al cargar el archivo")
+    
+    def guardar_en_archivo(self):
+        try:
+            with open(self.nom_archivo, 'wb') as f:
+                pickle.dump(self.empleados, f)
+        except:
+            print("Error al guardar el archivo")
+
+if _name_ == "_main_":
+    archivo = ArchivoEmpleado("empleados.pkl")
+    
+    
+    archivo.guardar_empleado(Empleado("Ana Torres", 30, 2800.50))
+    archivo.guardar_empleado(Empleado("Luis Méndez", 45, 3500.75))
+    archivo.guardar_empleado(Empleado("Sofía Castro", 25, 1900.25))
+    
+    
+    encontrado = archivo.busca_empleado("Luis Méndez")
+    print("Empleado encontrado:", encontrado)
+    
+    
+    mayor_sal = archivo.mayor_salario(3000.0)
+    print("Empleado con salario > 3000:", mayor_sal)

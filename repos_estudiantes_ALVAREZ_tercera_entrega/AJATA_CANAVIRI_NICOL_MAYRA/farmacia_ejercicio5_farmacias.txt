@@ -1,0 +1,3 @@
+Farmacia Central,1,Av. Siempre Viva 742,50
+Farmacia Norte,2,Calle Falsa 123,30
+Farmacia Sur,3,Blvd. Los Sueños 456,60

@@ -1,0 +1,2 @@
+Cliente encontrado por ID: Cliente [ID: 5, Nombre: Laura Torres, Teléfono: 63098765]
+Cliente encontrado por teléfono: Cliente [ID: 7, Nombre: Sofía Jiménez, Teléfono: 62585756]

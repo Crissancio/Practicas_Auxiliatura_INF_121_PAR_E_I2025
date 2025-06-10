@@ -1,0 +1,8 @@
+SaludPlus,101,Av. Libertad 789|NasalClear,301,congestión,12;DolorOff,302,dolor,15
+Farmacia Vida,102,Calle Norte 234|FiebreStop,401,fiebre,7.5;DolorOff,402,dolor,14
+SaludPlus,101,Av. Libertad 789|NasalClear,301,congestión,12;DolorOff,302,dolor,15
+Farmacia Vida,102,Calle Norte 234|FiebreStop,401,fiebre,7.5;DolorOff,402,dolor,14
+SaludPlus,101,Av. Libertad 789|NasalClear,301,congestión,12;DolorOff,302,dolor,15
+Farmacia Vida,102,Calle Norte 234|FiebreStop,401,fiebre,7.5;DolorOff,402,dolor,14
+SaludPlus,101,Av. Libertad 789|NasalClear,301,congestión,12;DolorOff,302,dolor,15
+Farmacia Vida,102,Calle Norte 234|FiebreStop,401,fiebre,7.5;DolorOff,402,dolor,14

@@ -1,0 +1,97 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+class Empleado implements Serializable {
+    private String nombre;
+    private int edad;
+    private float salario;
+
+    public Empleado(String nombre, int edad, float salario) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.salario = salario;
+    }
+
+    
+    public String getNombre() { return nombre; }
+    public int getEdad() { return edad; }
+    public float getSalario() { return salario; }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + ", Edad: " + edad + ", Salario: " + salario;
+    }
+}
+
+class ArchivoEmpleado {
+    private String nomArchivo;
+    private List<Empleado> empleados;
+
+    public ArchivoEmpleado(String nomArchivo) {
+        this.nomArchivo = nomArchivo;
+        this.empleados = new ArrayList<>();
+        cargarArchivo();
+    }
+
+    
+    public void guardarEmpleado(Empleado e) {
+        empleados.add(e);
+        guardarEnArchivo();
+    }
+
+    
+    public Empleado buscaEmpleado(String nombre) {
+        for (Empleado emp : empleados) {
+            if (emp.getNombre().equalsIgnoreCase(nombre)) {
+                return emp;
+            }
+        }
+        return null;
+    }
+
+    
+    public Empleado mayorSalario(float sueldo) {
+        for (Empleado emp : empleados) {
+            if (emp.getSalario() > sueldo) {
+                return emp;
+            }
+        }
+        return null;
+    }
+
+    private void cargarArchivo() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomArchivo))) {
+            empleados = (List<Empleado>) ois.readObject();
+        } catch (FileNotFoundException e) {
+            System.out.println("Creando nuevo archivo...");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void guardarEnArchivo() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(nomArchivo))) {
+            oos.writeObject(empleados);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        ArchivoEmpleado archivo = new ArchivoEmpleado("empleados.dat");
+
+        
+        archivo.guardarEmpleado(new Empleado("Juan Pérez", 35, 2500.50f));
+        archivo.guardarEmpleado(new Empleado("María Gómez", 28, 3200.75f));
+        archivo.guardarEmpleado(new Empleado("Carlos Ruiz", 42, 1800.25f));
+
+        
+        Empleado encontrado = archivo.buscaEmpleado("María Gómez");
+        System.out.println("Empleado encontrado: " + encontrado);
+
+        
+        Empleado mayorSalario = archivo.mayorSalario(3000.0f);
+        System.out.println("Empleado con salario > 3000: " + mayorSalario);
+    }
+}

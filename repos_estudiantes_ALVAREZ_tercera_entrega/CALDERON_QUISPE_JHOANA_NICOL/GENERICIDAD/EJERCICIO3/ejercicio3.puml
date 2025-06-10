@@ -1,0 +1,13 @@
+@startuml ejercicio
+package EJERCICIO3 {
+
+  class Pila<T> {
+    - elementos : List<T>
+    + Pila()
+    + apilar(elemento : T) : void
+    + desapilar() : T
+    + mostrar() : void
+  }
+
+}
+@enduml

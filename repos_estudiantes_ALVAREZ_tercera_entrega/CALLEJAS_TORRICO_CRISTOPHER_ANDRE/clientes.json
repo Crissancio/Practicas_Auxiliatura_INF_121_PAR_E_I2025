@@ -1,0 +1,17 @@
+[
+    {
+        "id_cliente": 1,
+        "nombre": "Jose",
+        "celular": "76640210"
+    },
+    {
+        "id_cliente": 2,
+        "nombre": "Sara",
+        "celular": "94301234"
+    },
+    {
+        "id_cliente": 3,
+        "nombre": "Andre",
+        "celular": "70970456"
+    }
+]

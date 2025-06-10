@@ -1,0 +1,4 @@
+1,farmacorp,arce
+1,broncoterol,tos,200.0
+2,Golpex,dolor,20.0
+---

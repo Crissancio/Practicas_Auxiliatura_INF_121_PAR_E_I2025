@@ -1,0 +1,4 @@
+Juan Perez,35,2500.5
+Maria Garcia,28,3200.75
+Carlos Lopez,42,1800.0
+Ana Martinez,31,4100.25

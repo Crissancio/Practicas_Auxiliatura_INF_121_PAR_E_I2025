@@ -1,0 +1,7 @@
+Paracetamol,1001,Analgesico,8.50
+Jarabe Golpex,1002,Tos,12.00
+Amoxicilina,1003,Antibiotico,25.75
+Vick Vaporub,1004,Resfrio,9.90
+Broncoxin,1005,Tos,15.20
+Aspirina,1006,Analgesico,5.00
+Jarabe Toux,1007,Tos,10.50

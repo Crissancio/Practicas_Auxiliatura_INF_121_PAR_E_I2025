@@ -1,0 +1,54 @@
+@startuml ejercicio3
+
+'efecutarlo con alt+d y aparecera el diagrama uml
+class Jugador {
+    - nombre: str
+    - numero: int
+    - posicion: str
+    + __init__(nombre: str, numero: int, posicion: str)
+    + mostrar_info(): void
+    + getNombre(): str
+    + getNumero(): int
+    + getPosicion(): str
+    + setNombre(nombre: str): void
+    + setNumero(numero: int): void
+    + setPosicion(posicion: str): void
+}
+
+class Portero {
+    - habilidadespecial: str
+    + __init__(nombre: str, numero: int, habilidadespecial: str)
+    + mostrar_info(): void
+}
+
+class Defensa {
+    - habilidadespecial: str
+    + __init__(nombre: str, numero: int, habilidadespecial: str)
+    + mostrar_info(): void
+}
+
+class Mediocampista {
+    - habilidadespecial: str
+    + __init__(nombre: str, numero: int, habilidadespecial: str)
+    + mostrar_info(): void
+}
+
+class Delantero {
+    - habilidadespecial: str
+    + __init__(nombre: str, numero: int, habilidadespecial: str)
+    + mostrar_info(): void
+}
+
+class Equipo {
+    - nombre: str
+    - jugadores: list
+    + __init__(nombre: str)
+    + agregar_jugador(jugador): void
+    + mostrar_equipo(): void
+    + getNombre(): str
+    + setNombre(nombre: str): void
+}
+
+
+
+@enduml
