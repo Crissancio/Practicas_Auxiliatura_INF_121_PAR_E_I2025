@@ -1,5 +1,5 @@
 from typing import List
-
+# DIAGRAMA DE CLASES ERRONEO
 # Clase Producto
 class Producto:
     def __init__(self, nombre: str, precio: float):

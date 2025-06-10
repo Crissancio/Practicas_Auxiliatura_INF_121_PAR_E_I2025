@@ -102,7 +102,7 @@ class Equipo:
     def set_nombre(self, nombre):
         self.nombre = nombre
 
-
+# ERROR EN EL DIAGRAMA DE CLASES 
 
 if __name__ == "__main__":
     # b) Crear equipo y jugadores

@@ -16,3 +16,5 @@ public class AppCarrito {
     }
 }
 
+//SIN GETTERS NI SETTERS
+

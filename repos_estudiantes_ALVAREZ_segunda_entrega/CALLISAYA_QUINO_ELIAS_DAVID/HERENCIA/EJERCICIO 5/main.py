@@ -16,7 +16,7 @@ class Empleado:
         print(f"Años de antigüedad: {self.años_antigüedad}")
         print(f"Salario total: ${self.calcular_salario():.2f}")
 
-
+# SIN GETTERS NI SETTERS
 
 class Gerente(Empleado):
     def __init__(self, nombre, apellido, salario_base, años_antigüedad, departamento, bono_gerencial):

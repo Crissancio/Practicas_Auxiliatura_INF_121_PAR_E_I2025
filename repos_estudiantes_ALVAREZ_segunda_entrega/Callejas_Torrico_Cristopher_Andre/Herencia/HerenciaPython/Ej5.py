@@ -63,3 +63,5 @@ if d1.horas_extras > 10:
     d1.mostrar()
 if d2.horas_extras > 10:
     d2.mostrar()
+
+# FALTA GETTERS Y SETTERS

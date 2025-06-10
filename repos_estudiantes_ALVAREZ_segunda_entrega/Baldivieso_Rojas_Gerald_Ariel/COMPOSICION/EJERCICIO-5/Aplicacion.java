@@ -30,7 +30,7 @@ class Jugador {
     public String getHabilidadEspecial() { return habilidadEspecial; }
     public void setHabilidadEspecial(String habilidadEspecial) { this.habilidadEspecial = habilidadEspecial; }
 }
-
+// HABILIDAD_ESPECIAL DEBE SER UNA TRIBUTO DE LAS SUBCLASES/CLASES HIJAS 
 class Portero extends Jugador {
     public Portero(String nombre, int numero) {
         super(nombre, numero, "Portero", "Ataja");

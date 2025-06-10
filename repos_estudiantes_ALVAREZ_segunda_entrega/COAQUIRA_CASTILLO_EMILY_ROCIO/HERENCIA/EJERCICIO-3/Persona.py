@@ -1,6 +1,6 @@
 from datetime import date, datetime
 from typing import List
-
+# DIAGRAMA DE CLASES ERRONEO
 # Clase base Persona
 class Persona:
     def __init__(self, ci: str = "0000000", nombre: str = "Sin nombre", 

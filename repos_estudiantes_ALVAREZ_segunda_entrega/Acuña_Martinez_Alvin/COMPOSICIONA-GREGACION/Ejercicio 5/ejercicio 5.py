@@ -13,6 +13,8 @@
 # b) Crea un equipo y agrega varios jugadores de diferentes tipos.
 # c) Muestra la información del equipo y sus jugadores.
 
+#EJERCICIO NO ASIGNADO
+
 class Jugador:
     def __init__(self, nombre, numero, posicion, habilidad_especial):
         self.nombre = nombre

@@ -8,6 +8,8 @@ class Empleado:
     def calcular_salario(self):
         return self.salario_base + (self.salario_base * 0.05 * self.anios_antiguedad)
 
+# SIN GETTERS NI SETTERS
+
 class Gerente(Empleado):
     def __init__(self, nombre, apellido, salario_base, anios_antiguedad, departamento, bono_gerencial):
         super().__init__(nombre, apellido, salario_base, anios_antiguedad)

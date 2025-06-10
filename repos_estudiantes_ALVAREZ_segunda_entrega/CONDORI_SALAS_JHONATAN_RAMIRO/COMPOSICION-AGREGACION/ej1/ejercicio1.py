@@ -40,3 +40,6 @@ casa1.agregar_habitacion(hab2)
 casa1.agregar_habitacion(hab3)
 casa1.agregar_habitacion(hab4)
 casa1.mostrar_casa()
+
+
+# DIAGRAMA ERRONEO

@@ -1,3 +1,5 @@
+// SIN GETTERS NI SETTERS
+
 public class Main {
     public static void main(String[] args) {
 

@@ -1,3 +1,6 @@
+
+    // SIN GETTERS Y SETTERS
+
 import java.util.*;
 class Habitacion {
     private String nombre;

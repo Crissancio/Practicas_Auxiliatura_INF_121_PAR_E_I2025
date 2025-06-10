@@ -1,4 +1,5 @@
 # Clase base Vehículo
+# DIAGRAMA DE CLASES ERRORENEO
 class Vehiculo:
     def __init__(self, marca, modelo, año, precio_base):
         self.marca = marca

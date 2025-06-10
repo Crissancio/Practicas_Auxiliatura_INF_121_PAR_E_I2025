@@ -24,6 +24,9 @@ class Universidad:
         for e in self.estudiantes:
             print(f"- {e.mostrar_info()}")
 
+# SIN GETTERS NI SETTERS
+# DIAGRAMA ERRONEO
+
 # (b) Crear universidad y agregar varios estudiantes
 
 uni = Universidad("Universidad Mayor de San Simón")

@@ -1,5 +1,6 @@
 public class AppEmpleado {
 
+    // SIN GETTERS NI SETTERS
     static class Empleado {
         String nombre;
         String apellido;

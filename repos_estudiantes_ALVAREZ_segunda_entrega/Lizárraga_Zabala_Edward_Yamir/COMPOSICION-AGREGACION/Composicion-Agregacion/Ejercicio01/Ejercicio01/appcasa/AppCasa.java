@@ -15,3 +15,5 @@ public class AppCasa {
     }
 }
 
+// SIN GETTERS NI SETTERS
+

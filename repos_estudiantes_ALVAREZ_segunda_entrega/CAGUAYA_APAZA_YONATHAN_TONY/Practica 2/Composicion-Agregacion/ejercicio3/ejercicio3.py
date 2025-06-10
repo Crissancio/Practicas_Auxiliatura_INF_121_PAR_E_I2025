@@ -12,6 +12,7 @@
 # b) Crea un avión y agrega varias partes.
 # c) Muestra la información del avión y sus partes.
 
+# DIAGRAMA DE CLASES ERRONEO
 class Parte:
     def __init__(self, nombre, peso):
         self.__nombre = nombre

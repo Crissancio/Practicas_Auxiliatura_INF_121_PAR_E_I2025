@@ -1,4 +1,7 @@
 from datetime import date, datetime
+
+# DIARGRAMA ERRONEO
+
 class Persona:
     def __init__(self, ci="0", nombre="Nombre", apellido="Apellido", celular="0000000", fecha_nac="2000-01-01"):
         self.ci = ci

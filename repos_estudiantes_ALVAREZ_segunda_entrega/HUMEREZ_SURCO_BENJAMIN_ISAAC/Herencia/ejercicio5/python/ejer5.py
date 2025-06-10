@@ -14,6 +14,8 @@
 #c) Muestra todos los gerentes que tienen un bono gerencial mayor a 1000.
 #d) Muestra todos los desarrolladores que trabajan más de 10 horas extras.
 
+# SIN GETTERS NI SETTERS
+
 class Empleado:
     def __init__(self, nombre, apellido, salario_base, años_antiguedad):
         self.nombre = nombre

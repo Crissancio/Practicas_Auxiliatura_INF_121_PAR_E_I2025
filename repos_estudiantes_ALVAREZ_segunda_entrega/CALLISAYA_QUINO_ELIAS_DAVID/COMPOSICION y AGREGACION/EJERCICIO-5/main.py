@@ -115,3 +115,5 @@ if __name__ == "__main__":
     # Ejemplo de composición: Si el equipo se disuelve, los jugadores también
     print("\n¡El equipo se disolvió! Todos los jugadores fueron liberados.")
     del barcelona  # Los jugadores ya no existen
+
+    # VISCA EL BARÇA!

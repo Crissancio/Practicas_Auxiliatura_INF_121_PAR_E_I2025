@@ -12,6 +12,8 @@ class Vehiculo:
         print(f"Año: {self.anio}")
         print(f"Precio Base: ${self.precio_base:.2f}")
 
+# SIN GETTERS NI SETTERS
+
 class Coche(Vehiculo):
     def __init__(self, marca, modelo, anio, precio_base, num_puertas, tipo_combustible):
         super().__init__(marca, modelo, anio, precio_base)

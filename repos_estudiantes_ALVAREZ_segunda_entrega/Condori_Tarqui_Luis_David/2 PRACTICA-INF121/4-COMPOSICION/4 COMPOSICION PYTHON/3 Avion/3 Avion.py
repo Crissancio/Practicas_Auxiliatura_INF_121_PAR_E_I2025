@@ -9,7 +9,7 @@
 # a) Implementa las clases con sus constructores, getters y setters.
 # b) Crea un avión y agrega varias partes.
 # c) Muestra la información del avión y sus partes.
-
+# SIN GETTERS NI SETTERS
 # a)
 class Parte:
     def __init__(self, nombre, peso):

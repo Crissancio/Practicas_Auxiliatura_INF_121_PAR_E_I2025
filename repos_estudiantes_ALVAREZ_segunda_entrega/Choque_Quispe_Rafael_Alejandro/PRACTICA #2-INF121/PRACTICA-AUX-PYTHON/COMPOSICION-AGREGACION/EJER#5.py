@@ -60,7 +60,7 @@ class Equipo:
             jugador.mostrar_info()
             print("-------------------")
 
-
+# SIN GETTERS NI SETTERS
 if __name__ == "__main__":
     barcelona = Equipo("FC Barcelona")
     

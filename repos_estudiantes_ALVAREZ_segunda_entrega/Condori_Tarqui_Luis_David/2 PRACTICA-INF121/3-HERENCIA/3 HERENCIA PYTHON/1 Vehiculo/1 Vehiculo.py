@@ -8,7 +8,7 @@
 # Moto (hereda de Vehículo)< cilindrada, tipo_motor>
 # Métodos: mostrar_info() debe mostrar la información básica más los atributos adicionales
 
-
+# SIN GETTERS NI SETTERS
 class Vehiculo:
     def __init__(self, marca, modelo, año, precio_base):
         self.marca = marca

@@ -116,3 +116,6 @@ equipo1.agregar_jugador(Defensa("Luis Ramírez", 4, "Marcaje estricto"))
 equipo1.agregar_jugador(Mediocampista("Juan Torres", 8, "Pases precisos"))
 equipo1.agregar_jugador(Delantero("Pedro Gómez", 9, "Goleador implacable"))
 equipo1.mostrar_equipo()
+
+
+# DIAGRAMA INCORRECTO

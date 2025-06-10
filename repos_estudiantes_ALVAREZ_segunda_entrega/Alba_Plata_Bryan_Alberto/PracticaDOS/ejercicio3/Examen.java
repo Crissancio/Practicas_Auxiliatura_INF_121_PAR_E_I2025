@@ -1,4 +1,5 @@
 import java.util.*;
+// SIN DIAGRAMA
 import java.time.*;
 class Persona {
     protected String ci;

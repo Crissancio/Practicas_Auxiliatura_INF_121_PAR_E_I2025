@@ -1,4 +1,4 @@
-
+# DIAGRAMA INCOMPLETO
 class Jugador:
     def __init__(self, nombre, numero, posicion):
         self.nombre = nombre

@@ -25,6 +25,9 @@ class CarritoCompras:
         for prod in self.productos:
             print(f"- {prod.mostrar_info()}")
 
+# SIN GETTERS NI SETTERS
+# DIAGRAMA ERRONEO
+
 carrito = CarritoCompras()
 
 # (b) Agregar productos al carrito (hasta el límite)

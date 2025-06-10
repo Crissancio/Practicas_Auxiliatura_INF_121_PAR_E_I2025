@@ -8,6 +8,8 @@
 # b) Crea una casa y agrega varias habitaciones.
 # c) Muestra la información de la casa y sus habitaciones.
 
+
+# SIN GETTERS NI SETTERS
 class Habitacion:
     # a) Constructor con atributos
     def __init__(self, nombre, tamano):

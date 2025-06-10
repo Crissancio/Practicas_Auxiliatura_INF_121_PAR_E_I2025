@@ -108,6 +108,7 @@ class Equipo {
 }
 public class Ejercicio5 {
 
+    // SIN GETTERS Y SETTERS
     /**
      * @param args the command line arguments
      */

@@ -57,3 +57,5 @@ carrito.agregar_producto(p3)
 
 # Mostrar contenido del carrito
 carrito.mostrar_carrito()
+
+# DIAGRAMA INCORRECTO

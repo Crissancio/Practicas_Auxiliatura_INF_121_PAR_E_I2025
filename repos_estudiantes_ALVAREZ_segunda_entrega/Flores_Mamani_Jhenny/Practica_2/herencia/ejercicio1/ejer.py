@@ -1,3 +1,4 @@
+# SIN GETTERS NI SETTERS
 class Vehiculo:
     def __init__(self, marca, modelo, año, precio):
         self.marca = marca

@@ -5,7 +5,7 @@ public class Ejercicio1 {
 
         System.out.println("Información del Coche:");
         coche.mostrarInfo();
-
+// FALTA INSCISO C
         System.out.println("\nInformación de la Moto:");
         moto.mostrarInfo();
     }

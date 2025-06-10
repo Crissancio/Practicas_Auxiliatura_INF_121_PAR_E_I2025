@@ -33,3 +33,5 @@ u.agregar_estudiante(e2)
 u.agregar_estudiante(e3)
 
 u.mostrar_universidad()
+
+# SIN GETTERS NI SETTERS

@@ -4,6 +4,7 @@
  */
 package ejercicio3;
 
+    // SIN GETTERS Y SETTERS
 /**
  *
  * @author Usuario

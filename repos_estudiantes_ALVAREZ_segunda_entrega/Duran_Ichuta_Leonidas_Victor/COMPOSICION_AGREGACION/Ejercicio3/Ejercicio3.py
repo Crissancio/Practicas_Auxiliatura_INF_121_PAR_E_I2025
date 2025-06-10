@@ -5,6 +5,8 @@
 
 from datetime import datetime
 
+# SIN GETTERS NI SETTERS
+
 class Persona:
     def __init__(self, ci, nombre, apellido, celular, fecha_nac, sexo):
         self.ci = ci

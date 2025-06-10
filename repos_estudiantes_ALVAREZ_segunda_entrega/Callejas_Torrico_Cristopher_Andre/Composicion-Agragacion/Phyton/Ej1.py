@@ -32,3 +32,5 @@ mi_casa.agregar_habitacion(hab3)
 mi_casa.agregar_habitacion(hab4)
 
 mi_casa.mostrar_casa()
+
+# SIN GETTERS NI SETTERS

@@ -10,6 +10,7 @@
 // e) Crea un avión y agrega varias partes.
 // f) Muestra la información del avión y sus partes.
 
+// SIN GETTERS NI SETTERS
 
 public class Parte {
     private String nombre;

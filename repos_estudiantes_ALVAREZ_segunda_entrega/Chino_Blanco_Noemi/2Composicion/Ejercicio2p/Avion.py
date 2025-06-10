@@ -24,7 +24,7 @@ class Avion:
         for parte in self.partes:
             print("  ", parte.mostrar_info())
 
-
+# ERROR EN EL DIAGRAMA
 print("Noemí Chino Blanco")
 
 avion = Avion("Amazonas A256", "pando")

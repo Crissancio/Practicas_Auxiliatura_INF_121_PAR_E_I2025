@@ -41,6 +41,7 @@ class Moto(Vehiculo):
         super().mostrar_info()
         print(f"Cilindrada: {self.cilindrada}, Tipo de motor: {self.tipo_motor}")
 
+# SIN GETTERS NI SETTERS
 
 # b) Instancias
 c1 = Coche("Toyota", "Corolla", 2025, 20000, 4, "Gasolina")

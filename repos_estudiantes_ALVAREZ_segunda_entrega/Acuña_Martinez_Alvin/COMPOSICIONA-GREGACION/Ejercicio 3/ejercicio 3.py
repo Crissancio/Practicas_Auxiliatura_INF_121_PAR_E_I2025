@@ -10,6 +10,8 @@
 # b) Crea un avión y agrega varias partes.
 # c) Muestra la información del avión y sus partes.
 
+
+#SIN GETTERS NI SETTERS
 class Parte:
     # a) Constructor
     def __init__(self, nombre, peso):

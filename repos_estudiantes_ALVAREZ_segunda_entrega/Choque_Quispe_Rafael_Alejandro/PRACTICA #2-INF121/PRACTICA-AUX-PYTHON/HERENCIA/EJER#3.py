@@ -44,7 +44,7 @@ class Docente(Persona):
         print(f"NIT: {self.nit}")
         print(f"Profesion: {self.profesion}")
         print(f"Especialidad: {self.especialidad}")
-
+# SIN GETTERS NI SETTERS
 def main_personas():
     # Crear lista de estudiantes
     estudiantes = [

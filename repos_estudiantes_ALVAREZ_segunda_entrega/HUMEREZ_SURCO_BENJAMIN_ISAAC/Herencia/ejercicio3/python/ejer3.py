@@ -1,5 +1,5 @@
 from datetime import date
-
+# SIN GETTERS NI SETTERS
 class Persona:
     def __init__(self, ci, nombre, apellido, celular, fecha_nac):
         self.ci = ci

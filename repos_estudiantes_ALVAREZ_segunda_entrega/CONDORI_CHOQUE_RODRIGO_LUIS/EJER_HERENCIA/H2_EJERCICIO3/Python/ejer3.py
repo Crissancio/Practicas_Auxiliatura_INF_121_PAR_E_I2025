@@ -1,3 +1,5 @@
+# DIAGRAMA ERRONEO
+
 class Ejercicio2:
     class Persona:
         def __init__(self, ci, nombre, apellido, celular, fecha_nac, sexo):

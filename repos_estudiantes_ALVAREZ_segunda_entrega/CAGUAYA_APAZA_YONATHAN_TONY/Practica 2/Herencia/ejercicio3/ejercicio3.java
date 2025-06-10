@@ -8,6 +8,8 @@ public class Ejercicio3 {
 
         System.out.println("\nInformación del Docente:");
         docente.mostrar();
+
+        // SIN INSCISOS C, D, E 
     }
 }
 

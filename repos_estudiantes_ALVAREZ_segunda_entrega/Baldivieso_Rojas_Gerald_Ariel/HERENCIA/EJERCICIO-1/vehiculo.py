@@ -14,7 +14,7 @@ class Vehiculo:
     def vehiculos_actuales(self):
         if self.año == 2025:
             self.mostrar_info()
-
+# SIN GETTERS NI SETTERS
 
 class Coche(Vehiculo):
     def __init__(self, marca, modelo, año, precio_base, num_puertas, tipo_combustible):
@@ -49,6 +49,8 @@ moto = Moto("Yamaha", "R1", 2024, 18000, 1000, "Gasolina")
 
 print("Información del Coche:")
 coche.mostrar_info()
+
+# FALTA INCISO C
 
 print("\nInformación de la Moto:")
 moto.mostrar_info()

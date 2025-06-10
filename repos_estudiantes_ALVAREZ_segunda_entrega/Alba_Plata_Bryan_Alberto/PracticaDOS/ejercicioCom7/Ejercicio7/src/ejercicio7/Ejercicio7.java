@@ -10,6 +10,7 @@ package ejercicio7;
  */
 import java.util.*;
 
+    // SIN GETTERS Y SETTERS
 class Estudiante {
     private String nombre;
     private String carrera;

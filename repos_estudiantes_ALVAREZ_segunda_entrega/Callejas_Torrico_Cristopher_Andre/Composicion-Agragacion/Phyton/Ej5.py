@@ -40,3 +40,4 @@ equipo.agregar_jugador(Defensa("Bryan Castro", 4, "Defensa"))
 equipo.agregar_jugador(Delantero("Fernando Diaz", 10, "Delantero"))
 
 equipo.mostrar_equipo()
+# SIN GETTERS NI SETTERS

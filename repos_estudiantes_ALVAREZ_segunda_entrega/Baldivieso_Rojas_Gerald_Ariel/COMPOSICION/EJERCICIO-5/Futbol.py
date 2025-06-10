@@ -23,7 +23,8 @@ class Jugador:
         self.__posicion = posicion
     def set_habilidad_especial(self, habilidad):
         self.__habilidad_especial = habilidad
-    
+
+# HABILIDAD_ESPECIAL DEBE SER UN ATRIBUTO DE LAS CLASES HIJAS    
 class Portero(Jugador):
     def __init__(self ,  nombre, numero, habilidad_especial="Ataja"):
         super().__init__(nombre, numero, "Portero", habilidad_especial)

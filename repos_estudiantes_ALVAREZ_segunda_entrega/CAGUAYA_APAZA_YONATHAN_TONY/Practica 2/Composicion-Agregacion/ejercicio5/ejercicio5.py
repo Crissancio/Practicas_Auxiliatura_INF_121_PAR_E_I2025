@@ -11,6 +11,7 @@
 # Clase: Equipo<nombre, jugadores (lista de objetos de tipo Jugador)>
 # Métodos: mostrar_equipo() (muestra el nombre del equipo y la información de todos los jugadores)
 
+# DIAGRAMA DE CLASES ERRONEO
 class Jugador:
     def __init__(self, nombre, numero, posicion):
         self._nombre = nombre

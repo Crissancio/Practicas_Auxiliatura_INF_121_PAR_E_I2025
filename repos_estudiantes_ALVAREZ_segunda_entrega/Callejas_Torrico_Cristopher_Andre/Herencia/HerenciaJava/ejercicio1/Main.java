@@ -14,5 +14,6 @@ public class Main {
         System.out.println("\nCoches con más de 4 puertas:");
         if (coche1.getNumPuertas() > 4) coche1.mostrarInfo();
         if (coche2.getNumPuertas() > 4) coche2.mostrarInfo();
+        // FALTA INSCISO D
     }
 }

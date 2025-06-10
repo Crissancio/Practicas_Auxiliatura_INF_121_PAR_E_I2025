@@ -53,6 +53,8 @@ class Delantero(Jugador):
         super().mostrar_info()
         print(f"Habilidad Especial: {self._habilidad_especial}")
 
+
+# EN EL DIAGRAMA FALTA LA CLASE EQUIPO
 class Equipo:
     def __init__(self, nombre):
         self._nombre = nombre

@@ -24,6 +24,8 @@ class Avion:
         for p in self.partes:
             p.mostrar_info()
 
+# SIN GETTERS NI SETTERS
+
 # (b) Crear avión y agregar partes
 avion = Avion("A320", "Airbus")
 avion.agregar_parte(Parte("Motor", 2500))

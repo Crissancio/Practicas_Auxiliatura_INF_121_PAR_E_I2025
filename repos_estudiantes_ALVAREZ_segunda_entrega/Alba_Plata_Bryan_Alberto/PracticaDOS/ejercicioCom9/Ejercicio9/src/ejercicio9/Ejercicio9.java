@@ -48,6 +48,7 @@ class CarritoCompras {
 }
 public class Ejercicio9 {
 
+    // SIN GETTERS Y SETTERS
     /**
      * @param args the command line arguments
      */

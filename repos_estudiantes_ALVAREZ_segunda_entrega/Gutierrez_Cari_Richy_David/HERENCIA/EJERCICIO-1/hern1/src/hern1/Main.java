@@ -31,4 +31,5 @@ public class Main {
             }
         }
     }
+    // SIN GETTERS NI SETTERS
 }

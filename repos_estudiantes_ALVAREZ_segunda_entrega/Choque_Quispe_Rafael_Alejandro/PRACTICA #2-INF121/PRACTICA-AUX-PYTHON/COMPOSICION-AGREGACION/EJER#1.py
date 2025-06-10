@@ -23,6 +23,8 @@ class Casa:
             hab.mostrar_info()
             print("-------------------")
 
+# SIN GETTERS NI SETTERS
+
 if __name__ == "__main__":
     mi_casa = Casa("Av. Siempre Viva 123")
     

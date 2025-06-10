@@ -1,4 +1,4 @@
-
+# SIN GETTERS NI SETTERS
 class Empleado:
     def __init__(self, nombre: str, apellido: str, salario_base: float, anios_antiguedad: int):
         self.nombre = nombre

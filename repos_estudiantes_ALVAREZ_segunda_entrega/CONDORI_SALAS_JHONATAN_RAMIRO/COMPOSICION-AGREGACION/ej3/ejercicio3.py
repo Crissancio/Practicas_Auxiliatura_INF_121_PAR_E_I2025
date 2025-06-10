@@ -49,3 +49,7 @@ ala2 = Ala(20)
 tren1 = TrenAterrizaje("Retráctil")
 avion1 = Avion("Boeing 737", motor1, [ala1, ala2], tren1)
 avion1.mostrar_info()
+
+
+# DIAGRAMA INCORRECTO
+# CLASES NO PEDIDAS

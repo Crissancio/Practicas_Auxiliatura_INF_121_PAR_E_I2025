@@ -11,7 +11,7 @@
 # d) Muestra todos los desarrolladores que trabajan más de 10 horas extras.
 
 # a) Implementación de las clases
-
+# SIN GETTERS NI SETTERS
 class Empleado:
     def __init__(self, nombre, apellido, salario_base, anos_antiguedad):
         self.nombre = nombre

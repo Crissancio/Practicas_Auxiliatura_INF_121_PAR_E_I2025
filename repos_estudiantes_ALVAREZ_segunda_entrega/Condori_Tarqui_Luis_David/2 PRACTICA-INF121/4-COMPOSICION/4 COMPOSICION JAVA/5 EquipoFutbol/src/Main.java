@@ -1,4 +1,4 @@
-
+// SIN GETTERS NI SETTERS
 public class Main {
     public static void main(String[] args) {
         Equipo equipo = new Equipo("Tigre");

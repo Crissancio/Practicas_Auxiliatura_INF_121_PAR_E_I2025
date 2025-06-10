@@ -14,6 +14,8 @@
 # b) Crea una universidad y agrega varios estudiantes.
 # c) Muestra la información de la universidad y sus estudiantes.
 
+# SIN GETTERS NI SETTERS
+
 # a)
 class Estudiante:
     def __init__(self, nombre, carrera, semestre):

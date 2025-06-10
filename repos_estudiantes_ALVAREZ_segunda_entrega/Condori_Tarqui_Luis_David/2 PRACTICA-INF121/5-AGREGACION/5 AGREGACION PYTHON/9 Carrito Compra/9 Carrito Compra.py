@@ -14,7 +14,7 @@
 # a. Implementa las clases con sus constructores, getters y setters.
 # b. Crea un carrito de compras y agrega varios productos, validando que no se exceda el límite de 10 productos
 # c. Muestra la información del carrito y sus productos
-
+# SIN GETTERS NI SETTERS
 # a)
 class Producto:
     def __init__(self, nombre, precio):

@@ -1,0 +1,14 @@
+class agenda:
+    nroAct=None
+    fechas=Actividades=None
+
+    def __init__(self, n,f,a):
+        self.nroAct=n
+        self.fechas=f
+        self.Actividades=a 
+
+        def mostrar(self):
+            print(self.nroAct, self.fecha, self.actividades)
+
+A1=agenda(1,"20/10/2025","vacaciones")
+A1.mostrar()

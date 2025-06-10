@@ -24,6 +24,8 @@ class Universidad:
             estudiante.mostrar_info()
             print("-------------------")
 
+# SIN GETTERS NI SETTERS
+
 if __name__ == "__main__":
     # Estudiantes existen independientemente
     juan = Estudiante("Juan Perez", "Informatica", 3)

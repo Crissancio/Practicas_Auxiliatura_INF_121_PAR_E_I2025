@@ -27,3 +27,5 @@ avion.agregar_parte(Parte("Alas", "50,000 kg"))
 avion.agregar_parte(Parte("Fuselaje", "198,800 kg"))
 
 avion.mostrar_avion()
+
+# SIN GETTERS NI SETTERS

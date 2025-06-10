@@ -61,3 +61,5 @@ uni.agregar_estudiante(est3)
 
 # Mostrar información
 uni.mostrar_universidad()
+
+# DIAGRAMA INCORRECTO

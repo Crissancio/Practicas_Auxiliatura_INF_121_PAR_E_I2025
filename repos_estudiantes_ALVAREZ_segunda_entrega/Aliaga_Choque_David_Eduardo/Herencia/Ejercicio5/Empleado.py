@@ -13,7 +13,7 @@ class Empleado:
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
 
-
+# SIN GETTERS NI SETTERS
 class Gerente(Empleado):
     def __init__(self, nombre, apellido, salario_base, años_antiguedad, departamento, bono_gerencial):
         super().__init__(nombre, apellido, salario_base, años_antiguedad)

@@ -7,11 +7,11 @@ public class Main {
         Parte trenTrasero = new Parte("Tren de aterrizaje trasero", 400);
 
         Avion Amazonas = new Avion("Avion Amazonas", "Boeing");
-        Amazonas.agregar_parte(motor)
-		Amazonas.agregar_parte(ala_izquierda)
-		Amazonas.agregar_parte(ala_derecha)
-		Amazonas.agregar_parte(tren_delantero)
-		Amazonas.agregar_parte(tren_trasero)
+        Amazonas.agregar_parte(motor);
+		Amazonas.agregar_parte(ala_izquierda);
+		Amazonas.agregar_parte(ala_derecha);
+		Amazonas.agregar_parte(tren_delantero);
+		Amazonas.agregar_parte(tren_trasero);
 
         System.out.println(Amazonas.mostrarAvion());
     }

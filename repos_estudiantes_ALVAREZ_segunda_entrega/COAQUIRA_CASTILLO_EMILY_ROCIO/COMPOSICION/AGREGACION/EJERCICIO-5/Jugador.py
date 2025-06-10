@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
-
+# DIAGRAMA DE CLASES ERRONEO
 # Clase base abstracta Jugador
 class Jugador(ABC):
     def __init__(self, nombre: str, numero: int, posicion: str):

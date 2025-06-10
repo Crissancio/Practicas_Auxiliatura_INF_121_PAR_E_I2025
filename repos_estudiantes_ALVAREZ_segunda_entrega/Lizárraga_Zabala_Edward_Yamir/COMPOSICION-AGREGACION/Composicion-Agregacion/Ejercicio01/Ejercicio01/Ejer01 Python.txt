@@ -21,6 +21,8 @@ class Casa:
         for hab in self.habitaciones:
             hab.mostrar_info()
 
+# SIN GETTERS NI SETTERS
+
 # Creamos una instancia de Casa
 mi_casa = Casa("Av. Bolívar #456")
 

@@ -60,7 +60,7 @@ class Desarrollador(Empleado):
         print(f"Horas extras: {self.horas_extras}")
         print("-------------------")
 
-
+# SIN GETTERS NI SETTERS
 
 if __name__ == "__main__":
     # b) Crear instancias

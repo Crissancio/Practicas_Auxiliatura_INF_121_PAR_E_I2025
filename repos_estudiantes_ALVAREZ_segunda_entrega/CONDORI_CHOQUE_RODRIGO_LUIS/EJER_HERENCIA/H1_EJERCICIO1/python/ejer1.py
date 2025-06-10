@@ -59,4 +59,6 @@ class Ejercicio1:
             if m.anio == 2025:
                 m.mostrar_info()
 
+# DIAGRAMA DE CLASES ERRONEO
+
 Ejercicio1().main()

@@ -8,7 +8,7 @@ class Estudiante:
 
     def mostrar_info(self):
         return f"{self.nombre} - Carrera: {self.carrera}, Semestre: {self.semestre}"
-
+# ERROR EN EL DIAGRAMA
 class Universidad:
     def __init__(self, nombre):
         self.nombre = nombre

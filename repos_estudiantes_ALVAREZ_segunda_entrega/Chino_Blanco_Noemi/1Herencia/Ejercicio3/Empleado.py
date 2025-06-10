@@ -41,7 +41,7 @@ class Desarrollador(Empleado):
     def __str__(self):
         return f"{super().__str__()} | Lenguaje: {self.lenguaje_programacion}, Horas extras: {self.horas_extras}"
 
-
+# SIN GETTERS NI SETTERS
 empleados = [
     Gerente("YAMIL", "VILLCA", 3000, 10, "INGENIERIA", 1200),
     Gerente("FRANCO", "QUISPE", 3200, 7, "TURISMO", 800),

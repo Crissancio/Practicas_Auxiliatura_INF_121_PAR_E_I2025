@@ -31,6 +31,7 @@ class Desarrollador(Empleado):
         
         return super().calcular_salario() + (self.horas_extras * self.PAGO_POR_HORA_EXTRA)
 
+# SIN GETTERS NI SETTERS
 
 # Inciso b
 gerente1 = Gerente("Carlos", "Lopez", 4000, 3, "Ventas", 1200)

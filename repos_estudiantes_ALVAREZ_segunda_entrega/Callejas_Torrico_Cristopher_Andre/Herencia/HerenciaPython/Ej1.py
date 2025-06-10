@@ -41,3 +41,6 @@ print("\nCoches con más de 4 puertas:")
 for coche in [coche1, coche2]:
     if coche.num_puertas > 4:
         coche.mostrar_info()
+
+# FALTA INSCISO D
+# SIN GETTERS Y SETTERS

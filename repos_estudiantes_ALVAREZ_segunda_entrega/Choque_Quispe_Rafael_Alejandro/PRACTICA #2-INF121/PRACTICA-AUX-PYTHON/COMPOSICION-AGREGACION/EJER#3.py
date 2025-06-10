@@ -30,6 +30,8 @@ class Avion:
         
         print(f"Peso total del avión: {peso_total} kg")
 
+# SIN GETTERS NI SETTERS
+
 if __name__ == "__main__":
     boeing747 = Avion("747", "Boeing")
     

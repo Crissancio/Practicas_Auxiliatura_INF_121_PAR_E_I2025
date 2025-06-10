@@ -1,5 +1,5 @@
 from typing import List
-
+# DIAGRAMA DE CLASES ERRONEO
 # Clase Estudiante
 class Estudiante:
     def __init__(self, nombre: str, carrera: str, semestre: int):

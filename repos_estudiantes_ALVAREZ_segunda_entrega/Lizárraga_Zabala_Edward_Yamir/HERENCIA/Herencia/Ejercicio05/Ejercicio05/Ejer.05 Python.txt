@@ -34,6 +34,8 @@ class Desarrollador(Empleado):
     def calcular_salario(self):
         return super().calcular_salario() + (self.horas_extras * 100)
 
+# SIN GETTERS NI SETTERS
+
 # (b) Instancias
 gerente = Gerente("Laura", "Mendoza", 5000, 5, "Finanzas", 1200)
 gerente2 = Gerente("Carlos", "Ruiz", 6000, 10, "Ventas", 900)

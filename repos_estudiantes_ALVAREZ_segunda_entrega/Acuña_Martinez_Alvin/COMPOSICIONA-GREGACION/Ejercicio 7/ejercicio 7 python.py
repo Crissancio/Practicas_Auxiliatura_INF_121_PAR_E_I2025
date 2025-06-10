@@ -12,6 +12,7 @@
 # b) Crea una universidad y agrega varios estudiantes.
 # c) Muestra la información de la universidad y sus estudiantes.
 
+# EJERCICIO NO ASIGNADO
 class Estudiante:
     def __init__(self, nombre, carrera, semestre):
         self.nombre = nombre

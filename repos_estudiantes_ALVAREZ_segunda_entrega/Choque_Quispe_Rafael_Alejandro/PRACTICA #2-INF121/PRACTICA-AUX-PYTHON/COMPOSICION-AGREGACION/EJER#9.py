@@ -33,7 +33,7 @@ class CarritoCompras:
         
         print(f"Total: ${total}")
 
-# Uso
+# SIN GETTERS NI SETTERS
 if __name__ == "__main__":
     # Productos existen independientemente
     laptop = Producto("Laptop", 1200.50)

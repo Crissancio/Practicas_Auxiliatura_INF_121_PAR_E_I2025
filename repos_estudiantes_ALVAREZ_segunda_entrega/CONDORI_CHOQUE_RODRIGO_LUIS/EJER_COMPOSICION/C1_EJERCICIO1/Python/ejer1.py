@@ -1,3 +1,5 @@
+# DIAGRAMA ERRONEO
+
 class Ejercicio3:
     class Habitacion:
         def __init__(self, nombre, tamano):

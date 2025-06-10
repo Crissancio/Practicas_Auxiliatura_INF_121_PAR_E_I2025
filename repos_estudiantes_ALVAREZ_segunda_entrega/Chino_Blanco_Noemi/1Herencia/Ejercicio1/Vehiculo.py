@@ -28,6 +28,7 @@ class Moto(Vehiculo):
         base_info = super().mostrar_info()
         return f"{base_info}, Cilindrada: {self.cilindrada}, Motor: {self.tipo_motor}"
 
+# SIN GETTERS NI SETTERS
 
 
 vehiculos = [

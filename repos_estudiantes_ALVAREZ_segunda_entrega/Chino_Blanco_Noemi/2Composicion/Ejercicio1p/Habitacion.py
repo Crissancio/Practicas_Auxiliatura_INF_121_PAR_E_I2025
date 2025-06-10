@@ -55,5 +55,7 @@ casa1.agregar_habitacion(habitacion2)
 casa1.agregar_habitacion(habitacion3)
 casa1.agregar_habitacion(habitacion4)
 
+
+# ERROR EN EL DIAGRAMA
 casa1.mostrar_casa()
 

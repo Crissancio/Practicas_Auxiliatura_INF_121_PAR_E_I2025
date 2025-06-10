@@ -13,6 +13,8 @@
 # b) Crea un carrito de compras y agrega varios productos, validando que no se exceda el límite de 10 productos.
 # c) Muestra la información del carrito y sus productos.
 
+
+# EJERCICIO NO ASIGNADO
 class Producto:
     def __init__(self, nombre, precio):
         self.nombre = nombre

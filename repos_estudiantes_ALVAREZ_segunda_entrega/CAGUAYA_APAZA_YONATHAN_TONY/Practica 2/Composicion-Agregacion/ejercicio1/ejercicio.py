@@ -8,7 +8,7 @@
 # a) Implementa las clases con sus constructores, getters y setters.
 # b) Crea una casa y agrega varias habitaciones.
 # c) Muestra la información de la casa y sus habitaciones.
-
+# DIAGRAMA DE CLASES ERRONEO
 class Habitacion:
     def __init__(self, nombre, tamano):
         self.__nombre = nombre

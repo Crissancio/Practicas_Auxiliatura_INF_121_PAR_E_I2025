@@ -11,6 +11,8 @@
 # c) Muestra la información de la casa y sus habitaciones.
 
 # a)
+
+# SIN GETTERS NI SETTERS
 class Habitacion:
     def __init__(self, nombre, tamano):
         self.nombre = nombre

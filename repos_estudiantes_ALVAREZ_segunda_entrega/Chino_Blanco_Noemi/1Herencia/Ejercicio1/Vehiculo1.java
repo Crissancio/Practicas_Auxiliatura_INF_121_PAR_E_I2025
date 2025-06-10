@@ -64,7 +64,7 @@ public class Vehiculo1 {
         }
     }
 
-    
+    // SIN GETTERS NI SETTERS
     public static void main(String[] args) {
         Vehiculo[] vehiculos = {
             new Coche("Toyota", "Corolla", 2025, 25000, 4, "Gasolina"),
