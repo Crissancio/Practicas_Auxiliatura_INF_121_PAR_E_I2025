@@ -1,0 +1,54 @@
+============================================================
+         REPORTE COMPLETO DE FARMACIAS
+============================================================
+
+FARMACIA 1
+------------------------------
+Nombre: FarmaCorp
+Sucursal: 1
+Dirección: Av. Arce
+Número de Medicamentos: 2
+
+MEDICAMENTOS:
+  1. Flavicold
+     Código: 1
+     Tipo: tos
+     Precio: $11.0
+
+  2. Refrianex
+     Código: 2
+     Tipo: tos
+     Precio: $20.0
+
+============================================================
+
+FARMACIA 2
+------------------------------
+Nombre: FarmaciasChavez
+Sucursal: 2
+Dirección: Central
+Número de Medicamentos: 3
+
+MEDICAMENTOS:
+  1. Golpex
+     Código: 1
+     Tipo: crema
+     Precio: $100.0
+
+  2. Flavicold
+     Código: 2
+     Tipo: tos
+     Precio: $7.0
+
+  3. Paracetamol
+     Código: 3
+     Tipo: analgesico
+     Precio: $7.0
+
+============================================================
+
+a) Archivo de Farmacias creado y mostrado
+b) Medicamentos para la tos por sucursal consultados
+c) Medicamento 'Golpex' ubicado en sucursales
+
+Reporte generado el: 08/06/2025 23:08:52
